@@ -55,23 +55,23 @@ A modern, interactive portfolio website built with Next.js 14, featuring a termi
 ### Installation
 
 1. **Clone the repository**
-   \`\`\`bash
+   ```bash
    git clone https://github.com/Alexis12119/portfolio.git
    cd portfolio
-   \`\`\`
+   ```
 
 2. **Install dependencies**
-   \`\`\`bash
+   ```bash
    pnpm install
-   \`\`\`
+   ```
 
 3. **Set up environment variables**
-   \`\`\`bash
+   ```bash
    cp .env.example .env.local
-   \`\`\`
+   ```
 
    Fill in your environment variables in `.env.local`:
-   \`\`\`env
+   ```env
 
    # Supabase Configuration
 
@@ -89,7 +89,7 @@ A modern, interactive portfolio website built with Next.js 14, featuring a termi
    # GitHub Configuration
 
    NEXT_PUBLIC_GITHUB_USERNAME=your_github_username
-   \`\`\`
+   ```
 
 4. **Set up Supabase database**
 
@@ -98,9 +98,9 @@ A modern, interactive portfolio website built with Next.js 14, featuring a termi
    - This creates the necessary tables for blog posts and projects
 
 5. **Run the development server**
-   \`\`\`bash
+   ```bash
    npm run dev
-   \`\`\`
+   ```
 
 6. **Open your browser**
    Navigate to [http://localhost:3000](http://localhost:3000)
@@ -141,9 +141,9 @@ The setup script includes sample blog posts and projects to get you started.
    - Copy your form ID (e.g., `mdkzwylk`)
 
 3. **Add to environment variables**:
-   \`\`\`env
+   ```env
    NEXT_PUBLIC_FORMSPREE_ID=your_form_id_here
-   \`\`\`
+   ```
 
 4. **Form features**:
    - Automatic email notifications
@@ -156,9 +156,9 @@ The setup script includes sample blog posts and projects to get you started.
 ### Accessing the Admin Panel
 
 1. **Navigate to the admin URL**:
-   \`\`\`
+   ```
    https://yoursite.com/secret-admin-panel-xyz
-   \`\`\`
+   ```
 
 2. **Enter admin password**:
 
@@ -219,7 +219,7 @@ The portfolio includes 5 built-in themes:
 
 ### Adding New Achievements
 
-\`\`\`typescript
+```typescript
 // In any component
 const { unlockAchievement } = useAchievements()
 
@@ -229,16 +229,16 @@ unlockAchievement(
 "Description",
 "🏆" // Icon
 )
-\`\`\`
+```
 
 ## 🎮 Easter Eggs
 
 ### Konami Code
 
 Enter the classic Konami code to unlock a special Matrix effect:
-\`\`\`
+```
 ↑ ↑ ↓ ↓ ← → ← → B A
-\`\`\`
+```
 
 ### Hidden Features
 
@@ -264,7 +264,7 @@ Enter the classic Konami code to unlock a special Matrix effect:
 
 ### Project Structure
 
-\`\`\`
+```
 ├── app/ # Next.js app directory
 │ ├── blog/ # Blog pages
 │ ├── resume/ # Resume page
@@ -278,7 +278,7 @@ Enter the classic Konami code to unlock a special Matrix effect:
 ├── lib/ # Utility functions
 ├── scripts/ # Database scripts
 └── public/ # Static assets
-\`\`\`
+```
 
 ### Key Components
 
@@ -299,7 +299,7 @@ Enter the classic Konami code to unlock a special Matrix effect:
 
 ### Available Commands
 
-\`\`\`bash
+```bash
 
 # Development
 
@@ -312,7 +312,7 @@ npm run lint # Run ESLint
 
 # Run scripts/create-blog-tables.sql in Supabase
 
-\`\`\`
+```
 
 ## 🤝 Contributing
 
@@ -347,6 +347,6 @@ This project is open source and available under the [MIT License](LICENSE).
 **Built with ❤️ by Alexis Corporal**
 
 _This portfolio showcases modern web development practices and serves as a template for other developers looking to create their own interactive portfolio websites._
-\`\`\`
+```
 
-Now let's create a simple deployment guide:
+Now let`s create a simple deployment guide:
