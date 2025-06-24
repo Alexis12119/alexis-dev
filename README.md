@@ -10,6 +10,7 @@ A modern, interactive portfolio website built with Next.js 14, featuring a termi
 ## ✨ Features
 
 ### 🎨 **Design & UX**
+
 - **Terminal-inspired interface** with command-line aesthetics
 - **Multiple themes**: Light, Dark, Catppuccin, Dracula, Monochrome
 - **Responsive design** optimized for all devices
@@ -17,6 +18,7 @@ A modern, interactive portfolio website built with Next.js 14, featuring a termi
 - **Glass morphism effects** and modern UI components
 
 ### 🎮 **Interactive Elements**
+
 - **Achievement system** - Unlock badges by exploring the site
 - **Easter eggs** - Hidden surprises and Konami code support
 - **RPG-style resume** - Character sheet with stats and inventory
@@ -24,6 +26,7 @@ A modern, interactive portfolio website built with Next.js 14, featuring a termi
 - **Syntax highlighting** for code blocks
 
 ### 📝 **Content Management**
+
 - **Dynamic blog** powered by Supabase
 - **Admin panel** for creating and managing blog posts
 - **Project showcase** with dynamic loading from database
@@ -31,6 +34,7 @@ A modern, interactive portfolio website built with Next.js 14, featuring a termi
 - **SEO optimized** with proper meta tags and sitemap
 
 ### 🔧 **Technical Features**
+
 - **Next.js 14** with App Router
 - **TypeScript** for type safety
 - **Tailwind CSS** for styling
@@ -42,7 +46,8 @@ A modern, interactive portfolio website built with Next.js 14, featuring a termi
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js 18+ 
+
+- Node.js 18+
 - npm or yarn
 - Supabase account
 - Formspree account
@@ -57,33 +62,37 @@ A modern, interactive portfolio website built with Next.js 14, featuring a termi
 
 2. **Install dependencies**
    \`\`\`bash
-   npm install
-   # or
-   yarn install
+   pnpm install
    \`\`\`
 
 3. **Set up environment variables**
    \`\`\`bash
    cp .env.example .env.local
    \`\`\`
-   
+
    Fill in your environment variables in `.env.local`:
    \`\`\`env
+
    # Supabase Configuration
+
    NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
    NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
-   
+
    # Formspree Configuration
+
    NEXT_PUBLIC_FORMSPREE_ID=your_formspree_form_id
-   
+
    # Admin Panel Configuration
+
    NEXT_PUBLIC_ADMIN_PASSWORD=your_secure_password
-   
+
    # GitHub Configuration
+
    NEXT_PUBLIC_GITHUB_USERNAME=your_github_username
    \`\`\`
 
 4. **Set up Supabase database**
+
    - Create a new Supabase project
    - Run the SQL script in `scripts/create-blog-tables.sql`
    - This creates the necessary tables for blog posts and projects
@@ -91,8 +100,6 @@ A modern, interactive portfolio website built with Next.js 14, featuring a termi
 5. **Run the development server**
    \`\`\`bash
    npm run dev
-   # or
-   yarn dev
    \`\`\`
 
 6. **Open your browser**
@@ -105,10 +112,12 @@ A modern, interactive portfolio website built with Next.js 14, featuring a termi
 1. **Create a new Supabase project** at [supabase.com](https://supabase.com)
 
 2. **Get your credentials**:
+
    - Go to Settings → API
    - Copy your Project URL and anon public key
 
 3. **Run the database setup script**:
+
    - Go to SQL Editor in Supabase
    - Copy and run the contents of `scripts/create-blog-tables.sql`
 
@@ -117,6 +126,7 @@ A modern, interactive portfolio website built with Next.js 14, featuring a termi
    - `projects` - For project showcase (optional)
 
 ### Sample Data
+
 The setup script includes sample blog posts and projects to get you started.
 
 ## 📧 Contact Form Setup
@@ -126,6 +136,7 @@ The setup script includes sample blog posts and projects to get you started.
 1. **Create a Formspree account** at [formspree.io](https://formspree.io)
 
 2. **Create a new form**:
+
    - Set up a new form
    - Copy your form ID (e.g., `mdkzwylk`)
 
@@ -150,6 +161,7 @@ The setup script includes sample blog posts and projects to get you started.
    \`\`\`
 
 2. **Enter admin password**:
+
    - Default: Set in `NEXT_PUBLIC_ADMIN_PASSWORD`
    - Change this in your environment variables
 
@@ -160,6 +172,7 @@ The setup script includes sample blog posts and projects to get you started.
    - Session-based authentication
 
 ### Security Features
+
 - Password protection
 - Session-based authentication
 - Hidden admin URL
@@ -168,19 +181,23 @@ The setup script includes sample blog posts and projects to get you started.
 ## 🎨 Customization
 
 ### Themes
+
 The portfolio includes 5 built-in themes:
+
 - **Light** - Clean light theme
-- **Dark** - Modern dark theme  
+- **Dark** - Modern dark theme
 - **Catppuccin** - Pastel color scheme
 - **Dracula** - Popular dark theme
 - **Monochrome** - Black and white
 
 ### Adding New Themes
+
 1. Add theme colors to `app/globals.css`
 2. Update the themes array in `components/layout/navbar.tsx`
 3. Add theme to `tailwind.config.js` if needed
 
 ### Content Updates
+
 - **Personal info**: Update in component files
 - **Projects**: Add to Supabase or modify static data
 - **Skills**: Edit `components/skills.tsx`
@@ -189,6 +206,7 @@ The portfolio includes 5 built-in themes:
 ## 🏆 Achievement System
 
 ### Built-in Achievements
+
 - **Welcome** - Visit the portfolio
 - **About Explorer** - Read about section
 - **Skill Seeker** - Check skills
@@ -200,27 +218,30 @@ The portfolio includes 5 built-in themes:
 - **Resume Viewer** - Check RPG resume
 
 ### Adding New Achievements
+
 \`\`\`typescript
 // In any component
 const { unlockAchievement } = useAchievements()
 
 unlockAchievement(
-  "achievement-id",
-  "Achievement Title", 
-  "Description",
-  "🏆" // Icon
+"achievement-id",
+"Achievement Title",
+"Description",
+"🏆" // Icon
 )
 \`\`\`
 
 ## 🎮 Easter Eggs
 
 ### Konami Code
+
 Enter the classic Konami code to unlock a special Matrix effect:
 \`\`\`
 ↑ ↑ ↓ ↓ ← → ← → B A
 \`\`\`
 
 ### Hidden Features
+
 - Type "vim" anywhere on the page
 - Double-click for surprises
 - Explore the terminal commands
@@ -234,6 +255,7 @@ Enter the classic Konami code to unlock a special Matrix effect:
 3. **Deploy** - Automatic deployments on push
 
 ### Other Platforms
+
 - **Netlify**: Add environment variables and deploy
 - **Railway**: Configure environment and deploy
 - **Self-hosted**: Use `npm run build` and serve the `out` folder
@@ -241,23 +263,25 @@ Enter the classic Konami code to unlock a special Matrix effect:
 ## 🛠️ Development
 
 ### Project Structure
+
 \`\`\`
-├── app/                    # Next.js app directory
-│   ├── blog/              # Blog pages
-│   ├── resume/            # Resume page
-│   ├── thank-you/         # Thank you page
-│   └── secret-admin-panel-xyz/ # Admin panel
-├── components/            # React components
-│   ├── ui/               # shadcn/ui components
-│   ├── layout/           # Layout components
-│   └── ...               # Feature components
-├── hooks/                # Custom React hooks
-├── lib/                  # Utility functions
-├── scripts/              # Database scripts
-└── public/               # Static assets
+├── app/ # Next.js app directory
+│ ├── blog/ # Blog pages
+│ ├── resume/ # Resume page
+│ ├── thank-you/ # Thank you page
+│ └── secret-admin-panel-xyz/ # Admin panel
+├── components/ # React components
+│ ├── ui/ # shadcn/ui components
+│ ├── layout/ # Layout components
+│ └── ... # Feature components
+├── hooks/ # Custom React hooks
+├── lib/ # Utility functions
+├── scripts/ # Database scripts
+└── public/ # Static assets
 \`\`\`
 
 ### Key Components
+
 - **Hero** - Landing section with terminal
 - **About** - Personal information
 - **Skills** - Technical skills showcase
@@ -267,21 +291,27 @@ Enter the classic Konami code to unlock a special Matrix effect:
 - **Contact** - Contact form
 
 ### Custom Hooks
+
 - `useAchievements` - Achievement system
 - `useEasterEggs` - Easter egg functionality
 
 ## 🔧 Scripts
 
 ### Available Commands
+
 \`\`\`bash
+
 # Development
-npm run dev          # Start development server
-npm run build        # Build for production
-npm run start        # Start production server
-npm run lint         # Run ESLint
+
+npm run dev # Start development server
+npm run build # Build for production
+npm run start # Start production server
+npm run lint # Run ESLint
 
 # Database
+
 # Run scripts/create-blog-tables.sql in Supabase
+
 \`\`\`
 
 ## 🤝 Contributing
@@ -316,7 +346,7 @@ This project is open source and available under the [MIT License](LICENSE).
 
 **Built with ❤️ by Alexis Corporal**
 
-*This portfolio showcases modern web development practices and serves as a template for other developers looking to create their own interactive portfolio websites.*
+_This portfolio showcases modern web development practices and serves as a template for other developers looking to create their own interactive portfolio websites._
 \`\`\`
 
 Now let's create a simple deployment guide:
