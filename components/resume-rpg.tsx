@@ -1,30 +1,49 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Progress } from "@/components/ui/progress"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { useAchievements } from "@/hooks/use-achievements"
-import { Sword, Shield, Zap, Heart, Star, Trophy, Coffee } from "lucide-react"
+import { useState, useEffect } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Progress } from "@/components/ui/progress";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useAchievements } from "@/hooks/use-achievements";
+import { Sword, Shield, Zap, Heart, Star, Trophy, Coffee } from "lucide-react";
 
 export function ResumeRPG() {
-  const { unlockAchievement } = useAchievements()
-  const [selectedTab, setSelectedTab] = useState("stats")
+  const { unlockAchievement } = useAchievements();
+  const [selectedTab, setSelectedTab] = useState("stats");
 
   useEffect(() => {
-    unlockAchievement("resume-viewer", "RPG Resume Viewer", "Checked the RPG resume", "🎲")
-  }, [unlockAchievement])
+    unlockAchievement(
+      "resume-viewer",
+      "RPG Resume Viewer",
+      "Checked the RPG resume",
+      "🎲",
+    );
+  }, [unlockAchievement]);
 
+  const birthDate = new Date("2004-11-16");
+  const today = new Date();
+
+  let age = today.getFullYear() - birthDate.getFullYear();
+
+  // Adjust if birthday hasn't occurred yet this year
+  const hasBirthdayPassed =
+    today.getMonth() > birthDate.getMonth() ||
+    (today.getMonth() === birthDate.getMonth() &&
+      today.getDate() >= birthDate.getDate());
+
+  if (!hasBirthdayPassed) {
+    age--;
+  }
   const characterStats = {
-    level: 22, // Age or experience level
+    level: age,
     class: "Full-Stack Developer",
     title: "The Code Whisperer",
     hp: 100,
     mp: 85,
     exp: 2847,
     nextLevel: 3000,
-  }
+  };
 
   const attributes = {
     coding: 92,
@@ -33,7 +52,7 @@ export function ResumeRPG() {
     communication: 82,
     creativity: 87,
     teamwork: 85,
-  }
+  };
 
   const skills = [
     { name: "JavaScript Mastery", level: 90, type: "magic", icon: "⚡" },
@@ -44,45 +63,115 @@ export function ResumeRPG() {
     { name: "Neovim Mastery", level: 95, type: "special", icon: "🏹" },
     { name: "Git Version Control", level: 83, type: "utility", icon: "🛡️" },
     { name: "Problem Solving", level: 92, type: "special", icon: "🧩" },
-  ]
+  ];
 
   const achievements = [
-    { name: "First Commit", description: "Made first Git commit", date: "2020", rarity: "common" },
-    { name: "Bug Slayer", description: "Fixed 100+ bugs", date: "2022", rarity: "rare" },
-    { name: "Open Source Hero", description: "Contributed to open source", date: "2023", rarity: "epic" },
-    { name: "Neovim Sage", description: "Mastered Neovim configuration", date: "2023", rarity: "legendary" },
-    { name: "Full-Stack Warrior", description: "Built complete applications", date: "2024", rarity: "epic" },
-  ]
+    {
+      name: "First Commit",
+      description: "Made first Git commit",
+      date: "2020",
+      rarity: "common",
+    },
+    {
+      name: "Bug Slayer",
+      description: "Fixed 100+ bugs",
+      date: "2022",
+      rarity: "rare",
+    },
+    {
+      name: "Open Source Hero",
+      description: "Contributed to open source",
+      date: "2023",
+      rarity: "epic",
+    },
+    {
+      name: "Neovim Sage",
+      description: "Mastered Neovim configuration",
+      date: "2023",
+      rarity: "legendary",
+    },
+    {
+      name: "Full-Stack Warrior",
+      description: "Built complete applications",
+      date: "2024",
+      rarity: "epic",
+    },
+  ];
 
   const quests = [
-    { name: "College Quest", status: "In Progress", progress: 75, reward: "Bachelor's Degree" },
-    { name: "Freelance Adventures", status: "Ongoing", progress: 100, reward: "Client Satisfaction" },
-    { name: "Open Source Contributions", status: "Active", progress: 60, reward: "Community Recognition" },
-    { name: "Master Neovim", status: "Completed", progress: 100, reward: "Ultimate Productivity" },
-  ]
+    {
+      name: "College Quest",
+      status: "In Progress",
+      progress: 75,
+      reward: "Bachelor's Degree",
+    },
+    {
+      name: "Freelance Adventures",
+      status: "Ongoing",
+      progress: 100,
+      reward: "Client Satisfaction",
+    },
+    {
+      name: "Open Source Contributions",
+      status: "Active",
+      progress: 60,
+      reward: "Community Recognition",
+    },
+    {
+      name: "Master Neovim",
+      status: "Completed",
+      progress: 100,
+      reward: "Ultimate Productivity",
+    },
+  ];
 
   const inventory = [
-    { name: "MacBook Pro", type: "Weapon", rarity: "epic", description: "Primary development machine" },
-    { name: "Mechanical Keyboard", type: "Accessory", rarity: "rare", description: "Cherry MX switches" },
-    { name: "Multiple Monitors", type: "Enhancement", rarity: "uncommon", description: "Productivity boost" },
-    { name: "Coffee Mug", type: "Consumable", rarity: "legendary", description: "Infinite energy source" },
-    { name: "Neovim Config", type: "Spell Book", rarity: "legendary", description: "Custom editor setup" },
-  ]
+    {
+      name: "MacBook Pro",
+      type: "Weapon",
+      rarity: "epic",
+      description: "Primary development machine",
+    },
+    {
+      name: "Mechanical Keyboard",
+      type: "Accessory",
+      rarity: "rare",
+      description: "Cherry MX switches",
+    },
+    {
+      name: "Multiple Monitors",
+      type: "Enhancement",
+      rarity: "uncommon",
+      description: "Productivity boost",
+    },
+    {
+      name: "Coffee Mug",
+      type: "Consumable",
+      rarity: "legendary",
+      description: "Infinite energy source",
+    },
+    {
+      name: "Neovim Config",
+      type: "Spell Book",
+      rarity: "legendary",
+      description: "Custom editor setup",
+    },
+  ];
 
   const getRarityColor = (rarity: string) => {
     switch (rarity) {
       case "legendary":
-        return "text-yellow-500 border-yellow-500"
+        return "text-yellow-500 border-yellow-500";
       case "epic":
-        return "text-purple-500 border-purple-500"
+        return "text-purple-500 border-purple-500";
       case "rare":
-        return "text-blue-500 border-blue-500"
+        return "text-blue-500 border-blue-500";
       case "uncommon":
-        return "text-green-500 border-green-500"
+        return "text-green-500 border-green-500";
       default:
-        return "text-gray-500 border-gray-500"
+        return "text-gray-500 border-gray-500";
     }
-  }
+  };
 
   return (
     <section id="resume" className="py-20 bg-muted/30">
@@ -92,7 +181,9 @@ export function ResumeRPG() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               <span className="font-mono text-primary">~/</span>resume.rpg
             </h2>
-            <p className="text-xl text-muted-foreground">Character Sheet & Adventure Log</p>
+            <p className="text-xl text-muted-foreground">
+              Character Sheet & Adventure Log
+            </p>
           </div>
 
           {/* Character Overview */}
@@ -104,11 +195,17 @@ export function ResumeRPG() {
                     <Sword className="h-6 w-6 mr-2 text-primary" />
                     {characterStats.class}
                   </CardTitle>
-                  <p className="text-muted-foreground">{characterStats.title}</p>
+                  <p className="text-muted-foreground">
+                    {characterStats.title}
+                  </p>
                 </div>
                 <div className="text-right">
-                  <div className="text-3xl font-bold text-primary">Lv. {characterStats.level}</div>
-                  <div className="text-sm text-muted-foreground">College Student</div>
+                  <div className="text-3xl font-bold text-primary">
+                    Lv. {characterStats.level}
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    College Student
+                  </div>
                 </div>
               </div>
             </CardHeader>
@@ -131,14 +228,23 @@ export function ResumeRPG() {
                 <div className="flex items-center space-x-2">
                   <Star className="h-5 w-5 text-yellow-500" />
                   <div>
-                    <div className="text-sm text-muted-foreground">Experience</div>
-                    <Progress value={(characterStats.exp / characterStats.nextLevel) * 100} className="w-20" />
+                    <div className="text-sm text-muted-foreground">
+                      Experience
+                    </div>
+                    <Progress
+                      value={
+                        (characterStats.exp / characterStats.nextLevel) * 100
+                      }
+                      className="w-20"
+                    />
                   </div>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Coffee className="h-5 w-5 text-amber-600" />
                   <div>
-                    <div className="text-sm text-muted-foreground">Caffeine</div>
+                    <div className="text-sm text-muted-foreground">
+                      Caffeine
+                    </div>
                     <Progress value={95} className="w-20" />
                   </div>
                 </div>
@@ -166,8 +272,13 @@ export function ResumeRPG() {
                   </CardHeader>
                   <CardContent className="space-y-4">
                     {Object.entries(attributes).map(([attr, value]) => (
-                      <div key={attr} className="flex items-center justify-between">
-                        <span className="capitalize font-medium">{attr.replace(/([A-Z])/g, " $1")}</span>
+                      <div
+                        key={attr}
+                        className="flex items-center justify-between"
+                      >
+                        <span className="capitalize font-medium">
+                          {attr.replace(/([A-Z])/g, " $1")}
+                        </span>
                         <div className="flex items-center space-x-2">
                           <Progress value={value} className="w-24" />
                           <span className="text-sm font-mono w-8">{value}</span>
@@ -191,7 +302,9 @@ export function ResumeRPG() {
                       <span>Full-Stack Developer</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-muted-foreground">Specialization:</span>
+                      <span className="text-muted-foreground">
+                        Specialization:
+                      </span>
                       <span>Neovim Sage</span>
                     </div>
                     <div className="flex justify-between">
@@ -204,7 +317,10 @@ export function ResumeRPG() {
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Status:</span>
-                      <Badge variant="outline" className="text-green-600 border-green-600">
+                      <Badge
+                        variant="outline"
+                        className="text-green-600 border-green-600"
+                      >
                         Available for Quests
                       </Badge>
                     </div>
@@ -216,20 +332,28 @@ export function ResumeRPG() {
             <TabsContent value="skills" className="mt-6">
               <div className="grid md:grid-cols-2 gap-4">
                 {skills.map((skill, index) => (
-                  <Card key={index} className="hover:shadow-lg transition-shadow">
+                  <Card
+                    key={index}
+                    className="hover:shadow-lg transition-shadow"
+                  >
                     <CardContent className="p-4">
                       <div className="flex items-center justify-between mb-2">
                         <div className="flex items-center space-x-2">
                           <span className="text-lg">{skill.icon}</span>
                           <span className="font-medium">{skill.name}</span>
                         </div>
-                        <Badge variant="outline" className={`text-xs ${getRarityColor(skill.type)}`}>
+                        <Badge
+                          variant="outline"
+                          className={`text-xs ${getRarityColor(skill.type)}`}
+                        >
                           {skill.type}
                         </Badge>
                       </div>
                       <div className="flex items-center space-x-2">
                         <Progress value={skill.level} className="flex-1" />
-                        <span className="text-sm font-mono w-8">{skill.level}</span>
+                        <span className="text-sm font-mono w-8">
+                          {skill.level}
+                        </span>
                       </div>
                     </CardContent>
                   </Card>
@@ -245,15 +369,21 @@ export function ResumeRPG() {
                       <div className="flex items-center justify-between mb-2">
                         <h3 className="font-semibold">{quest.name}</h3>
                         <Badge
-                          variant={quest.status === "Completed" ? "default" : "outline"}
-                          className={quest.status === "Completed" ? "bg-green-600" : ""}
+                          variant={
+                            quest.status === "Completed" ? "default" : "outline"
+                          }
+                          className={
+                            quest.status === "Completed" ? "bg-green-600" : ""
+                          }
                         >
                           {quest.status}
                         </Badge>
                       </div>
                       <div className="flex items-center space-x-4">
                         <Progress value={quest.progress} className="flex-1" />
-                        <span className="text-sm text-muted-foreground">Reward: {quest.reward}</span>
+                        <span className="text-sm text-muted-foreground">
+                          Reward: {quest.reward}
+                        </span>
                       </div>
                     </CardContent>
                   </Card>
@@ -264,19 +394,29 @@ export function ResumeRPG() {
             <TabsContent value="achievements" className="mt-6">
               <div className="grid md:grid-cols-2 gap-4">
                 {achievements.map((achievement, index) => (
-                  <Card key={index} className={`border-2 ${getRarityColor(achievement.rarity)}`}>
+                  <Card
+                    key={index}
+                    className={`border-2 ${getRarityColor(achievement.rarity)}`}
+                  >
                     <CardContent className="p-4">
                       <div className="flex items-center justify-between mb-2">
                         <h3 className="font-semibold flex items-center">
                           <Trophy className="h-4 w-4 mr-2" />
                           {achievement.name}
                         </h3>
-                        <Badge variant="outline" className={getRarityColor(achievement.rarity)}>
+                        <Badge
+                          variant="outline"
+                          className={getRarityColor(achievement.rarity)}
+                        >
                           {achievement.rarity}
                         </Badge>
                       </div>
-                      <p className="text-sm text-muted-foreground mb-2">{achievement.description}</p>
-                      <p className="text-xs text-muted-foreground">Unlocked: {achievement.date}</p>
+                      <p className="text-sm text-muted-foreground mb-2">
+                        {achievement.description}
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        Unlocked: {achievement.date}
+                      </p>
                     </CardContent>
                   </Card>
                 ))}
@@ -286,16 +426,26 @@ export function ResumeRPG() {
             <TabsContent value="inventory" className="mt-6">
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {inventory.map((item, index) => (
-                  <Card key={index} className={`border-2 ${getRarityColor(item.rarity)}`}>
+                  <Card
+                    key={index}
+                    className={`border-2 ${getRarityColor(item.rarity)}`}
+                  >
                     <CardContent className="p-4">
                       <div className="flex items-center justify-between mb-2">
                         <h3 className="font-semibold">{item.name}</h3>
-                        <Badge variant="outline" className={getRarityColor(item.rarity)}>
+                        <Badge
+                          variant="outline"
+                          className={getRarityColor(item.rarity)}
+                        >
                           {item.rarity}
                         </Badge>
                       </div>
-                      <p className="text-sm text-muted-foreground mb-1">{item.type}</p>
-                      <p className="text-xs text-muted-foreground">{item.description}</p>
+                      <p className="text-sm text-muted-foreground mb-1">
+                        {item.type}
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        {item.description}
+                      </p>
                     </CardContent>
                   </Card>
                 ))}
@@ -305,5 +455,5 @@ export function ResumeRPG() {
         </div>
       </div>
     </section>
-  )
+  );
 }
