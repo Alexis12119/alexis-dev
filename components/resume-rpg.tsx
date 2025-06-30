@@ -252,8 +252,12 @@ export function ResumeRPG() {
             </CardContent>
           </Card>
 
-          <Tabs value={selectedTab} onValueChange={setSelectedTab}>
-            <TabsList className="grid w-full grid-cols-5">
+          <Tabs
+            value={selectedTab}
+            onValueChange={setSelectedTab}
+            className="w-full"
+          >
+            <TabsList className="grid w-full grid-cols-3 lg:grid-cols-5 mb-8">
               <TabsTrigger value="stats">Stats</TabsTrigger>
               <TabsTrigger value="skills">Skills</TabsTrigger>
               <TabsTrigger value="quests">Quests</TabsTrigger>
