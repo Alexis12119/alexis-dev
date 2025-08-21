@@ -120,63 +120,6 @@ export function HeroEnhanced() {
             </div>
           </div>
 
-          {/* Command Prompt Navigation */}
-          <div className="bg-card border rounded-lg p-4 mb-8 font-mono text-left">
-            <div className="text-primary mb-2">$ ls sections/</div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-sm">
-              <Link
-                href="#about"
-                className="hover:text-primary transition-colors cursor-pointer hover:bg-muted px-2 py-1 rounded"
-                onClick={() =>
-                  unlockAchievement(
-                    "navigator",
-                    "Navigator",
-                    "Used terminal navigation",
-                  )
-                }
-              >
-                about.md
-              </Link>
-              <Link
-                href="#skills"
-                className="hover:text-primary transition-colors cursor-pointer hover:bg-muted px-2 py-1 rounded"
-              >
-                skills.json
-              </Link>
-              <Link
-                href="#projects"
-                className="hover:text-primary transition-colors cursor-pointer hover:bg-muted px-2 py-1 rounded"
-              >
-                projects/
-              </Link>
-              <Link
-                href="/blog"
-                className="hover:text-primary transition-colors cursor-pointer hover:bg-muted px-2 py-1 rounded"
-              >
-                blog/
-              </Link>
-              <Link
-                href="#resume"
-                className="hover:text-primary transition-colors cursor-pointer hover:bg-muted px-2 py-1 rounded"
-              >
-                resume.rpg
-              </Link>
-              <Link
-                href="#services"
-                className="hover:text-primary transition-colors cursor-pointer hover:bg-muted px-2 py-1 rounded"
-              >
-                services.sh
-              </Link>
-              <Link
-                href="#contact"
-                className="hover:text-primary transition-colors cursor-pointer hover:bg-muted px-2 py-1 rounded"
-              >
-                contact.form
-              </Link>
-              <div className="text-muted-foreground">...</div>
-            </div>
-          </div>
-
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Button size="lg" asChild className="group">

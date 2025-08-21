@@ -55,11 +55,11 @@ export function ResumeRPG() {
   };
 
   const skills = [
-    { name: "JavaScript Mastery", level: 90, type: "magic", icon: "⚡" },
-    { name: "React Sorcery", level: 88, type: "magic", icon: "🔮" },
+    { name: "JavaScript Expertise", level: 90, type: "magic", icon: "⚡" },
+    { name: "React Expertise", level: 88, type: "magic", icon: "🔮" },
     { name: "Node.js Expertise", level: 85, type: "combat", icon: "⚔️" },
     { name: "TypeScript Precision", level: 87, type: "combat", icon: "🎯" },
-    { name: "Database Wizardry", level: 80, type: "magic", icon: "🗄️" },
+    { name: "Database Expertise", level: 80, type: "magic", icon: "🗄️" },
     { name: "Neovim Mastery", level: 95, type: "special", icon: "🏹" },
     { name: "Git Version Control", level: 83, type: "utility", icon: "🛡️" },
     { name: "Problem Solving", level: 92, type: "special", icon: "🧩" },
@@ -127,27 +127,27 @@ export function ResumeRPG() {
 
   const inventory = [
     {
-      name: "MacBook Pro",
+      name: "Lenovo Thinkdpad L430",
       type: "Weapon",
       rarity: "epic",
       description: "Primary development machine",
     },
-    {
-      name: "Mechanical Keyboard",
-      type: "Accessory",
-      rarity: "rare",
-      description: "Cherry MX switches",
-    },
-    {
-      name: "Multiple Monitors",
-      type: "Enhancement",
-      rarity: "uncommon",
-      description: "Productivity boost",
-    },
+    // {
+    //   name: "Mechanical Keyboard",
+    //   type: "Accessory",
+    //   rarity: "rare",
+    //   description: "Cherry MX switches",
+    // },
+    // {
+    //   name: "Multiple Monitors",
+    //   type: "Enhancement",
+    //   rarity: "uncommon",
+    //   description: "Productivity boost",
+    // },
     {
       name: "Coffee Mug",
       type: "Consumable",
-      rarity: "legendary",
+      rarity: "uncommon",
       description: "Infinite energy source",
     },
     {
@@ -309,7 +309,7 @@ export function ResumeRPG() {
                       <span className="text-muted-foreground">
                         Specialization:
                       </span>
-                      <span>Neovim Sage</span>
+                      <span>Back End Development</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Guild:</span>
@@ -325,7 +325,7 @@ export function ResumeRPG() {
                         variant="outline"
                         className="text-green-600 border-green-600"
                       >
-                        Available for Quests
+                        Available for Job Quests
                       </Badge>
                     </div>
                   </CardContent>

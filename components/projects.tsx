@@ -1,7 +1,7 @@
-import { Button } from "@/components/ui/button"
-import { Github } from "lucide-react"
-import Link from "next/link"
-import { ProjectsDynamic } from "./projects-dynamic"
+import { Button } from "@/components/ui/button";
+import { Github } from "lucide-react";
+import Link from "next/link";
+import { ProjectsDynamic } from "./projects-dynamic";
 
 export function Projects() {
   return (
@@ -12,14 +12,20 @@ export function Projects() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               <span className="font-mono text-primary">~/</span>projects
             </h2>
-            <p className="text-xl text-muted-foreground">Featured work and side projects</p>
+            <p className="text-xl text-muted-foreground">
+              Featured work and side projects
+            </p>
           </div>
 
           <ProjectsDynamic />
 
           <div className="text-center mt-12">
             <Button variant="outline" size="lg" asChild>
-              <Link href="https://github.com/Alexis12119" target="_blank" rel="noopener noreferrer">
+              <Link
+                href="https://github.com/Alexis12119?tab=repositories"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Github className="h-4 w-4 mr-2" />
                 View All Projects on GitHub
               </Link>
@@ -28,5 +34,5 @@ export function Projects() {
         </div>
       </div>
     </section>
-  )
+  );
 }
