@@ -12,15 +12,6 @@ export function ResumeRPG() {
   const { unlockAchievement } = useAchievements();
   const [selectedTab, setSelectedTab] = useState("stats");
 
-  useEffect(() => {
-    unlockAchievement(
-      "resume-viewer",
-      "RPG Resume Viewer",
-      "Checked the RPG resume",
-      "🎲",
-    );
-  }, [unlockAchievement]);
-
   const birthDate = new Date("2004-11-16");
   const today = new Date();
 

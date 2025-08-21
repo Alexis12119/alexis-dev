@@ -17,8 +17,7 @@ export default function BlogPage() {
         <div className="mb-8">
           <Button size="lg" asChild className="group">
             <Link href="/">
-              <ArrowLeft className="h-4 w-4 mr-2 group-hover:-translate-x-1 transition-transform" />
-              Back to Portfolio
+              <ArrowLeft className="h-8 w-8 mr-2 group-hover:-translate-x-1 transition-transform" />
             </Link>
           </Button>
         </div>

@@ -96,13 +96,13 @@ const defaultAchievements: Achievement[] = [
     icon: "🎮",
     unlocked: false,
   },
-  // {
-  //   id: "resume-viewer",
-  //   title: "RPG Resume Viewer",
-  //   description: "Checked the RPG resume",
-  //   icon: "🎲",
-  //   unlocked: false,
-  // },
+  {
+    id: "resume-viewer",
+    title: "RPG Resume Viewer",
+    description: "Checked the RPG resume",
+    icon: "🎲",
+    unlocked: true,
+  },
 ];
 
 export function AchievementsProvider({ children }: { children: ReactNode }) {

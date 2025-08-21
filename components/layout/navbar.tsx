@@ -1,31 +1,36 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import { useTheme } from "next-themes"
-import { Button } from "@/components/ui/button"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { Menu, X, Terminal, Palette } from "lucide-react"
-import { useAchievements } from "@/hooks/use-achievements"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { useTheme } from "next-themes";
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Menu, X, Terminal, Palette } from "lucide-react";
+import { useAchievements } from "@/hooks/use-achievements";
 
 export function Navbar() {
-  const [mounted, setMounted] = useState(false)
-  const [isOpen, setIsOpen] = useState(false)
-  const { theme, setTheme } = useTheme()
-  const { unlockAchievement } = useAchievements()
+  const [mounted, setMounted] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const { theme, setTheme } = useTheme();
+  const { unlockAchievement } = useAchievements();
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
   const navItems = [
     { href: "#about", label: "About" },
     { href: "#skills", label: "Skills" },
     { href: "#projects", label: "Projects" },
-    { href: "/blog", label: "Blog" },
+    // { href: "/blog", label: "Blog" },
     { href: "#services", label: "Services" },
     { href: "#contact", label: "Contact" },
-  ]
+  ];
 
   const themes = [
     { name: "light", label: "Light", icon: "☀️" },
@@ -33,12 +38,17 @@ export function Navbar() {
     { name: "catppuccin", label: "Catppuccin", icon: "🐱" },
     { name: "dracula", label: "Dracula", icon: "🧛" },
     { name: "monochrome", label: "Monochrome", icon: "⚫" },
-  ]
+  ];
 
   const handleThemeChange = (newTheme: string) => {
-    setTheme(newTheme)
-    unlockAchievement("theme-switcher", "Theme Switcher", `Switched to ${newTheme} theme`, "🎨")
-  }
+    setTheme(newTheme);
+    unlockAchievement(
+      "theme-switcher",
+      "Theme Switcher",
+      `Switched to ${newTheme} theme`,
+      "🎨",
+    );
+  };
 
   return (
     <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -108,8 +118,16 @@ export function Navbar() {
               </DropdownMenu>
             )}
 
-            <Button variant="ghost" size="sm" onClick={() => setIsOpen(!isOpen)}>
-              {isOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              {isOpen ? (
+                <X className="h-4 w-4" />
+              ) : (
+                <Menu className="h-4 w-4" />
+              )}
             </Button>
           </div>
         </div>
@@ -133,5 +151,5 @@ export function Navbar() {
         )}
       </div>
     </nav>
-  )
+  );
 }

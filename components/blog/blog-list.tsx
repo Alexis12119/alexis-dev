@@ -1,17 +1,17 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Calendar, Clock, ArrowRight } from "lucide-react"
-import Link from "next/link"
-import { supabase } from "@/lib/supabase"
-import type { BlogPost } from "@/lib/supabase"
+import { useState, useEffect } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Calendar, Clock, ArrowRight } from "lucide-react";
+import Link from "next/link";
+import { supabase } from "@/lib/supabase";
+import type { BlogPost } from "@/lib/supabase";
 
 export function BlogList() {
-  const [posts, setPosts] = useState<BlogPost[]>([])
-  const [loading, setLoading] = useState(true)
+  const [posts, setPosts] = useState<BlogPost[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -19,10 +19,10 @@ export function BlogList() {
         const { data, error } = await supabase
           .from("blog_posts")
           .select("*")
-          .order("published_at", { ascending: false })
+          .order("published_at", { ascending: false });
 
         if (error) {
-          console.error("Error fetching posts:", error)
+          console.error("Error fetching posts:", error);
           // Fall back to placeholder data if database is not set up yet
           setPosts([
             {
@@ -64,20 +64,20 @@ export function BlogList() {
               created_at: "2024-01-05T00:00:00Z",
               updated_at: "2024-01-05T00:00:00Z",
             },
-          ])
+          ]);
         } else {
-          setPosts(data || [])
+          setPosts(data || []);
         }
       } catch (error) {
-        console.error("Error:", error)
-        setPosts([]) // Show "Content Coming Soon" message
+        console.error("Error:", error);
+        setPosts([]); // Show "Content Coming Soon" message
       } finally {
-        setLoading(false)
+        setLoading(false);
       }
-    }
+    };
 
-    fetchPosts()
-  }, [])
+    fetchPosts();
+  }, []);
 
   if (loading) {
     return (
@@ -97,7 +97,7 @@ export function BlogList() {
           </Card>
         ))}
       </div>
-    )
+    );
   }
 
   if (posts.length === 0) {
@@ -106,14 +106,15 @@ export function BlogList() {
         <CardContent>
           <h3 className="text-xl font-semibold mb-4">Content Coming Soon</h3>
           <p className="text-muted-foreground mb-6">
-            I'm working on some exciting blog posts about web development, Neovim, and open source. Stay tuned!
+            I'm working on some exciting blog posts about web development,
+            Neovim, and open source. Stay tuned!
           </p>
           <Button variant="outline" asChild>
             <Link href="/#contact">Get Notified</Link>
           </Button>
         </CardContent>
       </Card>
-    )
+    );
   }
 
   return (
@@ -126,7 +127,9 @@ export function BlogList() {
               <div className="flex items-center text-sm text-muted-foreground space-x-4">
                 <div className="flex items-center space-x-1">
                   <Calendar className="h-3 w-3" />
-                  <span>{new Date(post.published_at).toLocaleDateString()}</span>
+                  <span>
+                    {new Date(post.published_at).toLocaleDateString()}
+                  </span>
                 </div>
                 <div className="flex items-center space-x-1">
                   <Clock className="h-3 w-3" />
@@ -134,11 +137,19 @@ export function BlogList() {
                 </div>
               </div>
             </div>
-            <CardTitle className="group-hover:text-primary transition-colors">{post.title}</CardTitle>
+            <CardTitle className="group-hover:text-primary transition-colors">
+              {post.title}
+            </CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-muted-foreground mb-4 line-clamp-3">{post.excerpt}</p>
-            <Button variant="ghost" className="p-0 h-auto font-semibold group-hover:text-primary" asChild>
+            <p className="text-muted-foreground mb-4 line-clamp-3">
+              {post.excerpt}
+            </p>
+            <Button
+              variant="ghost"
+              className="p-0 h-auto font-semibold group-hover:text-primary"
+              asChild
+            >
               <Link href={`/blog/${post.slug}`}>
                 Read More
                 <ArrowRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />
@@ -148,5 +159,5 @@ export function BlogList() {
         </Card>
       ))}
     </div>
-  )
+  );
 }
