@@ -15,9 +15,18 @@ export function useGithubData() {
           axios.get('https://api.github.com/users/Alexis12119/repos?sort=updated&per_page=100'),
           axios.get('https://api.github.com/users/Alexis12119/events/public')
         ])
-        setData({ repos: reposRes.data, events: eventsRes.data })
+        const newData = { repos: reposRes.data, events: eventsRes.data }
+        setData(newData)
+        localStorage.setItem('githubData', JSON.stringify(newData))
+        setError(null)
       } catch (err) {
-        setError(err instanceof Error ? err.message : 'Failed to fetch GitHub data')
+        const cachedData = localStorage.getItem('githubData')
+        if (cachedData) {
+          setData(JSON.parse(cachedData))
+          setError(null)
+        } else {
+          setError(err instanceof Error ? err.message : 'Failed to fetch GitHub data')
+        }
       } finally {
         setLoading(false)
       }

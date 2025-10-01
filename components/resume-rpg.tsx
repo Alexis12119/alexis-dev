@@ -15,6 +15,7 @@ export function ResumeRPG() {
   const [selectedTab, setSelectedTab] = useState("stats");
   const { data: githubData } = useGithubData();
 
+
   const birthDate = new Date("2004-11-16");
   const today = new Date();
 
@@ -89,6 +90,23 @@ export function ResumeRPG() {
 
   const generateAchievements = () => {
     const { repos, events } = githubData;
+    if (repos.length === 0 && events.length === 0) {
+      // Fallback if no data or error
+      return [
+        {
+          name: "Open Source Contributor",
+          description: "Contributed to open source projects",
+          date: "2023",
+          rarity: "epic",
+        },
+        {
+          name: "Full-Stack Specialist",
+          description: "Built complete applications",
+          date: "2024",
+          rarity: "epic",
+        },
+      ];
+    }
     const totalRepos = repos.length;
     const totalStars = repos.reduce((sum, repo) => sum + repo.stargazers_count, 0);
     const totalContributions = events.filter(event => ['PushEvent', 'IssuesEvent', 'PullRequestEvent'].includes(event.type)).length;
