@@ -1,37 +1,16 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import axios from "axios"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Github, GitFork, Star } from "lucide-react"
 import Link from "next/link"
+import { useGithubData } from "@/hooks/use-github-data"
 
 export function OpenSource() {
-  const [contributions, setContributions] = useState<any[]>([])
-  const [repos, setRepos] = useState<any[]>([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
+  const { data, loading, error } = useGithubData()
+  const { repos, events } = data
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const [eventsRes, reposRes] = await Promise.all([
-          axios.get('https://api.github.com/users/Alexis12119/events/public'),
-          axios.get('https://api.github.com/users/Alexis12119/repos?sort=updated&per_page=100')
-        ])
-        setContributions(eventsRes.data)
-        setRepos(reposRes.data)
-      } catch (err) {
-        setError(err instanceof Error ? err.message : 'An error occurred')
-      } finally {
-        setLoading(false)
-      }
-    }
-    fetchData()
-  }, [])
-
-  const totalContributions = contributions.filter(event => ['PushEvent', 'IssuesEvent', 'PullRequestEvent'].includes(event.type)).length
+  const totalContributions = events.filter(event => ['PushEvent', 'IssuesEvent', 'PullRequestEvent'].includes(event.type)).length
   const totalRepos = repos.length
   const totalStars = repos.reduce((sum, repo) => sum + repo.stargazers_count, 0)
 
@@ -53,7 +32,7 @@ export function OpenSource() {
     }
   }
 
-  const recentContributions = contributions.slice(0, 3).map(event => ({
+  const recentContributions = events.slice(0, 3).map(event => ({
     icon: getEventIcon(event.type),
     message: getEventMessage(event),
     date: new Date(event.created_at).toLocaleDateString()

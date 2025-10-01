@@ -1,20 +1,19 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useAchievements } from "@/hooks/use-achievements";
+import { useGithubData } from "@/hooks/use-github-data";
 import { Briefcase, Code, Zap, Heart, Star, Trophy, Coffee, Layers, Server, Database, Edit, GitBranch, Lightbulb } from "lucide-react";
 
 export function ResumeRPG() {
   const { unlockAchievement } = useAchievements();
   const [selectedTab, setSelectedTab] = useState("stats");
-  const [githubData, setGithubData] = useState({ repos: [] as any[], events: [] as any[] });
-  const [loading, setLoading] = useState(true);
+  const { data: githubData } = useGithubData();
 
   const birthDate = new Date("2004-11-16");
   const today = new Date();
@@ -30,23 +29,6 @@ export function ResumeRPG() {
   if (!hasBirthdayPassed) {
     age--;
   }
-
-  useEffect(() => {
-    const fetchGithubData = async () => {
-      try {
-        const [reposRes, eventsRes] = await Promise.all([
-          axios.get('https://api.github.com/users/Alexis12119/repos?sort=updated&per_page=100'),
-          axios.get('https://api.github.com/users/Alexis12119/events/public')
-        ]);
-        setGithubData({ repos: reposRes.data, events: eventsRes.data });
-      } catch (err) {
-        console.error('Failed to fetch GitHub data:', err);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchGithubData();
-  }, []);
 
   const characterStats = {
     level: age,
