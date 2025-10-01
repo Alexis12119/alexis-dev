@@ -22,20 +22,7 @@ async function getBlogPost(slug: string) {
   return data
 }
 
-export async function generateMetadata({ params }: BlogPostPageProps) {
-  const post = await getBlogPost(params.slug)
 
-  if (!post) {
-    return {
-      title: "Post Not Found - Alexis Corporal",
-    }
-  }
-
-  return {
-    title: `${post.title} - Alexis Corporal`,
-    description: post.excerpt,
-  }
-}
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const post = await getBlogPost(params.slug)

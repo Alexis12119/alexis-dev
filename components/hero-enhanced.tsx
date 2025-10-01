@@ -32,18 +32,21 @@ export function HeroEnhanced() {
     setCodeParticles(generated);
   }, []);
 
-  useEffect(() => {
-    // Unlock hero achievement
-    unlockAchievement("welcome", "Welcome!", "You've arrived at the portfolio");
+   useEffect(() => {
+     // Unlock hero achievement only once
+     if (!localStorage.getItem('welcomeShown')) {
+       unlockAchievement("welcome", "Welcome!", "You've arrived at the portfolio");
+       localStorage.setItem('welcomeShown', 'true');
+     }
 
-    if (currentIndex < fullText.length) {
-      const timeout = setTimeout(() => {
-        setDisplayText((prev) => prev + fullText[currentIndex]);
-        setCurrentIndex((prev) => prev + 1);
-      }, 100);
-      return () => clearTimeout(timeout);
-    }
-  }, [currentIndex, fullText, unlockAchievement]);
+     if (currentIndex < fullText.length) {
+       const timeout = setTimeout(() => {
+         setDisplayText((prev) => prev + fullText[currentIndex]);
+         setCurrentIndex((prev) => prev + 1);
+       }, 100);
+       return () => clearTimeout(timeout);
+     }
+   }, [currentIndex, fullText, unlockAchievement]);
 
   useEffect(() => {
     const cursorInterval = setInterval(() => {

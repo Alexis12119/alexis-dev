@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
@@ -7,6 +8,9 @@ import { Download, Mail, Github, MapPin, Globe, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
 export function ResumeDocument() {
+  const [editMode, setEditMode] = useState(false);
+  const [summary, setSummary] = useState("Full-Stack Developer and college student with expertise in modern web technologies and a passion for open source contributions. Specializes in building fast, maintainable solutions across the stack with strong system-level thinking and adaptability to new technologies. Active contributor to the Neovim ecosystem with a focus on developer experience improvements.");
+
   const handlePrint = () => {
     window.print();
   };
@@ -98,13 +102,16 @@ Location: Philippines (Remote work preferred)
             </Button>
             <h1 className="text-2xl font-bold">Resume</h1>
           </div>
-          <div className="flex gap-2">
-            <Button onClick={handleDownload} variant="outline">
-              <Download className="h-4 w-4 mr-2" />
-              Download
-            </Button>
-            <Button onClick={handlePrint}>Print Resume</Button>
-          </div>
+           <div className="flex gap-2">
+             <Button onClick={handleDownload} variant="outline">
+               <Download className="h-4 w-4 mr-2" />
+               Download
+             </Button>
+             <Button onClick={handlePrint}>Print Resume</Button>
+             <Button onClick={() => setEditMode(!editMode)} variant="outline">
+               {editMode ? 'Save' : 'Edit'}
+             </Button>
+           </div>
         </div>
 
         {/* Resume Content */}
@@ -138,20 +145,24 @@ Location: Philippines (Remote work preferred)
 
           <Separator className="mb-6" />
 
-          {/* Summary */}
-          <section className="mb-8">
-            <h2 className="text-2xl font-semibold mb-4 text-primary">
-              Professional Summary
-            </h2>
-            <p className="text-muted-foreground leading-relaxed">
-              Full-Stack Developer and college student with expertise in modern
-              web technologies and a passion for open source contributions.
-              Specializes in building fast, maintainable solutions across the
-              stack with strong system-level thinking and adaptability to new
-              technologies. Active contributor to the Neovim ecosystem with a
-              focus on developer experience improvements.
-            </p>
-          </section>
+           {/* Summary */}
+           <section className="mb-8">
+             <h2 className="text-2xl font-semibold mb-4 text-primary">
+               Professional Summary
+             </h2>
+             {editMode ? (
+               <textarea
+                 value={summary}
+                 onChange={(e) => setSummary(e.target.value)}
+                 className="w-full p-2 border rounded text-muted-foreground leading-relaxed"
+                 rows={4}
+               />
+             ) : (
+               <p className="text-muted-foreground leading-relaxed">
+                 {summary}
+               </p>
+             )}
+           </section>
 
           {/* Technical Skills */}
           <section className="mb-8">

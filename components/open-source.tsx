@@ -1,11 +1,98 @@
 "use client"
 
+import { useState, useEffect } from "react"
+import axios from "axios"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Github, GitFork, Star } from "lucide-react"
 import Link from "next/link"
 
 export function OpenSource() {
+  const [contributions, setContributions] = useState<any[]>([])
+  const [repos, setRepos] = useState<any[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const [eventsRes, reposRes] = await Promise.all([
+          axios.get('https://api.github.com/users/Alexis12119/events/public'),
+          axios.get('https://api.github.com/users/Alexis12119/repos?sort=updated&per_page=100')
+        ])
+        setContributions(eventsRes.data)
+        setRepos(reposRes.data)
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'An error occurred')
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchData()
+  }, [])
+
+  const totalContributions = contributions.filter(event => ['PushEvent', 'IssuesEvent', 'PullRequestEvent'].includes(event.type)).length
+  const totalRepos = repos.length
+  const totalStars = repos.reduce((sum, repo) => sum + repo.stargazers_count, 0)
+
+  const getEventIcon = (type: string) => {
+    switch (type) {
+      case 'PushEvent': return <Star className="h-4 w-4 text-yellow-500" />
+      case 'IssuesEvent': return <Github className="h-4 w-4" />
+      case 'PullRequestEvent': return <GitFork className="h-4 w-4 text-blue-500" />
+      default: return <Github className="h-4 w-4" />
+    }
+  }
+
+  const getEventMessage = (event: any) => {
+    switch (event.type) {
+      case 'PushEvent': return `Pushed to ${event.repo.name}`
+      case 'IssuesEvent': return `Opened issue in ${event.repo.name}`
+      case 'PullRequestEvent': return `Opened PR in ${event.repo.name}`
+      default: return `Activity in ${event.repo.name}`
+    }
+  }
+
+  const recentContributions = contributions.slice(0, 3).map(event => ({
+    icon: getEventIcon(event.type),
+    message: getEventMessage(event),
+    date: new Date(event.created_at).toLocaleDateString()
+  }))
+
+  if (loading) {
+    return (
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                <span className="font-mono text-primary">~/</span>open-source
+              </h2>
+              <p className="text-xl text-muted-foreground">Loading GitHub data...</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  if (error) {
+    return (
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                <span className="font-mono text-primary">~/</span>open-source
+              </h2>
+              <p className="text-xl text-muted-foreground">Error loading GitHub data: {error}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
   return (
     <section className="py-20">
       <div className="container mx-auto px-4">
@@ -27,15 +114,15 @@ export function OpenSource() {
             <CardContent>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-primary mb-2">50+</div>
+                  <div className="text-3xl font-bold text-primary mb-2">{totalContributions}+</div>
                   <div className="text-muted-foreground">Contributions</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-primary mb-2">15+</div>
+                  <div className="text-3xl font-bold text-primary mb-2">{totalRepos}+</div>
                   <div className="text-muted-foreground">Repositories</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-primary mb-2">100+</div>
+                  <div className="text-3xl font-bold text-primary mb-2">{totalStars}+</div>
                   <div className="text-muted-foreground">Stars Earned</div>
                 </div>
               </div>
@@ -67,32 +154,20 @@ export function OpenSource() {
             </CardContent>
           </Card>
 
-          <div className="bg-muted/50 rounded-lg p-6">
-            <h3 className="text-lg font-semibold mb-4">Recent Contributions</h3>
-            <div className="space-y-3 text-sm">
-              <div className="flex items-center justify-between p-3 bg-background rounded border">
-                <div className="flex items-center space-x-3">
-                  <Star className="h-4 w-4 text-yellow-500" />
-                  <span>Enhanced nvim-config with new plugin integrations</span>
-                </div>
-                <span className="text-muted-foreground">2 days ago</span>
-              </div>
-              <div className="flex items-center justify-between p-3 bg-background rounded border">
-                <div className="flex items-center space-x-3">
-                  <GitFork className="h-4 w-4 text-blue-500" />
-                  <span>Contributed to community Neovim plugin</span>
-                </div>
-                <span className="text-muted-foreground">1 week ago</span>
-              </div>
-              <div className="flex items-center justify-between p-3 bg-background rounded border">
-                <div className="flex items-center space-x-3">
-                  <Github className="h-4 w-4" />
-                  <span>Fixed bug in terminal integration</span>
-                </div>
-                <span className="text-muted-foreground">2 weeks ago</span>
-              </div>
-            </div>
-          </div>
+           <div className="bg-muted/50 rounded-lg p-6">
+             <h3 className="text-lg font-semibold mb-4">Recent Activities</h3>
+             <div className="space-y-3 text-sm">
+               {recentContributions.map((contrib, index) => (
+                 <div key={index} className="flex items-center justify-between p-3 bg-background rounded border">
+                   <div className="flex items-center space-x-3">
+                     {contrib.icon}
+                     <span>{contrib.message}</span>
+                   </div>
+                   <span className="text-muted-foreground">{contrib.date}</span>
+                 </div>
+               ))}
+             </div>
+           </div>
         </div>
       </div>
     </section>
