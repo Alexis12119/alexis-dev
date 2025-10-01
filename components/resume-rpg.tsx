@@ -13,7 +13,6 @@ import { Briefcase, Code, Zap, Heart, Star, Trophy, Coffee, Layers, Server, Data
 export function ResumeRPG() {
   const { unlockAchievement } = useAchievements();
   const [selectedTab, setSelectedTab] = useState("stats");
-  const [editMode, setEditMode] = useState(false);
   const [githubData, setGithubData] = useState({ repos: [] as any[], events: [] as any[] });
   const [loading, setLoading] = useState(true);
 
@@ -220,11 +219,7 @@ export function ResumeRPG() {
                    </div>
                  </div>
                </div>
-               <div className="flex justify-end mt-4">
-                 <Button onClick={() => setEditMode(!editMode)} variant="outline" size="sm">
-                   {editMode ? 'Save' : 'Edit'}
-                 </Button>
-               </div>
+
              </CardHeader>
             <CardContent>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -299,19 +294,10 @@ export function ResumeRPG() {
                          <span className="capitalize font-medium">
                            {attr.replace(/([A-Z])/g, " $1")}
                          </span>
-                         <div className="flex items-center space-x-2">
-                           <Progress value={value} className="w-24" />
-                           {editMode ? (
-                             <input
-                               type="number"
-                               value={value}
-                               onChange={(e) => setAttributes({...attributes, [attr]: Number(e.target.value)})}
-                               className="text-sm font-mono w-8 border rounded p-1"
-                             />
-                           ) : (
-                             <span className="text-sm font-mono w-8">{value}</span>
-                           )}
-                         </div>
+                          <div className="flex items-center space-x-2">
+                            <Progress value={value} className="w-24" />
+                            <span className="text-sm font-mono w-8">{value}</span>
+                          </div>
                        </div>
                      ))}
                   </CardContent>
