@@ -7,6 +7,7 @@ import { AchievementsProvider } from "@/hooks/use-achievements";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { EasterEggHandler } from "@/components/easter-egg-handler";
+import { Toaster } from "@/components/ui/toaster";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -66,14 +67,15 @@ export default function RootLayout({
           disableTransitionOnChange={false}
           themes={["light", "dark", "catppuccin", "dracula", "monochrome"]}
         >
-          <AchievementsProvider>
-            <div className="relative flex min-h-screen flex-col">
-              <Navbar />
-              <main className="flex-1">{children}</main>
-              <Footer />
-            </div>
-            <EasterEggHandler />
-          </AchievementsProvider>
+           <AchievementsProvider>
+             <div className="relative flex min-h-screen flex-col">
+               <Navbar />
+               <main className="flex-1">{children}</main>
+               <Footer />
+             </div>
+             <EasterEggHandler />
+             <Toaster />
+           </AchievementsProvider>
         </ThemeProvider>
       </body>
     </html>

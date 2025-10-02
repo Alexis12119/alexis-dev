@@ -59,64 +59,62 @@ export function Navbar() {
             <span className="font-mono font-bold text-lg">alexis.dev</span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-sm font-medium transition-colors hover:text-primary"
-              >
-                {item.label}
-              </Link>
-            ))}
+           {/* Desktop Navigation */}
+           <div className="hidden md:flex items-center space-x-6">
+             {navItems.map((item) => (
+               <Link
+                 key={item.href}
+                 href={item.href}
+                 className="text-sm font-medium transition-colors hover:text-primary"
+               >
+                 {item.label}
+               </Link>
+             ))}
 
-            {mounted && (
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" size="sm">
-                    <Palette className="h-4 w-4" />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end">
-                  {themes.map((themeOption) => (
-                    <DropdownMenuItem
-                      key={themeOption.name}
-                      onClick={() => handleThemeChange(themeOption.name)}
-                      className={theme === themeOption.name ? "bg-accent" : ""}
-                    >
-                      <span className="mr-2">{themeOption.icon}</span>
-                      {themeOption.label}
-                    </DropdownMenuItem>
-                  ))}
-                </DropdownMenuContent>
-              </DropdownMenu>
-            )}
-          </div>
+              {mounted && (
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="ghost" size="sm">
+                      <Palette className="h-4 w-4" />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end" className="p-2">
+                    {themes.map((themeOption) => (
+                      <DropdownMenuItem
+                        key={themeOption.name}
+                        onClick={() => handleThemeChange(themeOption.name)}
+                        className={`py-2 ${theme === themeOption.name ? "bg-accent" : ""}`}
+                      >
+                        {themeOption.label}
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              )}
+           </div>
 
           {/* Mobile Navigation */}
           <div className="md:hidden flex items-center space-x-2">
-            {mounted && (
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" size="sm">
-                    <Palette className="h-4 w-4" />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end">
-                  {themes.map((themeOption) => (
-                    <DropdownMenuItem
-                      key={themeOption.name}
-                      onClick={() => handleThemeChange(themeOption.name)}
-                      className={theme === themeOption.name ? "bg-accent" : ""}
-                    >
-                      <span className="mr-2">{themeOption.icon}</span>
-                      {themeOption.label}
-                    </DropdownMenuItem>
-                  ))}
-                </DropdownMenuContent>
-              </DropdownMenu>
-            )}
+             {mounted && (
+               <DropdownMenu>
+                 <DropdownMenuTrigger asChild>
+                   <Button variant="ghost" size="sm">
+                     <Palette className="h-4 w-4" />
+                   </Button>
+                 </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end" className="p-2">
+                    {themes.map((themeOption) => (
+                      <DropdownMenuItem
+                        key={themeOption.name}
+                        onClick={() => handleThemeChange(themeOption.name)}
+                        className={`py-2 ${theme === themeOption.name ? "bg-accent" : ""}`}
+                      >
+                        {themeOption.label}
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+               </DropdownMenu>
+             )}
 
             <Button
               variant="ghost"
@@ -132,23 +130,23 @@ export function Navbar() {
           </div>
         </div>
 
-        {/* Mobile Menu */}
-        {isOpen && (
-          <div className="md:hidden border-t py-4">
-            <div className="flex flex-col space-y-3">
-              {navItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="text-sm font-medium transition-colors hover:text-primary px-2 py-1"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-        )}
+         {/* Mobile Menu */}
+         {isOpen && (
+           <div className="md:hidden border-t py-4">
+             <div className="flex flex-col space-y-3">
+               {navItems.map((item) => (
+                 <Link
+                   key={item.href}
+                   href={item.href}
+                   className="text-sm font-medium transition-colors hover:text-primary px-2 py-1"
+                   onClick={() => setIsOpen(false)}
+                 >
+                   {item.label}
+                 </Link>
+               ))}
+             </div>
+           </div>
+         )}
       </div>
     </nav>
   );
