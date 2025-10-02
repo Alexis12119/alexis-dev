@@ -67,42 +67,44 @@ export function Skills() {
             </p>
           </div>
 
-          <Tabs defaultValue="all" className="w-full">
-            <TabsList className="grid w-full grid-cols-4 lg:grid-cols-8 mb-8">
-              <TabsTrigger value="all">All</TabsTrigger>
-              <TabsTrigger value="languages">Languages</TabsTrigger>
-              <TabsTrigger value="frontend">Frontend</TabsTrigger>
-              <TabsTrigger value="backend">Backend</TabsTrigger>
-              <TabsTrigger value="mobile">Mobile</TabsTrigger>
-              <TabsTrigger value="databases">Database</TabsTrigger>
-              <TabsTrigger value="tools">Tools</TabsTrigger>
-              <TabsTrigger value="systems">Systems</TabsTrigger>
-            </TabsList>
+           <Tabs defaultValue="all" className="w-full">
+             <div className="mb-8 overflow-x-auto">
+               <TabsList className="inline-flex w-max min-w-full sm:w-full sm:justify-center">
+                 <TabsTrigger value="all" className="whitespace-nowrap">All</TabsTrigger>
+                 <TabsTrigger value="languages" className="whitespace-nowrap">Languages</TabsTrigger>
+                 <TabsTrigger value="frontend" className="whitespace-nowrap">Frontend</TabsTrigger>
+                 <TabsTrigger value="backend" className="whitespace-nowrap">Backend</TabsTrigger>
+                 <TabsTrigger value="mobile" className="whitespace-nowrap">Mobile</TabsTrigger>
+                 <TabsTrigger value="databases" className="whitespace-nowrap">Database</TabsTrigger>
+                 <TabsTrigger value="tools" className="whitespace-nowrap">Tools</TabsTrigger>
+                 <TabsTrigger value="systems" className="whitespace-nowrap">Systems</TabsTrigger>
+               </TabsList>
+             </div>
 
-            <TabsContent value="all">
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {Object.entries(skillCategories).map(([key, category]) => (
-                  <Card key={key} className="hover:shadow-lg transition-shadow">
-                    <CardContent className="p-6">
-                      <h3 className="font-semibold mb-4 text-primary">
-                        {category.title}
-                      </h3>
-                      <div className="flex flex-wrap gap-2">
-                        {category.skills.map((skill) => (
-                          <Badge
-                            key={skill}
-                            variant="secondary"
-                            className="hover:bg-primary hover:text-primary-foreground transition-colors"
-                          >
-                            {skill}
-                          </Badge>
-                        ))}
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </TabsContent>
+             <TabsContent value="all">
+               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                 {Object.entries(skillCategories).map(([key, category]) => (
+                   <Card key={key} className="hover:shadow-lg transition-shadow">
+                     <CardContent className="p-6">
+                       <h3 className="font-semibold mb-4 text-primary">
+                         {category.title}
+                       </h3>
+                       <div className="flex flex-wrap gap-2">
+                         {category.skills.map((skill) => (
+                           <Badge
+                             key={skill}
+                             variant="secondary"
+                             className="hover:bg-primary hover:text-primary-foreground transition-colors"
+                           >
+                             {skill}
+                           </Badge>
+                         ))}
+                       </div>
+                     </CardContent>
+                   </Card>
+                 ))}
+               </div>
+             </TabsContent>
 
             {Object.entries(skillCategories).map(([key, category]) => (
               <TabsContent key={key} value={key}>
@@ -111,7 +113,7 @@ export function Skills() {
                     <h3 className="text-2xl font-bold mb-6 text-primary">
                       {category.title}
                     </h3>
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                       {category.skills.map((skill) => (
                         <div
                           key={skill}

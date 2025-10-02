@@ -33,27 +33,27 @@ export function About() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               <span className="font-mono text-primary">~/</span>about
             </h2>
-            <p className="text-xl text-muted-foreground">Student by day, freelancer by night</p>
+             <p className="text-xl text-muted-foreground">Student by day, freelancer by night</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
             <div>
               <div className="prose prose-lg dark:prose-invert">
-                <p className="text-lg leading-relaxed">
-                  I'm a college student and freelance developer who thrives on building fast, maintainable solutions
-                  across the full stack. My journey combines academic learning with real-world client projects, giving
-                  me a unique perspective on both theoretical foundations and practical implementation.
-                </p>
-                <p className="text-lg leading-relaxed">
-                  What sets me apart is my adaptability and speed in learning new technologies. Whether it's diving into
-                  a new framework or optimizing existing code, I approach every challenge with system-level thinking and
-                  a focus on long-term maintainability.
-                </p>
-                <p className="text-lg leading-relaxed">
-                  When I'm not coding, you'll find me contributing to the Neovim ecosystem or exploring the latest
-                  developments in developer tooling. I believe that great tools make great developers, and I'm
-                  passionate about both using and creating them.
-                </p>
+                 <p className="text-lg leading-relaxed mb-6">
+                   I'm a college student and freelance developer who thrives on building fast, maintainable solutions
+                   across the full stack. My journey combines academic learning with real-world client projects, giving
+                   me a unique perspective on both theoretical foundations and practical implementation.
+                 </p>
+                 <p className="text-lg leading-relaxed mb-6">
+                   What sets me apart is my adaptability and speed in learning new technologies. Whether it's diving into
+                   a new framework or optimizing existing code, I approach every challenge with system-level thinking and
+                   a focus on long-term maintainability.
+                 </p>
+                 <p className="text-lg leading-relaxed">
+                   When I'm not coding, you'll find me contributing to the Neovim ecosystem or exploring the latest
+                   developments in developer tooling. I believe that great tools make great developers, and I'm
+                   passionate about both using and creating them.
+                 </p>
               </div>
             </div>
 

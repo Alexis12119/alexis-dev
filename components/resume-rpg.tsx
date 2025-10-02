@@ -264,20 +264,22 @@ export function ResumeRPG() {
             </CardContent>
           </Card>
 
-          <Tabs
-            value={selectedTab}
-            onValueChange={setSelectedTab}
-            className="w-full"
-          >
-             <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 mb-8">
-               <TabsTrigger value="stats">Overview</TabsTrigger>
-               <TabsTrigger value="skills">Skills</TabsTrigger>
-               <TabsTrigger value="achievements">Achievements</TabsTrigger>
-               <TabsTrigger value="inventory">Tools</TabsTrigger>
-             </TabsList>
+           <Tabs
+             value={selectedTab}
+             onValueChange={setSelectedTab}
+             className="w-full"
+           >
+              <div className="mb-8 overflow-x-auto">
+                <TabsList className="inline-flex w-max min-w-full sm:w-full sm:justify-center">
+                  <TabsTrigger value="stats" className="whitespace-nowrap">Overview</TabsTrigger>
+                  <TabsTrigger value="skills" className="whitespace-nowrap">Skills</TabsTrigger>
+                  <TabsTrigger value="achievements" className="whitespace-nowrap">Achievements</TabsTrigger>
+                  <TabsTrigger value="inventory" className="whitespace-nowrap">Tools</TabsTrigger>
+                </TabsList>
+              </div>
 
-            <TabsContent value="stats" className="mt-6">
-              <div className="grid md:grid-cols-2 gap-6">
+             <TabsContent value="stats" className="mt-6">
+               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <Card>
                   <CardHeader>
                      <CardTitle className="flex items-center">
@@ -344,8 +346,8 @@ export function ResumeRPG() {
               </div>
             </TabsContent>
 
-            <TabsContent value="skills" className="mt-6">
-              <div className="grid md:grid-cols-2 gap-4">
+             <TabsContent value="skills" className="mt-6">
+               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {skills.map((skill, index) => (
                   <Card
                     key={index}
@@ -400,8 +402,8 @@ export function ResumeRPG() {
                </div>
             </TabsContent>
 
-            <TabsContent value="achievements" className="mt-6">
-              <div className="grid md:grid-cols-2 gap-4">
+             <TabsContent value="achievements" className="mt-6">
+               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {achievements.map((achievement, index) => (
                   <Card
                     key={index}
@@ -432,8 +434,8 @@ export function ResumeRPG() {
               </div>
             </TabsContent>
 
-            <TabsContent value="inventory" className="mt-6">
-               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+             <TabsContent value="inventory" className="mt-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                  {tools.map((tool, index) => (
                    <Card
                      key={index}
