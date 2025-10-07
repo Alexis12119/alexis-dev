@@ -1,44 +1,27 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Github } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { supabase } from "@/lib/supabase";
-import type { Project } from "@/lib/supabase";
+
+interface Project {
+  id: string;
+  title: string;
+  description: string;
+  tech_stack: string[];
+  type: string;
+  image_url: string;
+  demo_url: string;
+  github_url: string;
+  featured: boolean;
+  created_at: string;
+}
 
 export function ProjectsDynamic() {
-  const [projects, setProjects] = useState<Project[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        const { data, error } = await supabase
-          .from("projects")
-          .select("*")
-          .order("created_at", { ascending: false });
-
-        if (error) {
-          console.error("Error fetching projects:", error);
-          // Fall back to static data
-          setProjects([]);
-        } else {
-          setProjects(data || []);
-        }
-      } catch (error) {
-        console.error("Error:", error);
-        setProjects([]);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchProjects();
-  }, []);
 
   // Static fallback projects
   const staticProjects = [
@@ -109,33 +92,9 @@ export function ProjectsDynamic() {
     },
   ];
 
-  const displayProjects = projects.length > 0 ? projects : staticProjects;
-
-  if (loading) {
-    return (
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {[...Array(6)].map((_, i) => (
-          <Card key={i} className="animate-pulse">
-            <div className="h-48 bg-muted rounded-t-lg" />
-            <CardHeader>
-              <div className="h-4 bg-muted rounded w-3/4 mb-2" />
-              <div className="h-3 bg-muted rounded w-1/2" />
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-2">
-                <div className="h-3 bg-muted rounded" />
-                <div className="h-3 bg-muted rounded w-5/6" />
-              </div>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-    );
-  }
-
   return (
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {displayProjects.map((project) => (
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {staticProjects.map((project) => (
         <Card
           key={project.id}
           className="group hover:shadow-xl transition-all duration-300 overflow-hidden"
@@ -187,7 +146,7 @@ export function ProjectsDynamic() {
             </p>
 
             <div className="flex flex-wrap gap-2">
-              {project.tech_stack.map((tech) => (
+               {project.tech_stack.map((tech: string) => (
                 <Badge key={tech} variant="secondary" className="text-xs">
                   {tech}
                 </Badge>

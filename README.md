@@ -73,12 +73,7 @@ A modern, interactive portfolio website built with Next.js 14, featuring a termi
    Fill in your environment variables in `.env.local`:
    ```env
 
-   # Supabase Configuration
-
-   NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
-   NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
-
-   # Formspree Configuration
+    # Formspree Configuration
 
    NEXT_PUBLIC_FORMSPREE_ID=your_formspree_form_id
 

@@ -6,99 +6,64 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { supabase } from "@/lib/supabase";
-import type { BlogPost } from "@/lib/supabase";
+// Define BlogPost type locally since we're removing Supabase
+interface BlogPost {
+  id: string;
+  title: string;
+  content: string;
+  excerpt: string;
+  category: string;
+  published_at: string;
+  slug: string;
+  read_time: string;
+  created_at: string;
+  updated_at: string;
+}
 
 export function BlogList() {
-  const [posts, setPosts] = useState<BlogPost[]>([]);
-  const [loading, setLoading] = useState(true);
+  const posts: BlogPost[] = [
+    {
+      id: "1",
+      title: "Building Fast Web Apps with Next.js 14",
+      content: "",
+      excerpt:
+        "Exploring the latest features in Next.js 14 and how they improve developer experience and application performance.",
+      category: "Tech",
+      published_at: "2024-01-15T00:00:00Z",
+      slug: "nextjs-14-features",
+      read_time: "5 min read",
+      created_at: "2024-01-15T00:00:00Z",
+      updated_at: "2024-01-15T00:00:00Z",
+    },
+    {
+      id: "2",
+      title: "My Neovim Setup for Web Development",
+      content: "",
+      excerpt:
+        "A deep dive into my personalized Neovim configuration optimized for modern web development workflows.",
+      category: "Development",
+      published_at: "2024-01-10T00:00:00Z",
+      slug: "neovim-web-dev-setup",
+      read_time: "8 min read",
+      created_at: "2024-01-10T00:00:00Z",
+      updated_at: "2024-01-10T00:00:00Z",
+    },
+    {
+      id: "3",
+      title: "Contributing to Open Source: A Beginner's Guide",
+      content: "",
+      excerpt:
+        "Tips and strategies for making your first open source contributions and becoming part of the community.",
+      category: "Open Source",
+      published_at: "2024-01-05T00:00:00Z",
+      slug: "open-source-beginners-guide",
+      read_time: "6 min read",
+      created_at: "2024-01-05T00:00:00Z",
+      updated_at: "2024-01-05T00:00:00Z",
+    },
+  ];
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const { data, error } = await supabase
-          .from("blog_posts")
-          .select("*")
-          .order("published_at", { ascending: false });
 
-        if (error) {
-          console.error("Error fetching posts:", error);
-          // Fall back to placeholder data if database is not set up yet
-          setPosts([
-            {
-              id: "1",
-              title: "Building Fast Web Apps with Next.js 14",
-              content: "",
-              excerpt:
-                "Exploring the latest features in Next.js 14 and how they improve developer experience and application performance.",
-              category: "Tech",
-              published_at: "2024-01-15T00:00:00Z",
-              slug: "nextjs-14-features",
-              read_time: "5 min read",
-              created_at: "2024-01-15T00:00:00Z",
-              updated_at: "2024-01-15T00:00:00Z",
-            },
-            {
-              id: "2",
-              title: "My Neovim Setup for Web Development",
-              content: "",
-              excerpt:
-                "A deep dive into my personalized Neovim configuration optimized for modern web development workflows.",
-              category: "Development",
-              published_at: "2024-01-10T00:00:00Z",
-              slug: "neovim-web-dev-setup",
-              read_time: "8 min read",
-              created_at: "2024-01-10T00:00:00Z",
-              updated_at: "2024-01-10T00:00:00Z",
-            },
-            {
-              id: "3",
-              title: "Contributing to Open Source: A Beginner's Guide",
-              content: "",
-              excerpt:
-                "Tips and strategies for making your first open source contributions and becoming part of the community.",
-              category: "Open Source",
-              published_at: "2024-01-05T00:00:00Z",
-              slug: "open-source-beginners-guide",
-              read_time: "6 min read",
-              created_at: "2024-01-05T00:00:00Z",
-              updated_at: "2024-01-05T00:00:00Z",
-            },
-          ]);
-        } else {
-          setPosts(data || []);
-        }
-      } catch (error) {
-        console.error("Error:", error);
-        setPosts([]); // Show "Content Coming Soon" message
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchPosts();
-  }, []);
-
-  if (loading) {
-    return (
-      <div className="grid md:grid-cols-2 gap-8">
-        {[...Array(4)].map((_, i) => (
-          <Card key={i} className="animate-pulse">
-            <CardHeader>
-              <div className="h-4 bg-muted rounded w-3/4 mb-2" />
-              <div className="h-3 bg-muted rounded w-1/2" />
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-2">
-                <div className="h-3 bg-muted rounded" />
-                <div className="h-3 bg-muted rounded w-5/6" />
-              </div>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-    );
-  }
 
   if (posts.length === 0) {
     return (
@@ -106,7 +71,7 @@ export function BlogList() {
         <CardContent>
           <h3 className="text-xl font-semibold mb-4">Content Coming Soon</h3>
           <p className="text-muted-foreground mb-6">
-            I'm working on some exciting blog posts about web development,
+            I&apos;m working on some exciting blog posts about web development,
             Neovim, and open source. Stay tuned!
           </p>
           <Button variant="outline" asChild>
@@ -118,7 +83,7 @@ export function BlogList() {
   }
 
   return (
-    <div className="grid md:grid-cols-2 gap-8">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
       {posts.map((post) => (
         <Card key={post.id} className="hover:shadow-lg transition-shadow group">
           <CardHeader>

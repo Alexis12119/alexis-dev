@@ -311,7 +311,7 @@ Location: Philippines (Remote work preferred)
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <h3 className="font-semibold mb-2">Education</h3>
-                <p className="text-sm">Currently pursuing Bachelor's Degree</p>
+                <p className="text-sm">Currently pursuing Bachelor&apos;s Degree</p>
                 <p className="text-sm text-muted-foreground">
                   Focus on Computer Science and Software Development
                 </p>

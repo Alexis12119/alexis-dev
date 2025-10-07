@@ -28,14 +28,12 @@ This guide covers deploying your portfolio to various platforms.
    - Vercel auto-detects Next.js
 
 2. **Configure Environment Variables**
-   \`\`\`bash
-   # In Vercel Dashboard → Settings → Environment Variables
-   NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
-   NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_key
-   NEXT_PUBLIC_FORMSPREE_ID=your_formspree_id
-   NEXT_PUBLIC_ADMIN_PASSWORD=your_admin_password
-   NEXT_PUBLIC_GITHUB_USERNAME=your_github_username
-   \`\`\`
+    \`\`\`bash
+    # In Vercel Dashboard → Settings → Environment Variables
+    NEXT_PUBLIC_FORMSPREE_ID=your_formspree_id
+    NEXT_PUBLIC_ADMIN_PASSWORD=your_admin_password
+    NEXT_PUBLIC_GITHUB_USERNAME=your_github_username
+    \`\`\`
 
 3. **Deploy**
    - Click "Deploy"
@@ -120,9 +118,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - NEXT_PUBLIC_SUPABASE_URL=${NEXT_PUBLIC_SUPABASE_URL}
-      - NEXT_PUBLIC_SUPABASE_ANON_KEY=${NEXT_PUBLIC_SUPABASE_ANON_KEY}
-      - NEXT_PUBLIC_FORMSPREE_ID=${NEXT_PUBLIC_FORMSPREE_ID}
+       - NEXT_PUBLIC_FORMSPREE_ID=${NEXT_PUBLIC_FORMSPREE_ID}
       - NEXT_PUBLIC_ADMIN_PASSWORD=${NEXT_PUBLIC_ADMIN_PASSWORD}
 \`\`\`
 

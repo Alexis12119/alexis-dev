@@ -158,10 +158,10 @@ export function ThankYouPage() {
               <Card className="p-6">
                 <div className="flex items-center space-x-3 mb-3">
                   <Mail className="h-5 w-5 text-primary" />
-                  <h3 className="font-semibold">What's Next?</h3>
+                  <h3 className="font-semibold">What&apos;s Next?</h3>
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  I'll review your message and get back to you with a detailed response about your project.
+                  I&apos;ll review your message and get back to you with a detailed response about your project.
                 </p>
               </Card>
 
@@ -223,7 +223,7 @@ export function ThankYouPage() {
           <div className="mt-12 text-center">
             <div className="inline-block bg-muted rounded-lg px-4 py-2 font-mono text-sm">
               <span className="text-primary">$</span> <span className="text-muted-foreground">while true; do</span>{" "}
-              <span className="text-green-500">echo "Thanks for reaching out!"</span>{" "}
+              <span className="text-green-500">echo &quot;Thanks for reaching out!&quot;</span>{" "}
               <span className="text-muted-foreground">; sleep 1; done</span>
             </div>
           </div>

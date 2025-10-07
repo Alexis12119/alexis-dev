@@ -8,8 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { supabase } from "@/lib/supabase"
-import { calculateReadTime } from "@/lib/utils"
+// Removed Supabase and utils imports since we're removing database integration
 import { Lock, Eye, EyeOff } from "lucide-react"
 
 export default function SecretAdminPage() {
@@ -49,40 +48,22 @@ export default function SecretAdminPage() {
     }
   }, [])
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
 
-    try {
-      const readTime = calculateReadTime(formData.content)
-
-      const { data, error } = await supabase.from("blog_posts").insert([
-        {
-          ...formData,
-          read_time: readTime,
-          published_at: new Date().toISOString(),
-        },
-      ])
-
-      if (error) {
-        console.error("Error creating post:", error)
-        alert("Error creating post: " + error.message)
-      } else {
-        alert("Post created successfully!")
-        setFormData({
-          title: "",
-          content: "",
-          excerpt: "",
-          category: "",
-          slug: "",
-        })
-      }
-    } catch (error) {
-      console.error("Error:", error)
-      alert("Error creating post")
-    } finally {
+    // Simulate form submission without database
+    setTimeout(() => {
+      alert("Post creation simulated successfully! (No database integration)")
+      setFormData({
+        title: "",
+        content: "",
+        excerpt: "",
+        category: "",
+        slug: "",
+      })
       setIsSubmitting(false)
-    }
+    }, 1000)
   }
 
   const handleChange = (field: string, value: string) => {

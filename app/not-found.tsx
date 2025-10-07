@@ -26,7 +26,7 @@ export default function NotFound() {
                                 <AlertTriangle className="h-4 w-4 mr-2"/>
                                 <span>$ ls -la requested_page</span>
                             </div>
-                            <div className="text-red-500 mb-4">ls: cannot access 'requested_page': No such file or
+                            <div className="text-red-500 mb-4">ls: cannot access &apos;requested_page&apos;: No such file or
                                 directory
                             </div>
                             <div className="text-primary mb-2">$ echo $ERROR_CODE</div>
@@ -45,7 +45,7 @@ export default function NotFound() {
 
                         <h1 className="text-4xl md:text-5xl font-bold mb-4">404 - Page Not Found</h1>
                         <p className="text-xl text-muted-foreground mb-8">
-                            Oops! The page you're looking for doesn't exist. It might have been moved or deleted.
+                            Oops! The page you&apos;re looking for doesn&apos;t exist. It might have been moved or deleted.
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -68,7 +68,7 @@ export default function NotFound() {
                             <span className="text-primary">$</span> <span
                             className="text-muted-foreground">cd /</span>{" "}
                             <span className="text-green-500">&&</span>{" "}
-                            <span className="text-muted-foreground">find . -name "home"</span>
+                            <span className="text-muted-foreground">find . -name &quot;home&quot;</span>
                         </div>
                     </div>
                 </div>

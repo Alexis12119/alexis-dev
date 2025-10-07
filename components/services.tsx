@@ -87,7 +87,7 @@ export function Services() {
 
               <h3 className="text-2xl font-bold mb-4">Ready to Work Together?</h3>
               <p className="text-muted-foreground mb-6">
-                I'm currently accepting new freelance projects and would love to help bring your ideas to life. Let's
+                I&apos;m currently accepting new freelance projects and would love to help bring your ideas to life. Let&apos;s
                 discuss how we can work together.
               </p>
 

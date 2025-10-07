@@ -69,7 +69,7 @@ export function Contact() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               <span className="font-mono text-primary">~/</span>contact
             </h2>
-            <p className="text-xl text-muted-foreground">Let's build something amazing together</p>
+            <p className="text-xl text-muted-foreground">Let&apos;s build something amazing together</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12">
@@ -78,7 +78,7 @@ export function Contact() {
               <div>
                 <h3 className="text-2xl font-bold mb-6">Get In Touch</h3>
                 <p className="text-muted-foreground mb-8">
-                  I'm always interested in new opportunities and exciting projects. Whether you need a full-stack web
+                  I&apos;m always interested in new opportunities and exciting projects. Whether you need a full-stack web
                   application, mobile app, or just want to chat about technology, feel free to reach out!
                 </p>
               </div>
