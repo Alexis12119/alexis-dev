@@ -86,7 +86,7 @@ export function ProjectsDynamic() {
       title: "BakerPass",
       description:
         "Multi-role appointment scheduling system with QR code integration for seamless check-ins and management.",
-      tech_stack: ["React", "Node.js", "PostgreSQL", "QR Code API"],
+      tech_stack: ["NextJs", "Node.js", "Fastify", "MySQL", "TailwindCSS"],
       type: "Web Application",
       image_url: "/placeholder.svg?height=300&width=400",
       demo_url: "https://github.com/Alexis12119/bakerpass",
