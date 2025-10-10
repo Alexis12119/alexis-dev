@@ -93,8 +93,8 @@ Location: Philippines (Remote work preferred)
     <div className="min-h-screen bg-background print:bg-white">
       <div className={`container mx-auto ${isMobile ? "px-2 py-4" : "px-4 py-8"} max-w-4xl`}>
         {/* Header with actions */}
-        <div className="flex justify-between items-center mb-8 print:hidden">
-          <div className="flex items-center space-x-4">
+        <div className="flex flex-col sm:flex-row justify-between items-center mb-8 print:hidden">
+          <div className="flex items-center space-x-4 mb-4 sm:mb-0">
             <Button variant="ghost" asChild>
               <Link href="/">
                 <ArrowLeft className="h-8 w-8 mr-2" />
@@ -102,13 +102,13 @@ Location: Philippines (Remote work preferred)
             </Button>
             <h1 className="text-2xl font-bold">Resume</h1>
           </div>
-           <div className="flex gap-2">
-             <Button onClick={handleDownload} variant="outline">
-               <Download className="h-4 w-4 mr-2" />
-               Download
-             </Button>
-             <Button onClick={handlePrint}>Print Resume</Button>
-           </div>
+          <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
+            <Button onClick={handleDownload} variant="outline" className="w-full sm:w-auto">
+              <Download className="h-4 w-4 mr-2" />
+              Download
+            </Button>
+            <Button onClick={handlePrint} className="w-full sm:w-auto">Print Resume</Button>
+          </div>
         </div>
 
         {/* Resume Content */}
