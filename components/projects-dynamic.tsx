@@ -22,7 +22,6 @@ interface Project {
 }
 
 export function ProjectsDynamic() {
-
   // Static fallback projects
   const staticProjects = [
     {
@@ -30,7 +29,7 @@ export function ProjectsDynamic() {
       title: "Sali-Seek",
       description:
         "Mobile attendance and performance monitoring application with real-time tracking and analytics dashboard.",
-      tech_stack: ["Flutter", "Firebase", "Dart"],
+      tech_stack: ["Flutter", "Supabase", "Dart"],
       type: "Mobile Application",
       image_url: "/placeholder.svg?height=300&width=400",
       demo_url: "https://github.com/Alexis12119/SaliSeek",
@@ -69,7 +68,14 @@ export function ProjectsDynamic() {
       title: "BakerPass",
       description:
         "Multi-role appointment scheduling system with QR code integration for seamless check-ins and management.",
-      tech_stack: ["NextJs", "Node.js", "Fastify", "MySQL", "TailwindCSS"],
+      tech_stack: [
+        "NextJs",
+        "Node.js",
+        "Fastify",
+        "MySQL",
+        "TailwindCSS",
+        "Docker",
+      ],
       type: "Web Application",
       image_url: "/placeholder.svg?height=300&width=400",
       demo_url: "https://github.com/Alexis12119/bakerpass",
@@ -146,7 +152,7 @@ export function ProjectsDynamic() {
             </p>
 
             <div className="flex flex-wrap gap-2">
-               {project.tech_stack.map((tech: string) => (
+              {project.tech_stack.map((tech: string) => (
                 <Badge key={tech} variant="secondary" className="text-xs">
                   {tech}
                 </Badge>

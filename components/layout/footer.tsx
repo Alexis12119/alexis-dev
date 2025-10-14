@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Github, Mail, Terminal } from "lucide-react"
+import { Github, Linkedin, Mail, Terminal } from "lucide-react"
 
 export function Footer() {
   return (
@@ -20,13 +20,21 @@ export function Footer() {
             >
               <Github className="h-5 w-5" />
             </Link>
-            <Link
-              href="mailto:corporal461@gmail.com"
-              className="text-muted-foreground hover:text-primary transition-colors"
-            >
-              <Mail className="h-5 w-5" />
-            </Link>
-          </div>
+             <Link
+               href="mailto:corporal461@gmail.com"
+               className="text-muted-foreground hover:text-primary transition-colors"
+             >
+               <Mail className="h-5 w-5" />
+             </Link>
+             <Link
+               href="https://www.linkedin.com/in/alexis-corporal-a5b048361"
+               target="_blank"
+               rel="noopener noreferrer"
+               className="text-muted-foreground hover:text-primary transition-colors"
+             >
+               <Linkedin className="h-5 w-5" />
+             </Link>
+           </div>
         </div>
 
         <div className="mt-8 pt-8 border-t text-center text-sm text-muted-foreground">
