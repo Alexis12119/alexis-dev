@@ -178,7 +178,7 @@ export function ResumeDocument() {
                   Mobile attendance and performance monitoring application
                 </p>
                 <p className="text-sm break-words">
-                  Built with Flutter and Firebase for real-time tracking and
+                  Built with Flutter and Supabase for real-time tracking and
                   analytics dashboard
                 </p>
               </div>
