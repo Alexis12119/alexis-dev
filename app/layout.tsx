@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { AchievementsProvider } from "@/hooks/use-achievements";
+import { AchievementsProvider } from "@/lib/contexts/achievements-provider";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { EasterEggHandler } from "@/components/easter-egg-handler";

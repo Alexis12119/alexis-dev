@@ -178,18 +178,12 @@ export function ThankYouPage() {
 
             <div className="bg-muted/50 rounded-lg p-6 mb-8">
               <h3 className="font-semibold mb-3">While You Wait...</h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                 <Link
                   href="/#projects"
                   className="text-primary hover:underline flex items-center justify-center p-2 rounded hover:bg-muted transition-colors"
                 >
                   Check out my projects
-                </Link>
-                <Link
-                  href="/blog"
-                  className="text-primary hover:underline flex items-center justify-center p-2 rounded hover:bg-muted transition-colors"
-                >
-                  Read my blog posts
                 </Link>
                 <Link
                   href="https://github.com/Alexis12119"
