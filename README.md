@@ -1,6 +1,6 @@
 # 🚀 Alexis Corporal - Modern Portfolio Website
 
-A modern, interactive portfolio website built with Next.js 14, featuring a terminal-inspired design, RPG-style resume, achievement system, and dynamic blog functionality.
+A modern, interactive portfolio website built with Next.js 14, featuring a terminal-inspired design, RPG-style resume, achievement system, and clean modular architecture.
 
 ![Portfolio Preview](https://img.shields.io/badge/Status-Live-brightgreen)
 ![Next.js](https://img.shields.io/badge/Next.js-14-black)
@@ -25,23 +25,21 @@ A modern, interactive portfolio website built with Next.js 14, featuring a termi
 - **Command prompt navigation** - Terminal-style site navigation
 - **Syntax highlighting** for code blocks
 
-### 📝 **Content Management**
+### 📝 **Content Sections**
 
-- **Dynamic blog** powered by Supabase
-- **Admin panel** for creating and managing blog posts
-- **Project showcase** with dynamic loading from database
+- **Project showcase** with dynamic loading
 - **Contact form** with Formspree integration
-- **SEO optimized** with proper meta tags and sitemap
+- **SEO optimized** with proper meta tags
 
 ### 🔧 **Technical Features**
 
 - **Next.js 14** with App Router
 - **TypeScript** for type safety
 - **Tailwind CSS** for styling
-- **Supabase** for database and real-time features
 - **Formspree** for contact form handling
 - **shadcn/ui** components
 - **Lucide React** icons
+- **Modular architecture** with separated types, contexts, and components
 
 ## 🚀 Quick Start
 
@@ -49,7 +47,6 @@ A modern, interactive portfolio website built with Next.js 14, featuring a termi
 
 - Node.js 18+
 - npm or yarn
-- Supabase account
 - Formspree account
 
 ### Installation
@@ -72,57 +69,20 @@ A modern, interactive portfolio website built with Next.js 14, featuring a termi
 
    Fill in your environment variables in `.env.local`:
    ```env
-
-    # Formspree Configuration
-
+   # Formspree Configuration
    NEXT_PUBLIC_FORMSPREE_ID=your_formspree_form_id
 
-   # Admin Panel Configuration
-
-   NEXT_PUBLIC_ADMIN_PASSWORD=your_secure_password
-
    # GitHub Configuration
-
    NEXT_PUBLIC_GITHUB_USERNAME=your_github_username
    ```
 
-4. **Set up Supabase database**
-
-   - Create a new Supabase project
-   - Run the SQL script in `scripts/create-blog-tables.sql`
-   - This creates the necessary tables for blog posts and projects
-
-5. **Run the development server**
+4. **Run the development server**
    ```bash
    npm run dev
    ```
 
-6. **Open your browser**
+5. **Open your browser**
    Navigate to [http://localhost:3000](http://localhost:3000)
-
-## 🗄️ Database Setup
-
-### Supabase Configuration
-
-1. **Create a new Supabase project** at [supabase.com](https://supabase.com)
-
-2. **Get your credentials**:
-
-   - Go to Settings → API
-   - Copy your Project URL and anon public key
-
-3. **Run the database setup script**:
-
-   - Go to SQL Editor in Supabase
-   - Copy and run the contents of `scripts/create-blog-tables.sql`
-
-4. **Tables created**:
-   - `blog_posts` - For blog content
-   - `projects` - For project showcase (optional)
-
-### Sample Data
-
-The setup script includes sample blog posts and projects to get you started.
 
 ## 📧 Contact Form Setup
 
@@ -131,7 +91,6 @@ The setup script includes sample blog posts and projects to get you started.
 1. **Create a Formspree account** at [formspree.io](https://formspree.io)
 
 2. **Create a new form**:
-
    - Set up a new form
    - Copy your form ID (e.g., `mdkzwylk`)
 
@@ -145,33 +104,6 @@ The setup script includes sample blog posts and projects to get you started.
    - Spam protection
    - Custom thank you page
    - Form validation
-
-## 🔐 Admin Panel
-
-### Accessing the Admin Panel
-
-1. **Navigate to the admin URL**:
-   ```
-   https://yoursite.com/secret-admin-panel-xyz
-   ```
-
-2. **Enter admin password**:
-
-   - Default: Set in `NEXT_PUBLIC_ADMIN_PASSWORD`
-   - Change this in your environment variables
-
-3. **Admin features**:
-   - Create new blog posts
-   - Auto-generate slugs
-   - Calculate read time
-   - Session-based authentication
-
-### Security Features
-
-- Password protection
-- Session-based authentication
-- Hidden admin URL
-- Environment variable configuration
 
 ## 🎨 Customization
 
@@ -194,7 +126,7 @@ The portfolio includes 5 built-in themes:
 ### Content Updates
 
 - **Personal info**: Update in component files
-- **Projects**: Add to Supabase or modify static data
+- **Projects**: Modify static project data in components
 - **Skills**: Edit `components/skills.tsx`
 - **About section**: Modify `components/about.tsx`
 
@@ -206,7 +138,6 @@ The portfolio includes 5 built-in themes:
 - **About Explorer** - Read about section
 - **Skill Seeker** - Check skills
 - **Project Viewer** - Explore projects
-- **Blog Reader** - Visit blog
 - **Contact Initiator** - Send message
 - **Theme Switcher** - Change themes
 - **Konami Master** - Enter secret code
@@ -261,17 +192,22 @@ Enter the classic Konami code to unlock a special Matrix effect:
 
 ```
 ├── app/ # Next.js app directory
-│ ├── blog/ # Blog pages
-│ ├── resume/ # Resume page
-│ ├── thank-you/ # Thank you page
-│ └── secret-admin-panel-xyz/ # Admin panel
+│ ├── globals.css # Global styles and themes
+│ ├── layout.tsx # Root layout with providers
+│ └── page.tsx # Homepage
 ├── components/ # React components
 │ ├── ui/ # shadcn/ui components
-│ ├── layout/ # Layout components
-│ └── ... # Feature components
+│ ├── layout/ # Layout components (navbar, footer)
+│ ├── achievement-notification.tsx # Achievement notifications
+│ ├── matrix-rain.tsx # Easter egg component
+│ └── ... # Feature components (about, skills, projects, etc.)
 ├── hooks/ # Custom React hooks
-├── lib/ # Utility functions
-├── scripts/ # Database scripts
+│ ├── use-achievements.tsx # Achievement system hook
+│ └── use-easter-eggs.tsx # Easter egg functionality
+├── lib/ # Utility functions and configurations
+│ ├── types/ # TypeScript type definitions
+│ ├── contexts/ # React context providers
+│ └── utils.ts # Utility functions
 └── public/ # Static assets
 ```
 
@@ -282,7 +218,6 @@ Enter the classic Konami code to unlock a special Matrix effect:
 - **Skills** - Technical skills showcase
 - **Projects** - Project portfolio
 - **Resume RPG** - Gamified resume
-- **Blog** - Dynamic blog system
 - **Contact** - Contact form
 
 ### Custom Hooks
@@ -290,23 +225,42 @@ Enter the classic Konami code to unlock a special Matrix effect:
 - `useAchievements` - Achievement system
 - `useEasterEggs` - Easter egg functionality
 
+### Architecture
+
+The codebase follows a modular architecture with:
+- **Types** (`lib/types/`) - Centralized TypeScript interfaces
+- **Contexts** (`lib/contexts/`) - React context providers
+- **Components** - Reusable UI components
+- **Hooks** - Custom React hooks for logic
+
+## 📱 Deployment
+
+### Vercel (Recommended)
+
+1. **Connect your repository** to Vercel
+2. **Add environment variables** in Vercel dashboard:
+   ```env
+   NEXT_PUBLIC_FORMSPREE_ID=your_form_id_here
+   NEXT_PUBLIC_GITHUB_USERNAME=your_github_username
+   ```
+3. **Deploy** - Automatic deployments on push
+
+### Other Platforms
+
+- **Netlify**: Add environment variables and deploy
+- **Railway**: Configure environment and deploy
+- **Self-hosted**: Use `npm run build` and serve the `out` folder
+
 ## 🔧 Scripts
 
 ### Available Commands
 
 ```bash
-
 # Development
-
-npm run dev # Start development server
-npm run build # Build for production
-npm run start # Start production server
-npm run lint # Run ESLint
-
-# Database
-
-# Run scripts/create-blog-tables.sql in Supabase
-
+npm run dev     # Start development server
+npm run build   # Build for production
+npm run start   # Start production server
+npm run lint    # Run ESLint
 ```
 
 ## 🤝 Contributing
@@ -326,7 +280,6 @@ This project is open source and available under the [MIT License](LICENSE).
 - **Next.js** - React framework
 - **Tailwind CSS** - Utility-first CSS
 - **shadcn/ui** - Beautiful components
-- **Supabase** - Backend as a service
 - **Formspree** - Form handling
 - **Lucide** - Beautiful icons
 - **Vercel** - Deployment platform
@@ -341,7 +294,4 @@ This project is open source and available under the [MIT License](LICENSE).
 
 **Built with ❤️ by Alexis Corporal**
 
-_This portfolio showcases modern web development practices and serves as a template for other developers looking to create their own interactive portfolio websites._
-```
-
-Now let`s create a simple deployment guide:
+_A modern, modular portfolio showcasing clean architecture and interactive design._
