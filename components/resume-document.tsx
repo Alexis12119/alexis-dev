@@ -21,17 +21,22 @@ export function ResumeDocument() {
         className={`container mx-auto ${isMobile ? "px-2 py-4" : "px-4 py-8"} max-w-4xl`}
       >
         {/* Header with actions */}
-        <div className="flex flex-col sm:flex-row justify-between items-center mb-8 print:hidden">
-          <div className="flex items-center space-x-4 mb-4 sm:mb-0">
+        <div className="flex flex-col mb-8 print:hidden">
+          <div className="flex items-center">
             <Button variant="ghost" asChild>
               <Link href="/">
-                <ArrowLeft className="h-8 w-8 mr-2" />
+                <ArrowLeft className="h-8 w-8" />
               </Link>
             </Button>
-            <h1 className="text-2xl font-bold">Resume</h1>
+            <div className="flex-1 flex justify-center">
+              <h1 className="text-2xl font-bold -ml-9">Resume</h1>
+            </div>
+            <Button onClick={handlePrint} className="hidden sm:block">
+              Print Resume
+            </Button>
           </div>
-          <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
-            <Button onClick={handlePrint} className="w-full sm:w-auto">
+          <div className="flex justify-center mt-4 sm:hidden">
+            <Button onClick={handlePrint} className="w-full">
               Print Resume
             </Button>
           </div>

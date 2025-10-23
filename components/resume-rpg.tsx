@@ -8,13 +8,26 @@ import { Progress } from "@/components/ui/progress";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useAchievements } from "@/hooks/use-achievements";
 import { useGithubData } from "@/hooks/use-github-data";
-import { Briefcase, Code, Zap, Heart, Star, Trophy, Coffee, Layers, Server, Database, Edit, GitBranch, Lightbulb } from "lucide-react";
+import {
+  Briefcase,
+  Code,
+  Zap,
+  Heart,
+  Star,
+  Trophy,
+  Coffee,
+  Layers,
+  Server,
+  Database,
+  Edit,
+  GitBranch,
+  Lightbulb,
+} from "lucide-react";
 
 export function ResumeRPG() {
   const { unlockAchievement } = useAchievements();
   const [selectedTab, setSelectedTab] = useState("stats");
   const { data: githubData } = useGithubData();
-
 
   const birthDate = new Date("2004-11-16");
   const today = new Date();
@@ -57,8 +70,16 @@ export function ResumeRPG() {
     { name: "TypeScript", level: 87, icon: <Code className="h-4 w-4" /> },
     { name: "Database", level: 80, icon: <Database className="h-4 w-4" /> },
     { name: "Neovim", level: 95, icon: <Edit className="h-4 w-4" /> },
-    { name: "Git Version Control", level: 83, icon: <GitBranch className="h-4 w-4" /> },
-    { name: "Problem Solving", level: 92, icon: <Lightbulb className="h-4 w-4" /> },
+    {
+      name: "Git Version Control",
+      level: 83,
+      icon: <GitBranch className="h-4 w-4" />,
+    },
+    {
+      name: "Problem Solving",
+      level: 92,
+      icon: <Lightbulb className="h-4 w-4" />,
+    },
   ];
 
   const projects = [
@@ -108,9 +129,16 @@ export function ResumeRPG() {
       ];
     }
     const totalRepos = repos.length;
-    const totalStars = repos.reduce((sum, repo) => sum + repo.stargazers_count, 0);
-    const totalContributions = events.filter(event => ['PushEvent', 'IssuesEvent', 'PullRequestEvent'].includes(event.type)).length;
-    const languages = [...new Set(repos.map(repo => repo.language).filter(Boolean))];
+    const totalStars = repos.reduce(
+      (sum, repo) => sum + repo.stargazers_count,
+      0,
+    );
+    const totalContributions = events.filter((event) =>
+      ["PushEvent", "IssuesEvent", "PullRequestEvent"].includes(event.type),
+    ).length;
+    const languages = [
+      ...new Set(repos.map((repo) => repo.language).filter(Boolean)),
+    ];
 
     return [
       {
@@ -123,19 +151,30 @@ export function ResumeRPG() {
         name: "Community Favorite",
         description: `Earned ${totalStars} stars across projects`,
         date: "Ongoing",
-        rarity: totalStars > 50 ? "legendary" : totalStars > 10 ? "rare" : "common",
+        rarity:
+          totalStars > 50 ? "legendary" : totalStars > 10 ? "rare" : "common",
       },
       {
         name: "Active Contributor",
         description: `Made ${totalContributions} contributions`,
         date: "Ongoing",
-        rarity: totalContributions > 100 ? "epic" : totalContributions > 50 ? "rare" : "common",
+        rarity:
+          totalContributions > 100
+            ? "epic"
+            : totalContributions > 50
+              ? "rare"
+              : "common",
       },
       {
         name: "Polyglot Developer",
         description: `Worked with ${languages.length} programming languages`,
         date: "Ongoing",
-        rarity: languages.length > 5 ? "legendary" : languages.length > 3 ? "epic" : "rare",
+        rarity:
+          languages.length > 5
+            ? "legendary"
+            : languages.length > 3
+              ? "epic"
+              : "rare",
       },
       {
         name: "Open Source Advocate",
@@ -192,35 +231,34 @@ export function ResumeRPG() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               <span className="font-mono text-primary">~/</span>resume.rpg
             </h2>
-             <p className="text-xl text-muted-foreground">
-               Professional Profile & Career Overview
-             </p>
+            <p className="text-xl text-muted-foreground">
+              Professional Profile & Career Overview
+            </p>
           </div>
 
           {/* Character Overview */}
           <Card className="mb-8 bg-gradient-to-r from-primary/10 to-secondary/10 border-2">
-             <CardHeader>
-               <div className="flex items-center justify-between">
-                 <div>
-                   <CardTitle className="text-2xl flex items-center">
-                     <Briefcase className="h-6 w-6 mr-2 text-primary" />
-                     {characterStats.class}
-                   </CardTitle>
-                   <p className="text-muted-foreground">
-                     {characterStats.title}
-                   </p>
-                 </div>
-                 <div className="text-right">
-                   <div className="text-3xl font-bold text-primary">
-                     Lv. {characterStats.level}
-                   </div>
-                   <div className="text-sm text-muted-foreground">
-                     College Student
-                   </div>
-                 </div>
-               </div>
-
-             </CardHeader>
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <div>
+                  <CardTitle className="text-2xl flex items-center">
+                    <Briefcase className="h-6 w-6 mr-2 text-primary" />
+                    {characterStats.class}
+                  </CardTitle>
+                  <p className="text-muted-foreground">
+                    {characterStats.title}
+                  </p>
+                </div>
+                <div className="text-right">
+                  <div className="text-3xl font-bold text-primary">
+                    Lv. {characterStats.level}
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    College Student
+                  </div>
+                </div>
+              </div>
+            </CardHeader>
             <CardContent>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div className="flex items-center space-x-2">
@@ -264,44 +302,52 @@ export function ResumeRPG() {
             </CardContent>
           </Card>
 
-           <Tabs
-             value={selectedTab}
-             onValueChange={setSelectedTab}
-             className="w-full"
-           >
-              <div className="mb-8 overflow-x-auto">
-                <TabsList className="inline-flex w-max min-w-full sm:w-full sm:justify-center">
-                  <TabsTrigger value="stats" className="whitespace-nowrap">Overview</TabsTrigger>
-                  <TabsTrigger value="skills" className="whitespace-nowrap">Skills</TabsTrigger>
-                  <TabsTrigger value="achievements" className="whitespace-nowrap">Achievements</TabsTrigger>
-                  <TabsTrigger value="inventory" className="whitespace-nowrap">Tools</TabsTrigger>
-                </TabsList>
-              </div>
+          <Tabs
+            value={selectedTab}
+            onValueChange={setSelectedTab}
+            className="w-full"
+          >
+            <div className="mb-8 overflow-x-auto">
+              <TabsList className="inline-flex w-max min-w-full sm:w-full sm:justify-center">
+                <TabsTrigger value="stats" className="whitespace-nowrap">
+                  Overview
+                </TabsTrigger>
+                <TabsTrigger value="skills" className="whitespace-nowrap">
+                  Skills
+                </TabsTrigger>
+                <TabsTrigger value="achievements" className="whitespace-nowrap">
+                  Achievements
+                </TabsTrigger>
+                <TabsTrigger value="inventory" className="whitespace-nowrap">
+                  Tools
+                </TabsTrigger>
+              </TabsList>
+            </div>
 
-             <TabsContent value="stats" className="mt-6">
-               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <TabsContent value="stats" className="mt-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <Card>
                   <CardHeader>
-                     <CardTitle className="flex items-center">
-                       <Code className="h-5 w-5 mr-2" />
-                       Core Attributes
-                     </CardTitle>
+                    <CardTitle className="flex items-center">
+                      <Code className="h-5 w-5 mr-2" />
+                      Core Attributes
+                    </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
                      {Object.entries(attributes).map(([attr, value]) => (
-                       <div
-                         key={attr}
-                         className="flex items-center justify-between"
-                       >
-                         <span className="capitalize font-medium">
-                           {attr.replace(/([A-Z])/g, " $1")}
-                         </span>
-                          <div className="flex items-center space-x-2">
-                            <Progress value={value} className="w-24" />
-                            <span className="text-sm font-mono w-8">{value}</span>
-                          </div>
-                       </div>
-                     ))}
+                         <div
+                          key={attr}
+                          className="flex flex-col sm:flex-row sm:items-center sm:justify-between"
+                        >
+                          <span className="capitalize font-medium text-base sm:text-sm">
+                            {attr.replace(/([A-Z])/g, " $1")}
+                          </span>
+                           <div className="flex items-center space-x-4">
+                             <Progress value={value} className="w-24 sm:w-20" />
+                             <span className="text-sm font-mono w-8 sm:w-6">{value}</span>
+                           </div>
+                           </div>
+                      ))}
                   </CardContent>
                 </Card>
 
@@ -310,33 +356,49 @@ export function ResumeRPG() {
                     <CardTitle>Character Info</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-3">
-                    <div className="flex justify-between">
-                      <span className="text-muted-foreground">Race:</span>
-                      <span>Human</span>
+                    <div className="flex flex-col sm:flex-row sm:justify-between gap-1">
+                      <span className="text-muted-foreground text-base sm:text-sm">
+                        Race:
+                      </span>
+                      <span className="text-sm sm:text-base">Human</span>
                     </div>
-                    <div className="flex justify-between">
-                      <span className="text-muted-foreground">Class:</span>
-                      <span>Full-Stack Developer</span>
+                    <div className="flex flex-col sm:flex-row sm:justify-between gap-1">
+                      <span className="text-muted-foreground text-base sm:text-sm">
+                        Class:
+                      </span>
+                      <span className="text-sm sm:text-base">
+                        Full-Stack Developer
+                      </span>
                     </div>
-                    <div className="flex justify-between">
-                      <span className="text-muted-foreground">
+                    <div className="flex flex-col sm:flex-row sm:justify-between gap-1">
+                      <span className="text-muted-foreground text-base sm:text-sm">
                         Specialization:
                       </span>
-                      <span>Back End Development</span>
+                      <span className="text-sm sm:text-base">
+                        Back End Development
+                      </span>
                     </div>
-                    <div className="flex justify-between">
-                      <span className="text-muted-foreground">Guild:</span>
-                      <span>Open Source Contributors</span>
+                    <div className="flex flex-col sm:flex-row sm:justify-between gap-1">
+                      <span className="text-muted-foreground text-base sm:text-sm">
+                        Guild:
+                      </span>
+                      <span className="text-sm sm:text-base">
+                        Open Source Contributors
+                      </span>
                     </div>
-                    <div className="flex justify-between">
-                      <span className="text-muted-foreground">Location:</span>
-                      <span>Philippines</span>
+                    <div className="flex flex-col sm:flex-row sm:justify-between gap-1">
+                      <span className="text-muted-foreground text-base sm:text-sm">
+                        Location:
+                      </span>
+                      <span className="text-sm sm:text-base">Philippines</span>
                     </div>
-                    <div className="flex justify-between">
-                      <span className="text-muted-foreground">Status:</span>
+                    <div className="flex flex-col sm:flex-row sm:justify-between gap-1">
+                      <span className="text-muted-foreground text-base sm:text-sm">
+                        Status:
+                      </span>
                       <Badge
                         variant="outline"
-                        className="text-green-600 border-green-600"
+                        className="text-green-600 border-green-600 text-xs sm:text-sm"
                       >
                         Available for Job Quests
                       </Badge>
@@ -346,20 +408,20 @@ export function ResumeRPG() {
               </div>
             </TabsContent>
 
-             <TabsContent value="skills" className="mt-6">
-               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <TabsContent value="skills" className="mt-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {skills.map((skill, index) => (
                   <Card
                     key={index}
                     className="hover:shadow-lg transition-shadow"
                   >
                     <CardContent className="p-4">
-                       <div className="flex items-center justify-between mb-2">
-                         <div className="flex items-center space-x-2">
-                           {skill.icon}
-                           <span className="font-medium">{skill.name}</span>
-                         </div>
-                       </div>
+                      <div className="flex items-center justify-between mb-2">
+                        <div className="flex items-center space-x-2">
+                          {skill.icon}
+                          <span className="font-medium">{skill.name}</span>
+                        </div>
+                      </div>
                       <div className="flex items-center space-x-2">
                         <Progress value={skill.level} className="flex-1" />
                         <span className="text-sm font-mono w-8">
@@ -372,38 +434,40 @@ export function ResumeRPG() {
               </div>
             </TabsContent>
 
-             <TabsContent value="projects" className="mt-6">
-               <div className="space-y-4">
-                 {projects.map((project, index) => (
-                   <Card key={index}>
-                     <CardContent className="p-4">
-                       <div className="flex items-center justify-between mb-2">
-                         <h3 className="font-semibold">{project.name}</h3>
-                         <Badge
-                           variant={
-                             project.status === "Completed" ? "default" : "outline"
-                           }
-                           className={
-                             project.status === "Completed" ? "bg-green-600" : ""
-                           }
-                         >
-                           {project.status}
-                         </Badge>
-                       </div>
-                       <div className="flex items-center space-x-4">
-                         <Progress value={project.progress} className="flex-1" />
-                         <span className="text-sm text-muted-foreground">
-                           Reward: {project.reward}
-                         </span>
-                       </div>
-                     </CardContent>
-                   </Card>
-                 ))}
-               </div>
+            <TabsContent value="projects" className="mt-6">
+              <div className="space-y-4">
+                {projects.map((project, index) => (
+                  <Card key={index}>
+                    <CardContent className="p-4">
+                      <div className="flex items-center justify-between mb-2">
+                        <h3 className="font-semibold">{project.name}</h3>
+                        <Badge
+                          variant={
+                            project.status === "Completed"
+                              ? "default"
+                              : "outline"
+                          }
+                          className={
+                            project.status === "Completed" ? "bg-green-600" : ""
+                          }
+                        >
+                          {project.status}
+                        </Badge>
+                      </div>
+                      <div className="flex items-center space-x-4">
+                        <Progress value={project.progress} className="flex-1" />
+                        <span className="text-sm text-muted-foreground">
+                          Reward: {project.reward}
+                        </span>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
             </TabsContent>
 
-             <TabsContent value="achievements" className="mt-6">
-               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <TabsContent value="achievements" className="mt-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {achievements.map((achievement, index) => (
                   <Card
                     key={index}
@@ -434,33 +498,33 @@ export function ResumeRPG() {
               </div>
             </TabsContent>
 
-             <TabsContent value="inventory" className="mt-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                 {tools.map((tool, index) => (
-                   <Card
-                     key={index}
-                     className={`border-2 ${getRarityColor(tool.rarity)}`}
-                   >
-                     <CardContent className="p-4">
-                       <div className="flex items-center justify-between mb-2">
-                         <h3 className="font-semibold">{tool.name}</h3>
-                         <Badge
-                           variant="outline"
-                           className={getRarityColor(tool.rarity)}
-                         >
-                           {tool.rarity}
-                         </Badge>
-                       </div>
-                       <p className="text-sm text-muted-foreground mb-1">
-                         {tool.type}
-                       </p>
-                       <p className="text-xs text-muted-foreground">
-                         {tool.description}
-                       </p>
-                     </CardContent>
-                   </Card>
-                 ))}
-               </div>
+            <TabsContent value="inventory" className="mt-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {tools.map((tool, index) => (
+                  <Card
+                    key={index}
+                    className={`border-2 ${getRarityColor(tool.rarity)}`}
+                  >
+                    <CardContent className="p-4">
+                      <div className="flex items-center justify-between mb-2">
+                        <h3 className="font-semibold">{tool.name}</h3>
+                        <Badge
+                          variant="outline"
+                          className={getRarityColor(tool.rarity)}
+                        >
+                          {tool.rarity}
+                        </Badge>
+                      </div>
+                      <p className="text-sm text-muted-foreground mb-1">
+                        {tool.type}
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        {tool.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
             </TabsContent>
           </Tabs>
         </div>
