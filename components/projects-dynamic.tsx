@@ -63,39 +63,39 @@ export function ProjectsDynamic() {
       featured: true,
       created_at: "2024-01-01T00:00:00Z",
     },
-    {
-      id: "4",
-      title: "BakerPass",
-      description:
-        "Multi-role appointment scheduling system with QR code integration for seamless check-ins and management.",
-      tech_stack: [
-        "NextJs",
-        "Node.js",
-        "Fastify",
-        "MySQL",
-        "TailwindCSS",
-        "Docker",
-      ],
-      type: "Web Application",
-      image_url: "/placeholder.svg?height=300&width=400",
-      demo_url: "https://github.com/Alexis12119/bakerpass",
-      github_url: "https://github.com/Alexis12119/bakerpass",
-      featured: true,
-      created_at: "2024-01-01T00:00:00Z",
-    },
-    {
-      id: "5",
-      title: "nvim-config",
-      description:
-        "Personalized Neovim configuration with custom plugins, optimizations, and development workflow enhancements.",
-      tech_stack: ["Lua", "Neovim", "Plugin Development"],
-      type: "Development Tool",
-      image_url: "/placeholder.svg?height=300&width=400",
-      demo_url: "https://github.com/Alexis12119/nvim-config",
-      github_url: "https://github.com/Alexis12119/nvim-config",
-      featured: true,
-      created_at: "2024-01-01T00:00:00Z",
-    },
+    // {
+    //   id: "4",
+    //   title: "BakerPass",
+    //   description:
+    //     "Multi-role appointment scheduling system with QR code integration for seamless check-ins and management.",
+    //   tech_stack: [
+    //     "NextJs",
+    //     "Node.js",
+    //     "Fastify",
+    //     "MySQL",
+    //     "TailwindCSS",
+    //     "Docker",
+    //   ],
+    //   type: "Web Application",
+    //   image_url: "/placeholder.svg?height=300&width=400",
+    //   demo_url: "https://github.com/Alexis12119/bakerpass",
+    //   github_url: "https://github.com/Alexis12119/bakerpass",
+    //   featured: true,
+    //   created_at: "2024-01-01T00:00:00Z",
+    // },
+    // {
+    //   id: "5",
+    //   title: "nvim-config",
+    //   description:
+    //     "Personalized Neovim configuration with custom plugins, optimizations, and development workflow enhancements.",
+    //   tech_stack: ["Lua", "Neovim", "Plugin Development"],
+    //   type: "Development Tool",
+    //   image_url: "/placeholder.svg?height=300&width=400",
+    //   demo_url: "https://github.com/Alexis12119/nvim-config",
+    //   github_url: "https://github.com/Alexis12119/nvim-config",
+    //   featured: true,
+    //   created_at: "2024-01-01T00:00:00Z",
+    // },
   ];
 
   return (
