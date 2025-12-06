@@ -206,16 +206,6 @@ export function ResumeDocument() {
                   detected equations
                 </p>
               </div>
-              <div>
-                <h3 className="font-semibold">nvim-config</h3>
-                <p className="text-sm text-muted-foreground mb-1">
-                  Personalized Neovim configuration
-                </p>
-                <p className="text-sm break-words">
-                  Custom plugins and optimizations shared with the open source
-                  community
-                </p>
-              </div>
             </div>
           </section>
 
