@@ -9,6 +9,7 @@ import { Heading } from "@/components/typography/Heading";
 import { ExternalLink } from "lucide-react";
 import { cn } from "@/utils/cn";
 import { formatDate } from "@/utils/formatDate";
+import { ImageLightbox } from "@/components/ui/ImageLightbox";
 import type { Project } from "@/types/project";
 
 interface ProjectCardProps {
@@ -19,12 +20,21 @@ export function ProjectCard({ project }: ProjectCardProps) {
   const allImages = [project.screenshot, ...project.screenshots];
   const [selectedImage, setSelectedImage] = useState(0);
   const [imgError, setImgError] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(-1);
+
+  const lightboxImages = allImages.map((src) => ({
+    src,
+    alt: `${project.title} screenshot`,
+  }));
 
   return (
     <article className="border border-[#E5E7EB] bg-white hover:border-2 hover:border-[#111111] hover:scale-[1.02] transition-all duration-300">
       <div className="md:flex">
         <div className="md:w-2/5 shrink-0">
-          <div className="relative aspect-[4/3] overflow-hidden bg-[#F3F4F6]">
+          <div
+            className="relative aspect-[4/3] overflow-hidden bg-[#F3F4F6] cursor-pointer"
+            onClick={() => setLightboxIndex(selectedImage)}
+          >
             {imgError ? (
               <div className="absolute inset-0 flex items-center justify-center text-sm text-[#6B7280]">
                 <div className="text-center">
@@ -75,7 +85,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           )}
         </div>
 
-        <div className="p-4 md:p-5 md:flex-1">
+        <div className="p-4 md:p-5 md:flex-1 flex flex-col">
           <div className="flex items-start justify-between gap-3 mb-2">
             <Heading as="h3" className="text-xl">
               {project.title}
@@ -115,7 +125,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-[#111111] hover:text-[#6B7280] transition-colors"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-[#111111] hover:text-[#6B7280] transition-colors mt-auto"
             >
               <ExternalLink size={14} />
               View on GitHub
@@ -123,6 +133,14 @@ export function ProjectCard({ project }: ProjectCardProps) {
           )}
         </div>
       </div>
+
+      {lightboxIndex >= 0 && (
+        <ImageLightbox
+          images={lightboxImages}
+          initialIndex={lightboxIndex}
+          onClose={() => setLightboxIndex(-1)}
+        />
+      )}
     </article>
   );
 }

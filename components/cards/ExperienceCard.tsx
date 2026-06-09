@@ -7,6 +7,7 @@ import { BodyText } from "@/components/typography/BodyText";
 import { Heading } from "@/components/typography/Heading";
 import { cn } from "@/utils/cn";
 import { formatDate } from "@/utils/formatDate";
+import { ImageLightbox } from "@/components/ui/ImageLightbox";
 import type { Experience } from "@/types/experience";
 
 interface ExperienceCardProps {
@@ -22,13 +23,22 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
         ]
       : [];
   const [selectedImage, setSelectedImage] = useState(0);
+  const [lightboxIndex, setLightboxIndex] = useState(-1);
+
+  const lightboxImages = allImages.map((src) => ({
+    src,
+    alt: `${experience.company} screenshot`,
+  }));
 
   return (
     <article className="border border-[#E5E7EB] bg-white hover:border-2 hover:border-[#111111] hover:scale-[1.02] transition-all duration-300">
       <div className="md:flex">
         {allImages.length > 0 && (
           <div className="md:w-2/5 shrink-0">
-            <div className="relative aspect-[4/3] overflow-hidden bg-[#F3F4F6]">
+            <div
+              className="relative aspect-[4/3] overflow-hidden bg-[#F3F4F6] cursor-pointer"
+              onClick={() => setLightboxIndex(selectedImage)}
+            >
               <Image
                 src={allImages[selectedImage]}
                 alt={`${experience.company} screenshot ${selectedImage + 1}`}
@@ -98,6 +108,14 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
           </ul>
         </div>
       </div>
+
+      {lightboxIndex >= 0 && (
+        <ImageLightbox
+          images={lightboxImages}
+          initialIndex={lightboxIndex}
+          onClose={() => setLightboxIndex(-1)}
+        />
+      )}
     </article>
   );
 }
