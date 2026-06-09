@@ -28,15 +28,15 @@ export function ProjectCard({ project }: ProjectCardProps) {
   }));
 
   return (
-    <article className="border border-[#E5E7EB] bg-white hover:border-2 hover:border-[#111111] hover:scale-[1.02] transition-all duration-300 overflow-hidden">
+    <article className="border border-[#E5E7EB] bg-white hover:border-2 hover:border-[#111111] hover:scale-[1.02] transition-all duration-300 overflow-hidden h-full">
       <div className="md:flex">
-        <div className="md:w-2/5 shrink-0">
+        <div className="md:w-2/5 shrink-0 flex flex-col">
           <div
-            className="relative w-full overflow-hidden bg-[#F3F4F6] cursor-pointer"
+            className="relative w-full flex-1 min-h-[160px] overflow-hidden bg-[#F3F4F6] cursor-pointer"
             onClick={() => setLightboxIndex(selectedImage)}
           >
             {imgError ? (
-              <div className="flex items-center justify-center text-sm text-[#6B7280] min-h-[150px] md:min-h-[200px]">
+              <div className="flex items-center justify-center text-sm text-[#6B7280] h-full">
                 <div className="text-center">
                   <span className="text-2xl font-semibold tracking-tight block mb-1">
                     {project.title.split(" ").map((w) => w[0]).join("").slice(0, 3)}
@@ -49,8 +49,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 src={allImages[selectedImage]}
                 alt={`${project.title} screenshot ${selectedImage + 1}`}
                 width={800}
-                height={450}
-                className="w-full object-cover transition-opacity duration-300"
+                height={600}
+                className="w-full h-full object-cover transition-opacity duration-300"
                 sizes="(max-width: 768px) 100vw, 420px"
                 placeholder="blur"
                 blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/+F9PQAI8wNPvd7POQAAAABJRU5ErkJggg=="
@@ -60,7 +60,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </div>
 
           {!imgError && allImages.length > 1 && (
-            <div className="flex gap-2 px-3 pt-2 pb-1 overflow-x-auto">
+            <div className="flex gap-2 px-3 pt-2 pb-1 overflow-x-auto shrink-0">
               {allImages.map((img, i) => (
                 <button
                   key={img}
@@ -109,7 +109,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
           <BodyText className="mb-2 md:mb-3 text-sm md:text-base">{project.summary}</BodyText>
 
-          <ul className="space-y-1 mb-2 md:mb-3">
+          <ul className="space-y-1 flex-1">
             {project.details.map((detail, i) => (
               <li key={i} className="text-xs md:text-sm text-[#4B5563] flex items-start gap-1.5">
                 <span className="mt-1 block h-1 w-1 shrink-0 rounded-full bg-[#4B5563]" />
@@ -118,23 +118,24 @@ export function ProjectCard({ project }: ProjectCardProps) {
             ))}
           </ul>
 
-          <div className="flex flex-wrap gap-1 mb-2 md:mb-3">
-            {project.technologies.map((tech) => (
-              <Tag key={tech}>{tech}</Tag>
-            ))}
+          <div className="flex items-end justify-between gap-2 mt-auto pt-2 md:pt-3">
+            <div className="flex flex-wrap gap-1">
+              {project.technologies.map((tech) => (
+                <Tag key={tech}>{tech}</Tag>
+              ))}
+            </div>
+            {project.githubUrl && (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="shrink-0 inline-flex items-center gap-1.5 text-xs md:text-sm font-medium text-[#111111] hover:text-[#6B7280] transition-colors"
+              >
+                <ExternalLink size={12} />
+                View on GitHub
+              </a>
+            )}
           </div>
-
-          {project.githubUrl && (
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs md:text-sm font-medium text-[#111111] hover:text-[#6B7280] transition-colors"
-            >
-              <ExternalLink size={12} />
-              View on GitHub
-            </a>
-          )}
         </div>
       </div>
 

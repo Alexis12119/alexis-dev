@@ -10,7 +10,9 @@ import { motion } from "framer-motion";
 import { staggerContainer, fadeInUp } from "@/utils/animation";
 
 export function SelectedWork() {
-  const sorted = sortProjectsByYear(PROJECTS);
+  const sorted = sortProjectsByYear(PROJECTS).filter(
+    (p) => p.id !== "soroban-solver",
+  );
 
   return (
     <Section id="work" className="border-t border-[#E5E7EB]">
@@ -29,7 +31,7 @@ export function SelectedWork() {
           viewport={{ once: true, margin: "-100px" }}
         >
           {sorted.map((project) => (
-            <motion.div key={project.id} variants={fadeInUp}>
+            <motion.div key={project.id} variants={fadeInUp} className="h-full">
               <ProjectCard project={project} />
             </motion.div>
           ))}

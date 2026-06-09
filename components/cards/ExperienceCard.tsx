@@ -35,13 +35,13 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
     <article className="border border-[#E5E7EB] bg-white hover:border-2 hover:border-[#111111] hover:scale-[1.02] transition-all duration-300 overflow-hidden">
       <div className="md:flex">
         {allImages.length > 0 && (
-          <div className="md:w-2/5 shrink-0">
+          <div className="md:w-2/5 shrink-0 flex flex-col">
             <div
-              className="relative w-full overflow-hidden bg-[#F3F4F6] cursor-pointer"
+              className="relative w-full flex-1 min-h-[160px] overflow-hidden bg-[#F3F4F6] cursor-pointer"
               onClick={() => setLightboxIndex(selectedImage)}
             >
               {imgError ? (
-                <div className="flex items-center justify-center text-sm text-[#6B7280] min-h-[150px] md:min-h-[200px]">
+                <div className="flex items-center justify-center text-sm text-[#6B7280] min-h-[160px]">
                   <div className="text-center">
                     <span className="text-2xl font-semibold tracking-tight block mb-1">
                       {experience.company.split(" ").map((w) => w[0]).join("").slice(0, 3)}
@@ -54,8 +54,8 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
                   src={allImages[selectedImage]}
                   alt={`${experience.company} screenshot ${selectedImage + 1}`}
                   width={800}
-                  height={450}
-                  className="w-full object-cover transition-opacity duration-300"
+                  height={600}
+                  className="w-full h-full object-cover transition-opacity duration-300"
                   sizes="(max-width: 768px) 100vw, 420px"
                   placeholder="blur"
                   blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/+F9PQAI8wNPvd7POQAAAABJRUhErkJggg=="
@@ -65,7 +65,7 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
             </div>
 
             {allImages.length > 1 && (
-              <div className="flex gap-2 px-3 pt-2 pb-1 overflow-x-auto">
+              <div className="flex gap-2 px-3 pt-2 pb-1 overflow-x-auto shrink-0">
                 {allImages.map((img, i) => (
                   <button
                     key={img}
