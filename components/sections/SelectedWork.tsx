@@ -10,9 +10,7 @@ import { motion } from "framer-motion";
 import { staggerContainer, fadeInUp } from "@/utils/animation";
 
 export function SelectedWork() {
-  const sorted = sortProjectsByYear(PROJECTS).filter(
-    (p) => p.id !== "soroban-solver",
-  );
+  const sorted = sortProjectsByYear(PROJECTS);
 
   return (
     <Section id="work" className="border-t border-[#E5E7EB]">
