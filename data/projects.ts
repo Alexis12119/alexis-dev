@@ -56,7 +56,7 @@ export const PROJECTS: Project[] = [
     title: "BakerPass",
     year: 2025,
     summary:
-      "Multi-tenant appointment and visitor management system for Franklin Baker Corporation. Handles the complete visitor lifecycle from booking to check-out, with special support for high-care protocol areas requiring nurse approval.",
+      "Multi-role appointment and visitor management system for Franklin Baker Corporation. Handles the complete visitor lifecycle from booking to check-out, with special support for high-care protocol areas requiring nurse approval.",
     technologies: [
       "Next.js",
       "React",
@@ -75,7 +75,7 @@ export const PROJECTS: Project[] = [
       "/images/BakerPass/mobile.png",
     ],
     details: [
-      "Multi-tenant system with six user roles including Nurse and SuperAdmin",
+      "Multi-role system with six user roles including Nurse and SuperAdmin",
       "High-care module with medical protocol, health declarations, and PDF generation",
       "Real-time WebSocket updates for live status changes without page refresh",
       "Flutter mobile app for visitor-facing appointment booking",

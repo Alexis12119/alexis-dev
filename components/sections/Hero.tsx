@@ -1,10 +1,9 @@
 "use client";
 
 import { SITE_CONFIG } from "@/config/site";
-import { SOCIALS } from "@/config/socials";
 import { Container } from "@/components/layout/Container";
 import { LinkButton } from "@/components/shared/LinkButton";
-import { ArrowDown, Download, Mail } from "lucide-react";
+import { ArrowDown, Download } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer } from "@/utils/animation";
 
@@ -63,10 +62,7 @@ export function Hero() {
               <Download size={16} />
               Download Resume
             </LinkButton>
-            <LinkButton href={`mailto:${SOCIALS.email}`} variant="ghost">
-              <Mail size={16} />
-              Contact
-            </LinkButton>
+
           </motion.div>
         </motion.div>
       </Container>
