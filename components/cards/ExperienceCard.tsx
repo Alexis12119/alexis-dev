@@ -23,6 +23,7 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
         ]
       : [];
   const [selectedImage, setSelectedImage] = useState(0);
+  const [imgError, setImgError] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(-1);
 
   const lightboxImages = allImages.map((src) => ({
@@ -31,31 +32,46 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
   }));
 
   return (
-    <article className="border border-[#E5E7EB] bg-white hover:border-2 hover:border-[#111111] hover:scale-[1.02] transition-all duration-300">
+    <article className="border border-[#E5E7EB] bg-white hover:border-2 hover:border-[#111111] hover:scale-[1.02] transition-all duration-300 overflow-hidden">
       <div className="md:flex">
         {allImages.length > 0 && (
           <div className="md:w-2/5 shrink-0">
             <div
-              className="relative aspect-[4/3] overflow-hidden bg-[#F3F4F6] cursor-pointer"
+              className="relative w-full overflow-hidden bg-[#F3F4F6] cursor-pointer"
               onClick={() => setLightboxIndex(selectedImage)}
             >
-              <Image
-                src={allImages[selectedImage]}
-                alt={`${experience.company} screenshot ${selectedImage + 1}`}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 420px"
-              />
+              {imgError ? (
+                <div className="flex items-center justify-center text-sm text-[#6B7280] min-h-[150px] md:min-h-[200px]">
+                  <div className="text-center">
+                    <span className="text-2xl font-semibold tracking-tight block mb-1">
+                      {experience.company.split(" ").map((w) => w[0]).join("").slice(0, 3)}
+                    </span>
+                    <span>Screenshot unavailable</span>
+                  </div>
+                </div>
+              ) : (
+                <Image
+                  src={allImages[selectedImage]}
+                  alt={`${experience.company} screenshot ${selectedImage + 1}`}
+                  width={800}
+                  height={450}
+                  className="w-full object-cover transition-opacity duration-300"
+                  sizes="(max-width: 768px) 100vw, 420px"
+                  placeholder="blur"
+                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/+F9PQAI8wNPvd7POQAAAABJRUhErkJggg=="
+                  onError={() => setImgError(true)}
+                />
+              )}
             </div>
 
             {allImages.length > 1 && (
-              <div className="flex gap-2 px-4 pt-2.5 pb-1 overflow-x-auto">
+              <div className="flex gap-2 px-3 pt-2 pb-1 overflow-x-auto">
                 {allImages.map((img, i) => (
                   <button
                     key={img}
                     onClick={() => setSelectedImage(i)}
                     className={cn(
-                      "relative w-16 h-10 shrink-0 overflow-hidden border transition-colors",
+                      "shrink-0 overflow-hidden border transition-colors",
                       i === selectedImage
                         ? "border-[#111111]"
                         : "border-[#E5E7EB] hover:border-[#4B5563]",
@@ -65,9 +81,10 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
                     <Image
                       src={img}
                       alt={`${experience.company} thumbnail ${i + 1}`}
-                      fill
-                      className="object-cover"
-                      sizes="80px"
+                      width={72}
+                      height={54}
+                      className="object-cover w-[72px] md:w-16 h-auto"
+                      sizes="(max-width: 768px) 72px, 64px"
                     />
                   </button>
                 ))}

@@ -28,15 +28,15 @@ export function ProjectCard({ project }: ProjectCardProps) {
   }));
 
   return (
-    <article className="border border-[#E5E7EB] bg-white hover:border-2 hover:border-[#111111] hover:scale-[1.02] transition-all duration-300">
+    <article className="border border-[#E5E7EB] bg-white hover:border-2 hover:border-[#111111] hover:scale-[1.02] transition-all duration-300 overflow-hidden">
       <div className="md:flex">
         <div className="md:w-2/5 shrink-0">
           <div
-            className="relative aspect-[4/3] overflow-hidden bg-[#F3F4F6] cursor-pointer"
+            className="relative w-full overflow-hidden bg-[#F3F4F6] cursor-pointer"
             onClick={() => setLightboxIndex(selectedImage)}
           >
             {imgError ? (
-              <div className="absolute inset-0 flex items-center justify-center text-sm text-[#6B7280]">
+              <div className="flex items-center justify-center text-sm text-[#6B7280] min-h-[150px] md:min-h-[200px]">
                 <div className="text-center">
                   <span className="text-2xl font-semibold tracking-tight block mb-1">
                     {project.title.split(" ").map((w) => w[0]).join("").slice(0, 3)}
@@ -48,8 +48,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
               <Image
                 src={allImages[selectedImage]}
                 alt={`${project.title} screenshot ${selectedImage + 1}`}
-                fill
-                className="object-cover transition-opacity duration-300"
+                width={800}
+                height={450}
+                className="w-full object-cover transition-opacity duration-300"
                 sizes="(max-width: 768px) 100vw, 420px"
                 placeholder="blur"
                 blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/+F9PQAI8wNPvd7POQAAAABJRU5ErkJggg=="
@@ -59,13 +60,13 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </div>
 
           {!imgError && allImages.length > 1 && (
-            <div className="flex gap-2 px-4 pt-2.5 pb-1 overflow-x-auto">
+            <div className="flex gap-2 px-3 pt-2 pb-1 overflow-x-auto">
               {allImages.map((img, i) => (
                 <button
                   key={img}
                   onClick={() => setSelectedImage(i)}
                   className={cn(
-                    "relative w-16 h-10 shrink-0 overflow-hidden border transition-colors",
+                    "shrink-0 overflow-hidden border transition-colors",
                     i === selectedImage
                       ? "border-[#111111]"
                       : "border-[#E5E7EB] hover:border-[#4B5563]",
@@ -75,9 +76,10 @@ export function ProjectCard({ project }: ProjectCardProps) {
                   <Image
                     src={img}
                     alt={`${project.title} thumbnail ${i + 1}`}
-                    fill
-                    className="object-cover"
-                    sizes="80px"
+                    width={72}
+                    height={54}
+                    className="object-cover w-[72px] md:w-16 h-auto"
+                    sizes="(max-width: 768px) 72px, 64px"
                   />
                 </button>
               ))}
@@ -85,12 +87,14 @@ export function ProjectCard({ project }: ProjectCardProps) {
           )}
         </div>
 
-        <div className="p-4 md:p-5 md:flex-1 flex flex-col">
-          <div className="flex items-start justify-between gap-3 mb-2">
-            <Heading as="h3" className="text-xl">
-              {project.title}
-            </Heading>
-            <span className="text-sm text-[#6B7280] shrink-0 whitespace-nowrap">
+        <div className="p-3 md:p-5 md:flex-1 flex flex-col">
+          <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-1 md:gap-2 mb-2 md:mb-3">
+            <div>
+              <Heading as="h3" className="text-lg md:text-xl">
+                {project.title}
+              </Heading>
+            </div>
+            <span className="text-xs md:text-sm text-[#6B7280] shrink-0">
               {project.startDate && project.endDate
                 ? `${formatDate(project.startDate)} — ${formatDate(project.endDate)}`
                 : project.year}
@@ -98,23 +102,23 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </div>
 
           {project.achievement && (
-            <Badge className="mb-3 border-[#4B5563] text-[#4B5563] self-start">
+            <Badge className="mb-2 md:mb-3 border-[#4B5563] text-[#4B5563] self-start">
               {project.achievement}
             </Badge>
           )}
 
-          <BodyText className="mb-3">{project.summary}</BodyText>
+          <BodyText className="mb-2 md:mb-3 text-sm md:text-base">{project.summary}</BodyText>
 
-          <ul className="space-y-1.5 mb-3">
+          <ul className="space-y-1 mb-2 md:mb-3">
             {project.details.map((detail, i) => (
-              <li key={i} className="text-sm text-[#4B5563] flex items-start gap-2">
-                <span className="mt-1.5 block h-1 w-1 shrink-0 rounded-full bg-[#4B5563]" />
+              <li key={i} className="text-xs md:text-sm text-[#4B5563] flex items-start gap-1.5">
+                <span className="mt-1 block h-1 w-1 shrink-0 rounded-full bg-[#4B5563]" />
                 {detail}
               </li>
             ))}
           </ul>
 
-          <div className="flex flex-wrap gap-1.5 mb-3">
+          <div className="flex flex-wrap gap-1 mb-2 md:mb-3">
             {project.technologies.map((tech) => (
               <Tag key={tech}>{tech}</Tag>
             ))}
@@ -125,9 +129,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-[#111111] hover:text-[#6B7280] transition-colors mt-auto self-end"
+              className="inline-flex items-center gap-1.5 text-xs md:text-sm font-medium text-[#111111] hover:text-[#6B7280] transition-colors"
             >
-              <ExternalLink size={14} />
+              <ExternalLink size={12} />
               View on GitHub
             </a>
           )}

@@ -44,9 +44,9 @@ export function Hero() {
 
           <motion.div
             variants={fadeInUp}
-            className="flex flex-wrap gap-4"
+            className="flex flex-col sm:flex-row gap-4 sm:max-w-sm"
           >
-            <LinkButton href="#work" variant="primary">
+            <LinkButton href="#work" variant="primary" className="flex-1 px-5 py-2.5">
               View Work
               <span className="inline-flex animate-bounce-subtle">
                 <ArrowDown size={16} />
@@ -55,12 +55,12 @@ export function Hero() {
             <LinkButton
               href="/ATS Resume - Alexis Corporal.pdf"
               variant="secondary"
+              className="flex-1 px-5 py-2.5"
               download
             >
               <Download size={16} />
               Download Resume
             </LinkButton>
-
           </motion.div>
         </motion.div>
       </Container>
