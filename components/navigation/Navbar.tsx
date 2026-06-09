@@ -57,6 +57,7 @@ export function Navbar() {
               width={32}
               height={32}
               className="rounded-sm"
+              loading="eager"
             />
             <span className="text-sm font-medium tracking-tight text-[#111111] hidden sm:inline">
               Alexis Corporal

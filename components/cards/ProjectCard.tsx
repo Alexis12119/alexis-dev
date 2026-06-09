@@ -50,9 +50,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
               <Image
                 src={allImages[selectedImage]}
                 alt={`${project.title} screenshot ${selectedImage + 1}`}
-                width={800}
-                height={600}
-                className="w-full h-full object-cover transition-opacity duration-300"
+                fill
+                className="object-cover transition-opacity duration-300"
                 sizes="(max-width: 768px) 100vw, 420px"
                 placeholder="blur"
                 blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/+F9PQAI8wNPvd7POQAAAABJRU5ErkJggg=="
