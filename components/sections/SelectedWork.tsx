@@ -2,6 +2,7 @@
 
 import { PROJECTS } from "@/data/projects";
 import { Container } from "@/components/layout/Container";
+import { Section } from "@/components/layout/Section";
 import { SectionHeader } from "@/components/layout/SectionHeader";
 import { ProjectCard } from "@/components/cards/ProjectCard";
 import { sortProjectsByYear } from "@/utils/project";
@@ -12,7 +13,7 @@ export function SelectedWork() {
   const sorted = sortProjectsByYear(PROJECTS);
 
   return (
-    <section id="work" className="py-24 md:py-32 border-t border-[#E5E7EB]">
+    <Section id="work" className="border-t border-[#E5E7EB]">
       <Container>
         <SectionHeader
           label="Selected Work"
@@ -34,6 +35,6 @@ export function SelectedWork() {
           ))}
         </motion.div>
       </Container>
-    </section>
+    </Section>
   );
 }

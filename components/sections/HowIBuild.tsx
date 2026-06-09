@@ -1,6 +1,7 @@
 "use client";
 
 import { Container } from "@/components/layout/Container";
+import { Section } from "@/components/layout/Section";
 import { SectionHeader } from "@/components/layout/SectionHeader";
 import { MetricCard } from "@/components/cards/MetricCard";
 import { Wrench, Shield, Users, Monitor } from "lucide-react";
@@ -36,7 +37,7 @@ const pillars = [
 
 export function HowIBuild() {
   return (
-    <section id="how-i-build" className="py-24 md:py-32 border-t border-[#E5E7EB]">
+    <Section id="how-i-build" className="border-t border-[#E5E7EB]">
       <Container>
         <SectionHeader
           label="How I Build"
@@ -62,6 +63,6 @@ export function HowIBuild() {
           ))}
         </motion.div>
       </Container>
-    </section>
+    </Section>
   );
 }

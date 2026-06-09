@@ -1,4 +1,7 @@
 import { cn } from "@/utils/cn";
+import { Heading } from "@/components/typography/Heading";
+import { Subheading } from "@/components/typography/Subheading";
+import { Caption } from "@/components/typography/Caption";
 import type { ReactNode } from "react";
 
 interface SectionHeaderProps {
@@ -17,13 +20,11 @@ export function SectionHeader({
   return (
     <div className={cn("mb-16 md:mb-20", className)}>
       {label && (
-        <p className="text-sm font-medium text-[#6B7280] mb-4">{label}</p>
+        <Caption className="font-medium mb-4">{label}</Caption>
       )}
-      <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-4">
-        {title}
-      </h2>
+      <Heading as="h2" className="mb-4">{title}</Heading>
       {description && (
-        <p className="text-lg text-[#6B7280] max-w-prose">{description}</p>
+        <Subheading>{description}</Subheading>
       )}
     </div>
   );

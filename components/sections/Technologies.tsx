@@ -2,6 +2,7 @@
 
 import { SKILLS } from "@/data/skills";
 import { Container } from "@/components/layout/Container";
+import { Section } from "@/components/layout/Section";
 import { SectionHeader } from "@/components/layout/SectionHeader";
 import { Tag } from "@/components/shared/Tag";
 import { motion } from "framer-motion";
@@ -9,7 +10,7 @@ import { staggerContainer, fadeInUp } from "@/utils/animation";
 
 export function Technologies() {
   return (
-    <section className="py-24 md:py-32 border-t border-[#E5E7EB]">
+    <Section className="border-t border-[#E5E7EB]">
       <Container>
         <SectionHeader
           label="Technologies"
@@ -38,6 +39,6 @@ export function Technologies() {
           ))}
         </motion.div>
       </Container>
-    </section>
+    </Section>
   );
 }

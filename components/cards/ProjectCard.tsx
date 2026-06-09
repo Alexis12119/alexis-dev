@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Badge } from "@/components/shared/Badge";
 import { Tag } from "@/components/shared/Tag";
 import { BodyText } from "@/components/typography/BodyText";
+import { Heading } from "@/components/typography/Heading";
 import { ExternalLink } from "lucide-react";
 import { cn } from "@/utils/cn";
 import { formatDate } from "@/utils/formatDate";
@@ -73,9 +74,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
       <div className="p-5 md:p-6">
         <div className="flex items-start justify-between gap-4 mb-3">
-          <h3 className="text-xl font-semibold tracking-tight">
+          <Heading as="h3" className="text-xl">
             {project.title}
-          </h3>
+          </Heading>
           <span className="text-sm text-[#6B7280] shrink-0 whitespace-nowrap">
             {project.startDate && project.endDate
               ? `${formatDate(project.startDate)} — ${formatDate(project.endDate)}`

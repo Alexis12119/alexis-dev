@@ -2,6 +2,7 @@
 
 import { EXPERIENCE } from "@/data/experience";
 import { Container } from "@/components/layout/Container";
+import { Section } from "@/components/layout/Section";
 import { SectionHeader } from "@/components/layout/SectionHeader";
 import { ExperienceCard } from "@/components/cards/ExperienceCard";
 import { motion } from "framer-motion";
@@ -9,7 +10,7 @@ import { fadeInUp } from "@/utils/animation";
 
 export function Experience() {
   return (
-    <section id="experience" className="py-24 md:py-32">
+    <Section id="experience">
       <Container>
         <SectionHeader
           label="Experience"
@@ -28,6 +29,6 @@ export function Experience() {
           ))}
         </motion.div>
       </Container>
-    </section>
+    </Section>
   );
 }

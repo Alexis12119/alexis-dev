@@ -3,6 +3,9 @@
 import { useState, type FormEvent } from "react";
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/shared/Button";
+import { Heading } from "@/components/typography/Heading";
+import { Subheading } from "@/components/typography/Subheading";
+import { Caption } from "@/components/typography/Caption";
 import { Send, Loader } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeInUp } from "@/utils/animation";
@@ -29,7 +32,7 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="pt-24 md:pt-32 pb-16 md:pb-20 border-t border-[#E5E7EB]">
+    <section id="contact" className="pt-24 md:pt-32 pb-16 md:pb-20 border-t border-[#E5E7EB] scroll-mt-16">
       <Container>
         <motion.div
           className="max-w-xl"
@@ -38,15 +41,13 @@ export function Contact() {
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeInUp}
         >
-          <p className="text-sm font-medium text-[#6B7280] mb-4">Contact</p>
-          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-6">
-            Get in touch
-          </h2>
-          <p className="text-lg text-[#6B7280] mb-10 leading-relaxed">
+          <Caption className="font-medium mb-4">Contact</Caption>
+          <Heading as="h2" className="mb-6">Get in touch</Heading>
+          <Subheading className="mb-10 leading-relaxed">
             I&apos;m always interested in hearing about new opportunities,
             interesting projects, or just having a conversation about software
             engineering.
-          </p>
+          </Subheading>
 
           {submitted ? (
             <div className="border border-[#E5E7EB] bg-white p-8 text-center">

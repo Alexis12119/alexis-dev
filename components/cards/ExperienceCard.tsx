@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { Badge } from "@/components/shared/Badge";
 import { BodyText } from "@/components/typography/BodyText";
+import { Heading } from "@/components/typography/Heading";
 import { cn } from "@/utils/cn";
 import { formatDate } from "@/utils/formatDate";
 import type { Experience } from "@/types/experience";
@@ -65,9 +66,9 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
       <div className="p-5 md:p-6">
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-4">
           <div>
-            <h3 className="text-xl font-semibold tracking-tight">
+            <Heading as="h3" className="text-xl">
               {experience.role}
-            </h3>
+            </Heading>
             <p className="text-base text-[#4B5563]">{experience.company}</p>
           </div>
           <div className="text-sm text-[#6B7280] shrink-0">

@@ -1,4 +1,5 @@
 import { cn } from "@/utils/cn";
+import { Heading } from "@/components/typography/Heading";
 import type { ReactNode } from "react";
 
 interface MetricCardProps {
@@ -22,7 +23,7 @@ export function MetricCard({
       )}
     >
       {icon && <div className="mb-4 text-[#111111]">{icon}</div>}
-      <h3 className="text-lg font-semibold tracking-tight mb-2">{title}</h3>
+      <Heading as="h3" className="text-lg mb-2">{title}</Heading>
       <p className="text-sm leading-relaxed text-[#4B5563]">{description}</p>
     </div>
   );

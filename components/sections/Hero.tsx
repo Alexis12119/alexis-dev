@@ -3,13 +3,16 @@
 import { SITE_CONFIG } from "@/config/site";
 import { Container } from "@/components/layout/Container";
 import { LinkButton } from "@/components/shared/LinkButton";
+import { Heading } from "@/components/typography/Heading";
+import { Subheading } from "@/components/typography/Subheading";
+import { Caption } from "@/components/typography/Caption";
 import { ArrowDown, Download } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer } from "@/utils/animation";
 
 export function Hero() {
   return (
-    <section id="hero" className="pt-32 pb-24 md:pt-40 md:pb-32">
+    <section id="hero" className="pt-32 pb-24 md:pt-40 md:pb-32 scroll-mt-16">
       <Container>
         <motion.div
           className="max-w-3xl"
@@ -17,19 +20,13 @@ export function Hero() {
           initial="hidden"
           animate="visible"
         >
-          <motion.p
-            variants={fadeInUp}
-            className="text-sm font-medium text-[#6B7280] mb-6"
-          >
-            {SITE_CONFIG.location}
-          </motion.p>
+          <motion.div variants={fadeInUp}>
+            <Caption className="font-medium mb-6">{SITE_CONFIG.location}</Caption>
+          </motion.div>
 
-          <motion.h1
-            variants={fadeInUp}
-            className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight mb-6"
-          >
-            {SITE_CONFIG.name}
-          </motion.h1>
+          <motion.div variants={fadeInUp}>
+            <Heading as="h1" className="mb-6">{SITE_CONFIG.name}</Heading>
+          </motion.div>
 
           <motion.p
             variants={fadeInUp}
@@ -38,13 +35,12 @@ export function Hero() {
             {SITE_CONFIG.title}
           </motion.p>
 
-          <motion.p
-            variants={fadeInUp}
-            className="text-lg text-[#6B7280] max-w-prose mb-10 leading-relaxed"
-          >
-            Building software that removes repetitive work and improves
-            operational efficiency.
-          </motion.p>
+          <motion.div variants={fadeInUp}>
+            <Subheading className="mb-10 leading-relaxed">
+              Building software that removes repetitive work and improves
+              operational efficiency.
+            </Subheading>
+          </motion.div>
 
           <motion.div
             variants={fadeInUp}
