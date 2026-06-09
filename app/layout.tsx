@@ -1,83 +1,45 @@
-import type React from "react";
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Geist, Inter } from "next/font/google";
+import { SITE_CONFIG } from "@/config/site";
+import { Navbar } from "@/components/navigation/Navbar";
+import { Footer } from "@/components/navigation/Footer";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
-import { AchievementsProvider } from "@/lib/contexts/achievements-provider";
-import { Navbar } from "@/components/layout/navbar";
-import { Footer } from "@/components/layout/footer";
-import { EasterEggHandler } from "@/components/easter-egg-handler";
-import { Toaster } from "@/components/ui/toaster";
 
-const inter = Inter({
+const geist = Geist({
+  variable: "--font-geist",
   subsets: ["latin"],
-  variable: "--font-inter",
 });
 
-const jetbrainsMono = JetBrains_Mono({
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-  variable: "--font-mono",
 });
 
 export const metadata: Metadata = {
-  title: "Alexis Corporal - Full-Stack Developer & Open Source Contributor",
-  description:
-    "Full-Stack Developer & Neovim Enthusiast building fast, maintainable solutions across the stack. Available for freelance projects.",
-  keywords: [
-    "Full-Stack Developer",
-    "React",
-    "Next.js",
-    "TypeScript",
-    "Neovim",
-    "Open Source",
-  ],
-  authors: [{ name: "Alexis Corporal" }],
-  creator: "Alexis Corporal",
+  title: `${SITE_CONFIG.name} — ${SITE_CONFIG.title}`,
+  description: SITE_CONFIG.description,
   openGraph: {
-    type: "website",
+    title: `${SITE_CONFIG.name} — ${SITE_CONFIG.title}`,
+    description: SITE_CONFIG.description,
     locale: "en_US",
-    url: "https://alexis.dev",
-    title: "Alexis Corporal - Full-Stack Developer",
-    description:
-      "Full-Stack Developer & Neovim Enthusiast building fast, maintainable solutions across the stack.",
-    siteName: "Alexis Corporal Portfolio",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Alexis Corporal - Full-Stack Developer",
-    description:
-      "Full-Stack Developer & Neovim Enthusiast building fast, maintainable solutions across the stack.",
+    type: "website",
   },
 };
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}
-        suppressHydrationWarning
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange={false}
-          themes={["light", "dark", "catppuccin", "dracula", "monochrome"]}
-        >
-           <AchievementsProvider>
-             <div className="relative flex min-h-screen flex-col">
-               <Navbar />
-               <main className="flex-1">{children}</main>
-               <Footer />
-             </div>
-             <EasterEggHandler />
-             <Toaster />
-           </AchievementsProvider>
-        </ThemeProvider>
+    <html
+      lang="en"
+      className={`${geist.variable} ${inter.variable} scroll-smooth`}
+    >
+      <body className="min-h-screen bg-[#FAF9F6] text-[#111111] antialiased">
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );

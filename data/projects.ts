@@ -1,0 +1,127 @@
+import type { Project } from "@/types/project";
+
+export const PROJECTS: Project[] = [
+  {
+    id: "ocr-drawing-extractor",
+    title: "OCR Drawing Extractor",
+    year: 2026,
+    summary:
+      "Python application for extracting text from engineering drawings. Uses a hybrid approach: pypdf text-layer extraction for vector PDFs with Tesseract OCR fallback for scanned images. Includes both a FastAPI microservice and a Tkinter GUI.",
+    technologies: ["Python", "FastAPI", "Tesseract OCR", "pypdf", "Tkinter"],
+    screenshot: "/images/OCR-Drawing-Extractor/custom-regions.png",
+    screenshots: [
+      "/images/OCR-Drawing-Extractor/gui.png",
+      "/images/OCR-Drawing-Extractor/top-and-bottom-coverage.png",
+    ],
+    details: [
+      "Hybrid pipeline: text-layer extraction first, OCR fallback for scanned images",
+      "Top + bottom scanning skips graphics-heavy middle for cleaner OCR results",
+      "Custom region selection with zoomable preview and interactive drawing",
+      "Multi-page PDF support with JSON export",
+    ],
+    githubUrl: "https://github.com/Alexis12119",
+  },
+  {
+    id: "plsp-registrar-docstrack",
+    title: "PLSP Registrar DocsTrack",
+    year: 2026,
+    summary:
+      "Online Student Document Request and Tracking System for Pamantasan ng Lungsod ng San Pablo. Manages the complete document request lifecycle with role-based access, payment tracking, and real-time updates.",
+    technologies: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Fastify",
+      "MySQL",
+      "WebSocket",
+    ],
+    screenshot: "/images/Docstrack/admin-dashboard.jpg",
+    screenshots: [
+      "/images/Docstrack/audit-trails.jpg",
+      "/images/Docstrack/registrar-staff.jpg",
+      "/images/Docstrack/request.jpg",
+      "/images/Docstrack/login.jpg",
+    ],
+    achievement: "3rd Best Intern System",
+    details: [
+      "Role-based access control with Student, Registrar Staff, and Administrator roles",
+      "Document request workflow with payment tracking and real-time WebSocket updates",
+      "Audit logging with IP and user-agent tracking",
+      "Dashboard and analytics with PDF and Excel export",
+    ],
+  },
+  {
+    id: "bakerpass",
+    title: "BakerPass",
+    year: 2025,
+    summary:
+      "Multi-tenant appointment and visitor management system for Franklin Baker Corporation. Handles the complete visitor lifecycle from booking to check-out, with special support for high-care protocol areas requiring nurse approval.",
+    technologies: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Fastify",
+      "MySQL",
+      "Docker",
+      "WebSocket",
+    ],
+    achievement: "Best Capstone Project",
+    screenshot: "/images/BakerPass/security-dashboard.png",
+    screenshots: [
+      "/images/BakerPass/selection.png",
+      "/images/BakerPass/time-slots.png",
+      "/images/BakerPass/mobile.png",
+    ],
+    details: [
+      "Multi-tenant system with six user roles including Nurse and SuperAdmin",
+      "High-care module with medical protocol, health declarations, and PDF generation",
+      "Real-time WebSocket updates for live status changes without page refresh",
+      "Flutter mobile app for visitor-facing appointment booking",
+    ],
+    githubUrl: "https://github.com/Alexis12119",
+  },
+  {
+    id: "soroban-solver",
+    title: "Soroban Solver",
+    year: 2025,
+    summary:
+      "Real-time math problem solver for the Soroban Android app. Uses OCR to extract equations from screen captures, solves them automatically, and maintains a history of solved problems.",
+    technologies: ["Python", "OCR", "OpenCV"],
+    screenshot: "/images/Soroban-Solver/division.png",
+    screenshots: [
+      "/images/Soroban-Solver/main.png",
+      "/images/Soroban-Solver/multiplication.png",
+      "/images/Soroban-Solver/subtraction.png",
+    ],
+    details: [
+      "Real-time solving with continuous monitoring of connected Android device",
+      "Adjustable OCR threshold and division mode toggle",
+      "History management with CSV save and load",
+      "Keyboard shortcuts for efficient workflow control",
+    ],
+    githubUrl: "https://github.com/Alexis12119",
+  },
+  {
+    id: "geodroid",
+    title: "GeoDroid",
+    year: 2025,
+    summary:
+      "A complete classic Asteroids game built with Raylib in C. Features smooth vector-based gameplay, collision detection, a comprehensive menu system, and persistent leaderboards.",
+    technologies: ["C", "Raylib"],
+    screenshot: "/images/Geodroid/menu.png",
+    screenshots: [
+      "/images/Geodroid/game.png",
+      "/images/Geodroid/leaderboard.png",
+      "/images/Geodroid/settings.png",
+    ],
+    details: [
+      "Three difficulty modes with bullet-limited gameplay and asteroid speed scaling",
+      "Vector-based movement with realistic momentum and screen wrapping",
+      "Persistent top 10 leaderboards with name entry and date tracking",
+      "Complete audio system with retro sound effects for shooting and explosions",
+    ],
+    githubUrl: "https://github.com/Alexis12119",
+  },
+];

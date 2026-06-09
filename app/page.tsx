@@ -1,23 +1,19 @@
-import { HeroEnhanced } from "@/components/hero-enhanced"
-import { About } from "@/components/about"
-import { Skills } from "@/components/skills"
-import { Projects } from "@/components/projects"
-import { ResumeRPG } from "@/components/resume-rpg"
-import { OpenSource } from "@/components/open-source"
-import { Services } from "@/components/services"
-import { Contact } from "@/components/contact"
+import { Hero } from "@/components/sections/Hero";
+import { Experience } from "@/components/sections/Experience";
+import { SelectedWork } from "@/components/sections/SelectedWork";
+import { HowIBuild } from "@/components/sections/HowIBuild";
+import { Technologies } from "@/components/sections/Technologies";
+import { Contact } from "@/components/sections/Contact";
 
 export default function Home() {
   return (
     <>
-      <HeroEnhanced />
-      <About />
-      <Skills />
-      <Projects />
-      <ResumeRPG />
-      <OpenSource />
-      <Services />
+      <Hero />
+      <Experience />
+      <SelectedWork />
+      <HowIBuild />
+      <Technologies />
       <Contact />
     </>
-  )
+  );
 }
