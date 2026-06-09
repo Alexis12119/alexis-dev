@@ -22,7 +22,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
   return (
     <article className="border border-[#E5E7EB] bg-white hover:border-[#4B5563] transition-colors">
-      <div className="relative aspect-[21/9] overflow-hidden bg-[#F3F4F6]">
+      <div className="relative aspect-[16/9] overflow-hidden bg-[#F3F4F6]">
         {imgError ? (
           <div className="absolute inset-0 flex items-center justify-center text-sm text-[#6B7280]">
             <div className="text-center">
@@ -47,13 +47,13 @@ export function ProjectCard({ project }: ProjectCardProps) {
       </div>
 
       {!imgError && allImages.length > 1 && (
-        <div className="flex gap-2 px-5 pt-3 pb-1 overflow-x-auto">
+        <div className="flex gap-2 px-4 pt-2.5 pb-1 overflow-x-auto">
           {allImages.map((img, i) => (
             <button
               key={img}
               onClick={() => setSelectedImage(i)}
               className={cn(
-                "relative w-20 h-12 shrink-0 overflow-hidden border transition-colors",
+                "relative w-16 h-10 shrink-0 overflow-hidden border transition-colors",
                 i === selectedImage
                   ? "border-[#111111]"
                   : "border-[#E5E7EB] hover:border-[#4B5563]",
@@ -72,8 +72,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </div>
       )}
 
-      <div className="p-5 md:p-6">
-        <div className="flex items-start justify-between gap-4 mb-3">
+      <div className="p-4 md:p-5">
+        <div className="flex items-start justify-between gap-3 mb-2">
           <Heading as="h3" className="text-xl">
             {project.title}
           </Heading>
@@ -85,14 +85,14 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </div>
 
         {project.achievement && (
-          <Badge className="mb-4 border-[#4B5563] text-[#4B5563]">
+          <Badge className="mb-3 border-[#4B5563] text-[#4B5563]">
             {project.achievement}
           </Badge>
         )}
 
-        <BodyText className="mb-4">{project.summary}</BodyText>
+        <BodyText className="mb-3">{project.summary}</BodyText>
 
-        <ul className="space-y-2 mb-4">
+        <ul className="space-y-1.5 mb-3">
           {project.details.map((detail, i) => (
             <li key={i} className="text-sm text-[#4B5563] flex items-start gap-2">
               <span className="mt-1.5 block h-1 w-1 shrink-0 rounded-full bg-[#4B5563]" />
@@ -101,7 +101,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           ))}
         </ul>
 
-        <div className="flex flex-wrap gap-1.5 mb-4">
+        <div className="flex flex-wrap gap-1.5 mb-3">
           {project.technologies.map((tech) => (
             <Tag key={tech}>{tech}</Tag>
           ))}

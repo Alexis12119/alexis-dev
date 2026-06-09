@@ -26,7 +26,7 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
   return (
     <article className="border border-[#E5E7EB] bg-white hover:border-[#4B5563] transition-colors">
       {allImages.length > 0 && (
-        <div className="relative aspect-[21/9] overflow-hidden bg-[#F3F4F6]">
+        <div className="relative aspect-[16/9] overflow-hidden bg-[#F3F4F6]">
           <Image
             src={allImages[selectedImage]}
             alt={`${experience.company} screenshot ${selectedImage + 1}`}
@@ -38,13 +38,13 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
       )}
 
       {allImages.length > 1 && (
-        <div className="flex gap-2 px-5 pt-3 pb-1 overflow-x-auto">
+        <div className="flex gap-2 px-4 pt-2.5 pb-1 overflow-x-auto">
           {allImages.map((img, i) => (
             <button
               key={img}
               onClick={() => setSelectedImage(i)}
               className={cn(
-                "relative w-20 h-12 shrink-0 overflow-hidden border transition-colors",
+                "relative w-16 h-10 shrink-0 overflow-hidden border transition-colors",
                 i === selectedImage
                   ? "border-[#111111]"
                   : "border-[#E5E7EB] hover:border-[#4B5563]",
@@ -63,8 +63,8 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
         </div>
       )}
 
-      <div className="p-5 md:p-6">
-        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-4">
+      <div className="p-4 md:p-5">
+        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-3">
           <div>
             <Heading as="h3" className="text-xl">
               {experience.role}
@@ -78,14 +78,14 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
         </div>
 
         {experience.highlight && (
-          <Badge className="mb-4 border-[#4B5563] text-[#4B5563]">
+          <Badge className="mb-3 border-[#4B5563] text-[#4B5563]">
             {experience.highlight}
           </Badge>
         )}
 
-        <BodyText className="mb-4">{experience.summary}</BodyText>
+        <BodyText className="mb-3">{experience.summary}</BodyText>
 
-        <ul className="space-y-2 mb-4">
+        <ul className="space-y-1.5">
           {experience.achievements.map((achievement, i) => (
             <li key={i} className="text-sm text-[#4B5563] flex items-start gap-2">
               <span className="mt-1.5 block h-1 w-1 shrink-0 rounded-full bg-[#4B5563]" />
