@@ -115,43 +115,46 @@ export function Contact() {
               )}
             </div>
 
-            <div className="border border-[#E5E7EB] bg-white p-6 md:p-8 h-full">
-              <h3 className="text-sm font-semibold text-[#111111] mb-5 uppercase tracking-wider">
-                Contact Information
-              </h3>
-              <div className="flex flex-col gap-4">
-                <div className="flex items-center gap-3 text-sm text-[#4B5563]">
-                  <Phone size={16} className="text-[#6B7280] shrink-0" />
-                  <span>+63 945 468 1904</span>
-                </div>
-                <div className="flex items-center gap-3 text-sm text-[#4B5563]">
-                  <MapPin size={16} className="text-[#6B7280] shrink-0" />
-                  <span>Brgy. San Ignacio, San Pablo City, Laguna 4000</span>
-                </div>
-                <div className="flex items-center gap-3 text-sm text-[#4B5563]">
-                  <Mail size={16} className="text-[#6B7280] shrink-0" />
-                  <span>corporal461@gmail.com</span>
+            <div className="border border-[#E5E7EB] bg-white p-6 md:p-8 h-full flex flex-col">
+              <div>
+                <h3 className="text-sm font-semibold text-[#111111] mb-5 uppercase tracking-wider">
+                  Contact Information
+                </h3>
+                <div className="flex flex-col gap-4">
+                  <div className="flex items-center gap-3 text-sm text-[#4B5563]">
+                    <Phone size={16} className="text-[#6B7280] shrink-0" />
+                    <span>+63 945 468 1904</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-sm text-[#4B5563]">
+                    <MapPin size={16} className="text-[#6B7280] shrink-0" />
+                    <span>Brgy. San Ignacio, San Pablo City, Laguna 4000</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-sm text-[#4B5563]">
+                    <Mail size={16} className="text-[#6B7280] shrink-0" />
+                    <span>corporal461@gmail.com</span>
+                  </div>
                 </div>
               </div>
 
-              <hr className="my-5 border-t border-[#E5E7EB]" />
-
-              <div className="flex flex-col gap-4">
-                <div className="flex items-center gap-3 text-sm text-[#4B5563]">
-                  <Briefcase size={16} className="text-[#6B7280] shrink-0" />
-                  <span>Open to full-time, freelance, and contract opportunities</span>
-                </div>
-                <div className="flex items-center gap-3 text-sm text-[#4B5563]">
-                  <Clock size={16} className="text-[#6B7280] shrink-0" />
-                  <span>Philippine Time (PHT / UTC+8)</span>
-                </div>
-                <div className="flex items-center gap-3 text-sm text-[#4B5563]">
-                  <Timer size={16} className="text-[#6B7280] shrink-0" />
-                  <span>Typically responds within 24 hours</span>
-                </div>
-                <div className="flex items-center gap-3 text-sm text-[#4B5563]">
-                  <Inbox size={16} className="text-[#6B7280] shrink-0" />
-                  <span>Email is best — I check it daily</span>
+              <div className="mt-auto">
+                <hr className="my-5 border-t border-[#E5E7EB]" />
+                <div className="flex flex-col gap-4">
+                  <div className="flex items-center gap-3 text-sm text-[#4B5563]">
+                    <Briefcase size={16} className="text-[#6B7280] shrink-0" />
+                    <span>Open to full-time, freelance, and contract opportunities</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-sm text-[#4B5563]">
+                    <Clock size={16} className="text-[#6B7280] shrink-0" />
+                    <span>Philippine Time (PHT / UTC+8)</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-sm text-[#4B5563]">
+                    <Timer size={16} className="text-[#6B7280] shrink-0" />
+                    <span>Typically responds within 24 hours</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-sm text-[#4B5563]">
+                    <Inbox size={16} className="text-[#6B7280] shrink-0" />
+                    <span>Email is best — I check it daily</span>
+                  </div>
                 </div>
               </div>
             </div>

@@ -48,7 +48,9 @@ export function Hero() {
           >
             <LinkButton href="#work" variant="primary">
               View Work
-              <ArrowDown size={16} />
+              <span className="inline-flex animate-bounce-subtle">
+                <ArrowDown size={16} />
+              </span>
             </LinkButton>
             <LinkButton
               href="/ATS Resume - Alexis Corporal.pdf"

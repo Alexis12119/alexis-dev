@@ -33,6 +33,21 @@ body {
   color: #FAF9F6;
 }
 
+@keyframes bounce-subtle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
+}
+
+.animate-bounce-subtle {
+  animation: bounce-subtle 1.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-bounce-subtle {
+    animation: none;
+  }
+}
+
 *:focus-visible {
   outline: 2px solid #111111;
   outline-offset: 2px;
