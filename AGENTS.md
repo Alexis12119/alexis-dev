@@ -53,14 +53,12 @@ The site should feel:
 
 ## Colors
 
-```ts
-export const COLORS = {
-  background: "#FAF9F6",
-  foreground: "#111111",
-  muted: "#6B7280",
-  border: "#E5E7EB",
-  accent: "#4B5563",
-};
+```css
+background: #FAF9F6
+foreground: #111111
+muted: #6B7280
+border: #E5E7EB
+accent: #4B5563
 ```
 
 ## Design Rules
@@ -70,23 +68,20 @@ export const COLORS = {
 * Let screenshots be the visual focus.
 * Use thin borders.
 * Avoid shadows unless subtle.
-* Avoid gradients unless extremely restrained.
-* Use a maximum content width.
+* Avoid gradients.
+* Use max-w-7xl content width.
 * Maintain consistent spacing scale.
+* Cards have hover:border-2 hover:border-[#111111] and hover:scale-[1.02].
+* Side-by-side card layout on desktop (image 40%, details 60%).
+* Images use object-cover with consistent aspect ratios.
 
 ---
 
 # Typography
 
-Headings:
+Headings: Geist
 
-* Geist
-* Inter Tight
-* Manrope
-
-Body:
-
-* Inter
+Body: Inter
 
 Rules:
 
@@ -94,177 +89,170 @@ Rules:
 * Comfortable reading widths
 * Consistent hierarchy
 
+Components: Heading (h1-h4 via `as` prop), Subheading, BodyText, Caption — all used consistently across sections.
+
 ---
 
 # Architecture
 
-Follow feature-first architecture.
+No `src/` directory — files are at project root.
 
 ```text
-src/
-├── app/
-│
-├── components/
-│   ├── layout/
-│   ├── navigation/
-│   ├── sections/
-│   ├── cards/
-│   ├── typography/
-│   ├── ui/
-│   └── shared/
-│
-├── config/
-│   ├── site.ts
-│   ├── navigation.ts
-│   └── socials.ts
-│
-├── constants/
-│   ├── colors.ts
-│   ├── spacing.ts
-│   └── animations.ts
-│
-├── data/
-│   ├── experience.ts
-│   ├── projects.ts
-│   └── skills.ts
-│
-├── hooks/
-│
-├── lib/
-│
-├── types/
-│
-├── utils/
-│
-└── styles/
-```
+app/
+├── layout.tsx
+├── page.tsx
+├── not-found.tsx
+├── globals.css
+├── icon.png
+└── opengraph-image.png
 
----
+components/
+├── layout/
+│   ├── Container.tsx    (mx-auto max-w-7xl px-8 md:px-12 lg:px-16)
+│   ├── Section.tsx      (scroll-mt-16, py-24 md:py-32)
+│   └── SectionHeader.tsx
+├── navigation/
+│   ├── Navbar.tsx       (sticky, active link, mobile menu, floating back-to-top)
+│   └── Footer.tsx
+├── sections/
+│   ├── Hero.tsx
+│   ├── Experience.tsx
+│   ├── SelectedWork.tsx
+│   ├── HowIBuild.tsx
+│   ├── Technologies.tsx
+│   └── Contact.tsx
+├── cards/
+│   ├── ProjectCard.tsx   (side-by-side, lightbox, carousel thumbnails)
+│   ├── ExperienceCard.tsx (side-by-side, lightbox, carousel thumbnails)
+│   └── MetricCard.tsx
+├── typography/
+│   ├── Heading.tsx
+│   ├── Subheading.tsx
+│   ├── BodyText.tsx
+│   └── Caption.tsx
+├── ui/
+│   └── ImageLightbox.tsx
+└── shared/
+    ├── Button.tsx
+    ├── LinkButton.tsx
+    ├── Badge.tsx
+    ├── Tag.tsx
+    └── Divider.tsx
 
-# Centralized Types
+config/
+├── site.ts
+├── navigation.ts
+└── socials.ts
 
-All interfaces must live inside `/types`.
+data/
+├── experience.ts
+├── projects.ts
+└── skills.ts
 
-Never duplicate interfaces.
-
-Example:
-
-```text
 types/
 ├── project.ts
 ├── experience.ts
 ├── navigation.ts
 ├── social.ts
 └── common.ts
+
+utils/
+├── cn.ts
+├── formatDate.ts
+├── animation.ts
+└── project.ts
 ```
 
-Example:
+No `constants/` directory (values are in globals.css or inline via Tailwind).
+No `hooks/`, `lib/`, `styles/` directories (not needed).
+
+---
+
+# Centralized Types
+
+All interfaces live inside `/types`. Never duplicate interfaces.
 
 ```ts
+// types/project.ts
 export interface Project {
   id: string;
   title: string;
   year: number;
+  startDate?: string;
+  endDate?: string;
   summary: string;
   achievement?: string;
   technologies: string[];
   screenshot: string;
+  screenshots: string[];
+  details: string[];
   githubUrl?: string;
   demoUrl?: string;
 }
 ```
 
-All pages and components must consume these centralized types.
-
 ---
 
 # Centralized Utils
 
-All helper functions must be reusable.
-
 ```text
 utils/
-├── cn.ts
-├── formatDate.ts
-├── slugify.ts
-├── animation.ts
-└── project.ts
+├── cn.ts                (clsx + tailwind-merge)
+├── formatDate.ts        ("Month Year" format)
+├── animation.ts         (fadeIn, fadeInUp, staggerContainer with reduced-motion)
+└── project.ts           (sortProjectsByYear)
 ```
-
-Rules:
-
-* No utility duplication.
-* No anonymous helper functions inside components unless local-only.
-* Extract reusable logic.
 
 ---
 
 # Global Configuration
 
-Create:
-
-```text
-config/
-├── site.ts
-├── navigation.ts
-├── socials.ts
-```
-
-Example:
-
 ```ts
+// config/site.ts
 export const SITE_CONFIG = {
   name: "Alexis Corporal",
   title: "Software Developer",
   location: "Philippines",
+  url: "https://alexiscorporal.dev",
+  description: "Building software that removes repetitive work and improves operational efficiency.",
 };
 ```
 
-All metadata should derive from config.
-
-No hardcoded values throughout the application.
+All metadata derives from config. No hardcoded values.
 
 ---
 
 # Reusable Components
 
-Build reusable components first.
-
 ## Layout
-
-* Container
-* Section
-* SectionHeader
-* PageWrapper
+* Container — centered, max-w-7xl with responsive padding
+* Section — scroll-mt-16 for navbar offset, consistent vertical padding
+* SectionHeader — label + heading + description
 
 ## Typography
-
-* Heading
-* Subheading
-* BodyText
-* Caption
+* Heading — h1-h4 via `as` prop, className overrides via tailwind-merge
+* Subheading — muted text-lg with max-w-prose
+* BodyText — base text with accent color
+* Caption — small muted text
 
 ## Navigation
-
-* Navbar
-* MobileMenu
-* Footer
+* Navbar — sticky, IntersectionObserver for active link, inline mobile menu with AnimatePresence, **floating back-to-top button** (shows after 400px scroll)
+* Footer — copyright, social icons (inline SVGs since Lucide v1 removed brand icons)
 
 ## Shared
-
-* Button
-* Badge
-* Divider
-* Tag
-* LinkButton
+* Button — primary variant (black bg) with disabled state
+* LinkButton — primary, secondary (bordered), ghost variants
+* Badge — inline-flex chip
+* Tag — small label
+* Divider — thin horizontal rule
 
 ## Cards
+* ProjectCard — side-by-side (md:flex, image 40%), hover:scale-[1.02], hover:border-2 black, image lightbox, thumbnail strip, achievement badge with self-start
+* ExperienceCard — same layout as ProjectCard
+* MetricCard — icon+heading row, flex col, h-full, hover effects
 
-* ProjectCard
-* ExperienceCard
-* MetricCard
-
-All cards should share visual language.
+## UI
+* ImageLightbox — full-screen overlay, prev/next, click-to-zoom (125%), keyboard nav (Escape, arrows), close on backdrop click
 
 ---
 
@@ -275,95 +263,109 @@ All cards should share visual language.
 Content:
 
 Alexis Corporal
-
 Software Developer
+Philippines
 
-Building software that solves operational,
-technical, and workflow challenges.
+Tagline:
+"Building software that removes repetitive work and improves operational efficiency."
 
 Buttons:
 
-* View Work
+* View Work (with bouncing ArrowDown CSS animation)
 * Download Resume
-* Contact
+
+No Contact button in hero.
 
 ---
 
 ## Experience
 
-Show experience before projects.
+Web Development Intern at Bakawan Data Analytics, Inc. (Feb 2026 — May 2026)
 
-Highlight:
+Highlight: 3rd Best Intern System
 
-Software Development Intern
-
-DocsTrack
-
-3rd Best Intern System
+3 screenshots with lightbox gallery.
 
 ---
 
 ## Selected Work
 
-Featured Projects:
+Featured Projects (sorted by year, newest first):
 
 1. OCR Drawing Extractor (2026)
-2. PLSP Registrar DocsTrack (2026)
-3. BakerPass (2025)
+2. PLSP Registrar DocsTrack (2026) — 3rd Best Intern System
+3. BakerPass (2025) — Best Capstone Project
 4. Soroban Solver (2025)
 5. GeoDroid (2025)
 
-Display large screenshots.
-
-Achievements should be visually highlighted.
-
-Example:
-
-Best Capstone Project
-
-3rd Best Intern System
+Side-by-side card layout. Screenshots use object-cover. Click to open lightbox with zoom and navigation.
 
 ---
 
 ## How I Build
 
-Security First
+Four pillars:
 
-Reliability by Design
-
-Scalable Architecture
-
-User-Centered Systems
+* Pragmatic Problem Solving
+* Security by Default
+* Multi-Role Architecture
+* Built for Real Use
 
 ---
 
 ## Technologies
 
-Grouped by category.
+Categories (no percentages):
 
-Frontend
-
-Backend
-
-Database
-
-Infrastructure
-
-Avoid skill percentages.
+* Frontend
+* Backend
+* Testing & QA
+* Languages & Tools
+* Infrastructure
 
 ---
 
 ## Contact
 
-Minimal.
+3-column grid on desktop (form | contact info | map).
 
-Email
+Contact details:
+* Phone: +63 945 468 1904
+* Location: Brgy. San Ignacio, San Pablo City, Laguna 4000
+* Email: corporal461@gmail.com
 
-GitHub
+Additional info:
+* Open to full-time, freelance, and contract opportunities
+* Philippine Time (PHT / UTC+8)
+* Typically responds within 24 hours
+* Email is best
 
-LinkedIn
+Form fields: Name, Email, Subject, Message — all with focus:ring-1, hover:border-black.
 
-Resume Download
+Embedded Google Maps iframe.
+
+Back-to-top as fixed floating button (in Navbar component).
+
+---
+
+# Animations
+
+## Allowed
+* Fade in (framer-motion, with reduced-motion support)
+* Fade in up
+* Hover scale (CSS, cards scale to 1.02)
+* Hover border (thick black border-2 on cards)
+* ArrowDown bounce on hero button (CSS @keyframes bounce-subtle, 1.5s ease-in-out)
+* Smooth scroll (scroll-behavior: smooth on html)
+
+## Forbidden
+* Parallax
+* Particle systems
+* Mouse-following effects
+* Auto-playing animations (except hero arrow bounce)
+* Excessive motion
+
+All animations respect prefers-reduced-motion.
 
 ---
 
@@ -371,7 +373,7 @@ Resume Download
 
 * Use Next.js Image.
 * Use Server Components by default.
-* Client Components only when required.
+* Client Components only when required (sections with framer-motion).
 * Lazy load screenshots.
 * Minimize bundle size.
 * Avoid unnecessary dependencies.
@@ -381,30 +383,12 @@ Resume Download
 # Accessibility Rules
 
 * Semantic HTML.
-* Proper heading hierarchy.
+* Proper heading hierarchy (h1 in Hero, h2 in section headers, h3 in cards).
 * Keyboard navigation.
 * ARIA labels where necessary.
 * Sufficient contrast.
-
----
-
-# Animation Rules
-
-Animations must be subtle.
-
-Allowed:
-
-* Fade in
-* Slide in
-* Hover elevation
-
-Forbidden:
-
-* Parallax
-* Particle systems
-* Mouse-following effects
-* Auto-playing animations
-* Excessive motion
+* Skip-to-content link.
+* ESC closes mobile menu and lightbox.
 
 ---
 
@@ -425,20 +409,15 @@ Forbidden:
 
 Avoid:
 
-"Passionate developer"
-
-"Crafting digital experiences"
-
-"Building innovative solutions"
+* "Passionate developer"
+* "Crafting digital experiences"
+* "Building innovative solutions"
 
 Prefer:
 
-Clear descriptions
-
-Concrete outcomes
-
-Real achievements
-
-Measured statements
+* Clear descriptions
+* Concrete outcomes
+* Real achievements
+* Measured statements
 
 The portfolio should feel authored by a professional software engineer, not generated from a developer portfolio template.
