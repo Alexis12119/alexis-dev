@@ -6,7 +6,7 @@ import { Button } from "@/components/shared/Button";
 import { Heading } from "@/components/typography/Heading";
 import { Subheading } from "@/components/typography/Subheading";
 import { Caption } from "@/components/typography/Caption";
-import { Send, Loader, Phone, MapPin, Mail } from "lucide-react";
+import { Send, Loader, Phone, MapPin, Mail, Briefcase, Clock, Timer, Inbox } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeInUp } from "@/utils/animation";
 
@@ -50,16 +50,16 @@ export function Contact() {
           </Subheading>
 
           <div className="grid md:grid-cols-3 gap-6">
-            <div>
+            <div className="h-full">
               {submitted ? (
-                <div className="border border-[#E5E7EB] bg-white p-8 text-center">
+                <div className="border border-[#E5E7EB] bg-white p-8 text-center h-full flex flex-col items-center justify-center">
                   <p className="text-base font-medium mb-2">Message sent</p>
                   <p className="text-sm text-[#6B7280]">
                     Thank you — I&apos;ll get back to you as soon as possible.
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+                <form onSubmit={handleSubmit} className="flex flex-col gap-5 h-full">
                   <div className="grid grid-cols-1 gap-5">
                     <div>
                       <label htmlFor="name" className="sr-only">Name</label>
@@ -85,14 +85,24 @@ export function Contact() {
                     </div>
                   </div>
                   <div>
+                    <label htmlFor="subject" className="sr-only">Subject</label>
+                    <input
+                      id="subject"
+                      name="subject"
+                      type="text"
+                      required
+                      placeholder="Subject"
+                      className="w-full px-4 py-3 text-sm border border-[#E5E7EB] bg-white text-[#111111] placeholder:text-[#6B7280] focus:outline-none focus:border-[#111111] transition-colors"
+                    />
+                  </div>
+                  <div className="flex-1">
                     <label htmlFor="message" className="sr-only">Message</label>
                     <textarea
                       id="message"
                       name="message"
                       required
-                      rows={5}
                       placeholder="Message"
-                      className="w-full px-4 py-3 text-sm border border-[#E5E7EB] bg-white text-[#111111] placeholder:text-[#6B7280] focus:outline-none focus:border-[#111111] transition-colors resize-y"
+                      className="w-full h-full px-4 py-3 text-sm border border-[#E5E7EB] bg-white text-[#111111] placeholder:text-[#6B7280] focus:outline-none focus:border-[#111111] transition-colors resize-none"
                     />
                   </div>
                   <div>
@@ -105,7 +115,7 @@ export function Contact() {
               )}
             </div>
 
-            <div className="border border-[#E5E7EB] bg-white p-6 md:p-8">
+            <div className="border border-[#E5E7EB] bg-white p-6 md:p-8 h-full">
               <h3 className="text-sm font-semibold text-[#111111] mb-5 uppercase tracking-wider">
                 Contact Information
               </h3>
@@ -123,9 +133,30 @@ export function Contact() {
                   <span>corporal461@gmail.com</span>
                 </div>
               </div>
+
+              <hr className="my-5 border-t border-[#E5E7EB]" />
+
+              <div className="flex flex-col gap-4">
+                <div className="flex items-center gap-3 text-sm text-[#4B5563]">
+                  <Briefcase size={16} className="text-[#6B7280] shrink-0" />
+                  <span>Open to full-time, freelance, and contract opportunities</span>
+                </div>
+                <div className="flex items-center gap-3 text-sm text-[#4B5563]">
+                  <Clock size={16} className="text-[#6B7280] shrink-0" />
+                  <span>Philippine Time (PHT / UTC+8)</span>
+                </div>
+                <div className="flex items-center gap-3 text-sm text-[#4B5563]">
+                  <Timer size={16} className="text-[#6B7280] shrink-0" />
+                  <span>Typically responds within 24 hours</span>
+                </div>
+                <div className="flex items-center gap-3 text-sm text-[#4B5563]">
+                  <Inbox size={16} className="text-[#6B7280] shrink-0" />
+                  <span>Email is best — I check it daily</span>
+                </div>
+              </div>
             </div>
 
-            <div className="border border-[#E5E7EB] bg-white overflow-hidden">
+            <div className="border border-[#E5E7EB] bg-white overflow-hidden h-full">
               <iframe
                 src="https://maps.google.com/maps?q=Brgy.+San+Ignacio+San+Pablo+City+Laguna+Philippines&output=embed"
                 width="100%"
