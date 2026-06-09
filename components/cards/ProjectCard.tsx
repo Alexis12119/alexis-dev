@@ -6,7 +6,8 @@ import { Badge } from "@/components/shared/Badge";
 import { Tag } from "@/components/shared/Tag";
 import { BodyText } from "@/components/typography/BodyText";
 import { Heading } from "@/components/typography/Heading";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, ChevronDown } from "lucide-react";
+import { motion } from "framer-motion";
 import { cn } from "@/utils/cn";
 import { formatDate } from "@/utils/formatDate";
 import { ImageLightbox } from "@/components/ui/ImageLightbox";
@@ -21,6 +22,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
   const [selectedImage, setSelectedImage] = useState(0);
   const [imgError, setImgError] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(-1);
+  const [expanded, setExpanded] = useState(false);
 
   const lightboxImages = allImages.map((src) => ({
     src,
@@ -107,16 +109,51 @@ export function ProjectCard({ project }: ProjectCardProps) {
             </Badge>
           )}
 
-          <BodyText className="mb-2 md:mb-3 text-sm md:text-base">{project.summary}</BodyText>
+          <button
+            onClick={() => setExpanded(!expanded)}
+            className="md:hidden mx-auto flex flex-col items-center gap-1 text-xs font-medium text-[#6B7280] hover:text-[#111111] transition-colors mb-1 pt-2"
+          >
+            <span>{expanded ? "See less" : "See more"}</span>
+            <span className={cn("inline-flex", !expanded && "animate-bounce-subtle")}>
+              <ChevronDown
+                size={14}
+                className={cn(
+                  "transition-transform duration-200",
+                  expanded && "rotate-180",
+                )}
+              />
+            </span>
+          </button>
 
-          <ul className="space-y-1 flex-1">
-            {project.details.map((detail, i) => (
-              <li key={i} className="text-xs md:text-sm text-[#4B5563] flex items-start gap-1.5">
-                <span className="mt-1 block h-1 w-1 shrink-0 rounded-full bg-[#4B5563]" />
-                {detail}
-              </li>
-            ))}
-          </ul>
+          <motion.div
+            animate={{ height: expanded ? "auto" : 0, opacity: expanded ? 1 : 0 }}
+            transition={{ duration: 0.2, ease: "easeInOut" }}
+            className="md:hidden overflow-hidden"
+          >
+            <div className="pb-2 space-y-2">
+              <BodyText className="text-sm">{project.summary}</BodyText>
+              <ul className="space-y-1">
+                {project.details.map((detail, i) => (
+                  <li key={i} className="text-xs text-[#4B5563] flex items-start gap-1.5">
+                    <span className="mt-1 block h-1 w-1 shrink-0 rounded-full bg-[#4B5563]" />
+                    {detail}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
+
+          <div className="hidden md:block pb-3 space-y-3">
+            <BodyText className="text-base">{project.summary}</BodyText>
+            <ul className="space-y-1">
+              {project.details.map((detail, i) => (
+                <li key={i} className="text-sm text-[#4B5563] flex items-start gap-1.5">
+                  <span className="mt-1 block h-1 w-1 shrink-0 rounded-full bg-[#4B5563]" />
+                  {detail}
+                </li>
+              ))}
+            </ul>
+          </div>
 
           <div className="flex items-end justify-between gap-2 mt-auto pt-2 md:pt-3">
             <div className="flex flex-wrap gap-1">
