@@ -87,6 +87,7 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
                       height={54}
                       className="object-cover w-[72px] md:w-16 h-auto"
                       sizes="(max-width: 768px) 72px, 64px"
+                      style={{ width: "auto", height: "auto" }}
                     />
                   </button>
                 ))}

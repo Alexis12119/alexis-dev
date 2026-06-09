@@ -15,10 +15,9 @@ import type { Project } from "@/types/project";
 
 interface ProjectCardProps {
   project: Project;
-  cardHeight?: number | null;
 }
 
-export function ProjectCard({ project, cardHeight }: ProjectCardProps) {
+export function ProjectCard({ project }: ProjectCardProps) {
   const allImages = [project.screenshot, ...project.screenshots];
   const [selectedImage, setSelectedImage] = useState(0);
   const [imgError, setImgError] = useState(false);
@@ -32,7 +31,7 @@ export function ProjectCard({ project, cardHeight }: ProjectCardProps) {
 
   return (
     <article className="border border-[#E5E7EB] bg-white hover:border-2 hover:border-[#111111] hover:scale-[1.02] transition-all duration-300 overflow-hidden">
-      <div className="md:flex" style={cardHeight ? { height: cardHeight } : undefined}>
+      <div className="md:flex">
         <div className="md:w-2/5 shrink-0 flex flex-col">
           <div
             className="relative w-full flex-1 min-h-[180px] overflow-hidden bg-[#F3F4F6] cursor-pointer"
@@ -82,6 +81,7 @@ export function ProjectCard({ project, cardHeight }: ProjectCardProps) {
                     height={54}
                     className="object-cover w-[72px] md:w-16 h-auto"
                     sizes="(max-width: 768px) 72px, 64px"
+                    style={{ width: "auto", height: "auto" }}
                   />
                 </button>
               ))}

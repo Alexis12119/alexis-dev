@@ -1,6 +1,5 @@
 "use client";
 
-import { useRef, useState, useLayoutEffect } from "react";
 import { PROJECTS } from "@/data/projects";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
@@ -12,14 +11,6 @@ import { staggerContainer, fadeInUp } from "@/utils/animation";
 
 export function SelectedWork() {
   const sorted = sortProjectsByYear(PROJECTS);
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const [cardHeight, setCardHeight] = useState<number | null>(null);
-
-  useLayoutEffect(() => {
-    const heights = cardRefs.current.map((ref) => ref?.offsetHeight ?? 0);
-    const max = Math.max(...heights);
-    if (max > 0) setCardHeight(max);
-  }, []);
 
   return (
     <Section id="work" className="border-t border-[#E5E7EB]">
@@ -37,11 +28,9 @@ export function SelectedWork() {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
         >
-          {sorted.map((project, i) => (
+          {sorted.map((project) => (
             <motion.div key={project.id} variants={fadeInUp}>
-              <div ref={(el) => { cardRefs.current[i] = el; }}>
-                <ProjectCard project={project} cardHeight={cardHeight} />
-              </div>
+              <ProjectCard project={project} />
             </motion.div>
           ))}
         </motion.div>
