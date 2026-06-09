@@ -8,6 +8,12 @@
   --color-accent: #4B5563;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-heading: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --animate-bounce-subtle: bounce-subtle 1.5s ease-in-out infinite;
+}
+
+@keyframes bounce-subtle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
 }
 
 html {
@@ -31,15 +37,6 @@ body {
 ::selection {
   background: #111111;
   color: #FAF9F6;
-}
-
-@keyframes bounce-subtle {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(4px); }
-}
-
-.animate-bounce-subtle {
-  animation: bounce-subtle 1.5s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
