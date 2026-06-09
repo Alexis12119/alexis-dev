@@ -13,6 +13,12 @@ self.addEventListener("fetch", (event) => {
   const { request } = event;
   const url = new URL(request.url);
 
+  // Cache Google Maps embed for offline use
+  if (url.hostname === "maps.google.com") {
+    event.respondWith(networkFirst(request));
+    return;
+  }
+
   if (url.origin !== location.origin) return;
 
   const isImage =
