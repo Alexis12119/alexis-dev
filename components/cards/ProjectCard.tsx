@@ -7,6 +7,7 @@ import { Tag } from "@/components/shared/Tag";
 import { BodyText } from "@/components/typography/BodyText";
 import { ExternalLink } from "lucide-react";
 import { cn } from "@/utils/cn";
+import { formatDate } from "@/utils/formatDate";
 import type { Project } from "@/types/project";
 
 interface ProjectCardProps {
@@ -75,7 +76,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
           <h3 className="text-xl font-semibold tracking-tight">
             {project.title}
           </h3>
-          <span className="text-sm text-[#6B7280] shrink-0">{project.year}</span>
+          <span className="text-sm text-[#6B7280] shrink-0 whitespace-nowrap">
+            {project.startDate && project.endDate
+              ? `${formatDate(project.startDate)} — ${formatDate(project.endDate)}`
+              : project.year}
+          </span>
         </div>
 
         {project.achievement && (

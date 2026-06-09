@@ -5,6 +5,8 @@ export const PROJECTS: Project[] = [
     id: "ocr-drawing-extractor",
     title: "OCR Drawing Extractor",
     year: 2026,
+    startDate: "2026-02",
+    endDate: "2026-06",
     summary:
       "Python application for extracting text from engineering drawings. Uses a hybrid approach: pypdf text-layer extraction for vector PDFs with Tesseract OCR fallback for scanned images. Includes both a FastAPI microservice and a Tkinter GUI.",
     technologies: ["Python", "FastAPI", "Tesseract OCR", "pypdf", "Tkinter"],
@@ -25,6 +27,8 @@ export const PROJECTS: Project[] = [
     id: "plsp-registrar-docstrack",
     title: "PLSP Registrar DocsTrack",
     year: 2026,
+    startDate: "2026-02",
+    endDate: "2026-05",
     summary:
       "Online Student Document Request and Tracking System for Pamantasan ng Lungsod ng San Pablo. Manages the complete document request lifecycle with role-based access, payment tracking, and real-time updates.",
     technologies: [
@@ -58,6 +62,8 @@ export const PROJECTS: Project[] = [
     id: "bakerpass",
     title: "BakerPass",
     year: 2025,
+    startDate: "2025-08",
+    endDate: "2026-01",
     summary:
       "Multi-role appointment and visitor management system for Franklin Baker Corporation. Handles the complete visitor lifecycle from booking to check-out, with special support for high-care protocol areas requiring nurse approval.",
     technologies: [
@@ -90,6 +96,8 @@ export const PROJECTS: Project[] = [
     id: "soroban-solver",
     title: "Soroban Solver",
     year: 2025,
+    startDate: "2025-06",
+    endDate: "2025-10",
     summary:
       "Real-time math problem solver for the Soroban Android app. Uses OCR to extract equations from screen captures, solves them automatically, and maintains a history of solved problems.",
     technologies: ["Python", "OCR", "OpenCV"],
@@ -111,6 +119,8 @@ export const PROJECTS: Project[] = [
     id: "geodroid",
     title: "GeoDroid",
     year: 2025,
+    startDate: "2025-10",
+    endDate: "2025-10",
     summary:
       "A complete classic Asteroids game built with Raylib in C. Features smooth vector-based gameplay, collision detection, a comprehensive menu system, and persistent leaderboards.",
     technologies: ["C", "Raylib"],
