@@ -1,5 +1,6 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Inter } from "next/font/google";
+import Script from "next/script";
 import { SITE_CONFIG } from "@/config/site";
 import { Navbar } from "@/components/navigation/Navbar";
 import { Footer } from "@/components/navigation/Footer";
@@ -14,6 +15,10 @@ const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
 });
+
+export const viewport: Viewport = {
+  themeColor: "#111111",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://alexiscorporal.dev"),
@@ -47,6 +52,19 @@ export default function RootLayout({
         <Navbar />
         <main id="main-content">{children}</main>
         <Footer />
+        <Script
+          id="sw-register"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              if ("serviceWorker" in navigator) {
+                window.addEventListener("load", () => {
+                  navigator.serviceWorker.register("/sw.js");
+                });
+              }
+            `,
+          }}
+        />
       </body>
     </html>
   );
