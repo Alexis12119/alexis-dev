@@ -69,7 +69,7 @@ export function Contact() {
                         type="text"
                         required
                         placeholder="Name"
-                        className="w-full px-4 py-3 text-sm border border-[#E5E7EB] bg-white text-[#111111] placeholder:text-[#6B7280] focus:outline-none focus:border-[#111111] transition-colors"
+                        className="w-full px-4 py-3 text-sm border border-[#E5E7EB] bg-white text-[#111111] placeholder:text-[#6B7280] focus:outline-none focus:border-[#111111] focus:ring-1 focus:ring-[#111111] hover:border-[#111111] transition-colors"
                       />
                     </div>
                     <div>
@@ -80,7 +80,7 @@ export function Contact() {
                         type="email"
                         required
                         placeholder="Email"
-                        className="w-full px-4 py-3 text-sm border border-[#E5E7EB] bg-white text-[#111111] placeholder:text-[#6B7280] focus:outline-none focus:border-[#111111] transition-colors"
+                        className="w-full px-4 py-3 text-sm border border-[#E5E7EB] bg-white text-[#111111] placeholder:text-[#6B7280] focus:outline-none focus:border-[#111111] focus:ring-1 focus:ring-[#111111] hover:border-[#111111] transition-colors"
                       />
                     </div>
                   </div>
@@ -92,7 +92,7 @@ export function Contact() {
                       type="text"
                       required
                       placeholder="Subject"
-                      className="w-full px-4 py-3 text-sm border border-[#E5E7EB] bg-white text-[#111111] placeholder:text-[#6B7280] focus:outline-none focus:border-[#111111] transition-colors"
+                      className="w-full px-4 py-3 text-sm border border-[#E5E7EB] bg-white text-[#111111] placeholder:text-[#6B7280] focus:outline-none focus:border-[#111111] focus:ring-1 focus:ring-[#111111] hover:border-[#111111] transition-colors"
                     />
                   </div>
                   <div className="flex-1">
@@ -102,7 +102,7 @@ export function Contact() {
                       name="message"
                       required
                       placeholder="Message"
-                      className="w-full h-full px-4 py-3 text-sm border border-[#E5E7EB] bg-white text-[#111111] placeholder:text-[#6B7280] focus:outline-none focus:border-[#111111] transition-colors resize-none"
+                      className="w-full h-full px-4 py-3 text-sm border border-[#E5E7EB] bg-white text-[#111111] placeholder:text-[#6B7280] focus:outline-none focus:border-[#111111] focus:ring-1 focus:ring-[#111111] hover:border-[#111111] transition-colors resize-none"
                     />
                   </div>
                   <div>

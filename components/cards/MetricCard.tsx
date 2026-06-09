@@ -18,7 +18,7 @@ export function MetricCard({
   return (
     <div
       className={cn(
-        "border border-[#E5E7EB] bg-white p-5 h-full",
+        "border border-[#E5E7EB] bg-white p-5 h-full hover:border-2 hover:border-[#111111] hover:scale-[1.02] transition-all duration-300",
         className,
       )}
     >

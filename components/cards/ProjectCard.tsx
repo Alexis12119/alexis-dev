@@ -34,7 +34,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
   }, [allImages.length, imgError]);
 
   return (
-    <article className="border border-[#E5E7EB] bg-white hover:border-[#4B5563] transition-colors">
+    <article className="border border-[#E5E7EB] bg-white hover:border-2 hover:border-[#111111] hover:scale-[1.02] transition-all duration-300">
       <div
         className="relative aspect-[2/1] overflow-hidden bg-[#F3F4F6]"
         onMouseEnter={() => { isPausedRef.current = true; }}
