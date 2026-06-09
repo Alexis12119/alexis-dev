@@ -2,6 +2,7 @@
 
 import { useEffect, useCallback, useState } from "react";
 import Image from "next/image";
+import { Spinner } from "@/components/ui/Spinner";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
 interface LightboxImage {
@@ -18,15 +19,18 @@ interface ImageLightboxProps {
 export function ImageLightbox({ images, initialIndex, onClose }: ImageLightboxProps) {
   const [index, setIndex] = useState(initialIndex);
   const [zoomed, setZoomed] = useState(false);
+  const [loaded, setLoaded] = useState(false);
 
   const goNext = useCallback(() => {
     setIndex((prev) => (prev + 1) % images.length);
     setZoomed(false);
+    setLoaded(false);
   }, [images.length]);
 
   const goPrev = useCallback(() => {
     setIndex((prev) => (prev - 1 + images.length) % images.length);
     setZoomed(false);
+    setLoaded(false);
   }, [images.length]);
 
   useEffect(() => {
@@ -81,6 +85,11 @@ export function ImageLightbox({ images, initialIndex, onClose }: ImageLightboxPr
           className="relative w-full h-full max-w-5xl max-h-[85vh] m-8 overflow-hidden"
           onClick={(e) => e.stopPropagation()}
         >
+          {!loaded && (
+            <div className="absolute inset-0 flex items-center justify-center z-10">
+              <Spinner size="lg" label="Loading image" />
+            </div>
+          )}
           <div
             className="relative w-full h-full cursor-zoom-in flex items-center justify-center"
             onClick={() => setZoomed(!zoomed)}
@@ -91,10 +100,12 @@ export function ImageLightbox({ images, initialIndex, onClose }: ImageLightboxPr
               fill
               className={`
                 object-contain transition-transform duration-300
+                ${loaded ? "opacity-100" : "opacity-0"}
                 ${zoomed ? "scale-125 cursor-zoom-out" : "scale-100"}
               `}
               sizes="(max-width: 1024px) 100vw, 1024px"
               quality={90}
+              onLoad={() => setLoaded(true)}
             />
           </div>
         </div>

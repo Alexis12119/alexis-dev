@@ -6,13 +6,15 @@ import { Button } from "@/components/shared/Button";
 import { Heading } from "@/components/typography/Heading";
 import { Subheading } from "@/components/typography/Subheading";
 import { Caption } from "@/components/typography/Caption";
-import { Send, Loader, Phone, MapPin, Mail, Briefcase, Clock, Timer, Inbox, ArrowUp } from "lucide-react";
+import { Spinner } from "@/components/ui/Spinner";
+import { Send, Loader, Phone, MapPin, Mail, Briefcase, Clock, Timer, Inbox } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeInUp } from "@/utils/animation";
 
 export function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [mapLoaded, setMapLoaded] = useState(false);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -159,7 +161,12 @@ export function Contact() {
               </div>
             </div>
 
-            <div className="border border-[#E5E7EB] bg-white overflow-hidden h-full">
+            <div className="border border-[#E5E7EB] bg-white overflow-hidden h-full relative">
+              {!mapLoaded && (
+                <div className="absolute inset-0 flex items-center justify-center bg-[#FAF9F6] z-10">
+                  <Spinner size="lg" label="Loading map" />
+                </div>
+              )}
               <iframe
                 src="https://maps.google.com/maps?q=Brgy.+San+Ignacio+San+Pablo+City+Laguna+Philippines&output=embed"
                 width="100%"
@@ -169,20 +176,10 @@ export function Contact() {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                  title="Brgy. San Ignacio, San Pablo City, Laguna"
+                title="Brgy. San Ignacio, San Pablo City, Laguna"
+                onLoad={() => setMapLoaded(true)}
               />
             </div>
-          </div>
-
-          <div className="flex justify-end mt-8 md:hidden">
-            <button
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="flex items-center gap-2 text-sm text-[#6B7280] hover:text-[#111111] transition-colors"
-              aria-label="Back to top"
-            >
-              Back to top
-              <ArrowUp size={14} />
-            </button>
           </div>
         </motion.div>
       </Container>
