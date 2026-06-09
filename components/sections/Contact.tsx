@@ -6,7 +6,7 @@ import { Button } from "@/components/shared/Button";
 import { Heading } from "@/components/typography/Heading";
 import { Subheading } from "@/components/typography/Subheading";
 import { Caption } from "@/components/typography/Caption";
-import { Send, Loader, Phone, MapPin, Mail, Briefcase, Clock, Timer, Inbox } from "lucide-react";
+import { Send, Loader, Phone, MapPin, Mail, Briefcase, Clock, Timer, Inbox, ArrowUp } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeInUp } from "@/utils/animation";
 
@@ -169,6 +169,17 @@ export function Contact() {
                   title="Brgy. San Ignacio, San Pablo City, Laguna"
               />
             </div>
+          </div>
+
+          <div className="flex justify-end mt-8">
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="flex items-center gap-2 text-sm text-[#6B7280] hover:text-[#111111] transition-colors"
+              aria-label="Back to top"
+            >
+              Back to top
+              <ArrowUp size={14} />
+            </button>
           </div>
         </motion.div>
       </Container>

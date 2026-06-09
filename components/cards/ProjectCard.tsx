@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { Badge } from "@/components/shared/Badge";
 import { Tag } from "@/components/shared/Tag";
@@ -19,10 +19,27 @@ export function ProjectCard({ project }: ProjectCardProps) {
   const allImages = [project.screenshot, ...project.screenshots];
   const [selectedImage, setSelectedImage] = useState(0);
   const [imgError, setImgError] = useState(false);
+  const isPausedRef = useRef(false);
+
+  useEffect(() => {
+    if (allImages.length <= 1 || imgError) return;
+
+    const id = setInterval(() => {
+      if (!isPausedRef.current) {
+        setSelectedImage((prev) => (prev + 1) % allImages.length);
+      }
+    }, 4000);
+
+    return () => clearInterval(id);
+  }, [allImages.length, imgError]);
 
   return (
     <article className="border border-[#E5E7EB] bg-white hover:border-[#4B5563] transition-colors">
-      <div className="relative aspect-[16/9] overflow-hidden bg-[#F3F4F6]">
+      <div
+        className="relative aspect-[2/1] overflow-hidden bg-[#F3F4F6]"
+        onMouseEnter={() => { isPausedRef.current = true; }}
+        onMouseLeave={() => { isPausedRef.current = false; }}
+      >
         {imgError ? (
           <div className="absolute inset-0 flex items-center justify-center text-sm text-[#6B7280]">
             <div className="text-center">
@@ -43,6 +60,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
             blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/+F9PQAI8wNPvd7POQAAAABJRU5ErkJggg=="
             onError={() => setImgError(true)}
           />
+        )}
+        {!imgError && allImages.length > 1 && (
+          <div className="absolute bottom-2 right-2 bg-[#111111]/70 text-white text-xs px-2 py-0.5">
+            {selectedImage + 1} / {allImages.length}
+          </div>
         )}
       </div>
 
