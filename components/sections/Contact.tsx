@@ -6,7 +6,7 @@ import { Button } from "@/components/shared/Button";
 import { Heading } from "@/components/typography/Heading";
 import { Subheading } from "@/components/typography/Subheading";
 import { Caption } from "@/components/typography/Caption";
-import { Send, Loader } from "lucide-react";
+import { Send, Loader, Phone, MapPin, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeInUp } from "@/utils/animation";
 
@@ -35,7 +35,7 @@ export function Contact() {
     <section id="contact" className="pt-24 md:pt-32 pb-16 md:pb-20 border-t border-[#E5E7EB] scroll-mt-16">
       <Container>
         <motion.div
-          className="max-w-xl"
+          className="max-w-7xl"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -49,58 +49,96 @@ export function Contact() {
             engineering.
           </Subheading>
 
-          {submitted ? (
-            <div className="border border-[#E5E7EB] bg-white p-8 text-center">
-              <p className="text-base font-medium mb-2">Message sent</p>
-              <p className="text-sm text-[#6B7280]">
-                Thank you — I&apos;ll get back to you as soon as possible.
-              </p>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div>
+              {submitted ? (
+                <div className="border border-[#E5E7EB] bg-white p-8 text-center">
+                  <p className="text-base font-medium mb-2">Message sent</p>
+                  <p className="text-sm text-[#6B7280]">
+                    Thank you — I&apos;ll get back to you as soon as possible.
+                  </p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+                  <div className="grid grid-cols-1 gap-5">
+                    <div>
+                      <label htmlFor="name" className="sr-only">Name</label>
+                      <input
+                        id="name"
+                        name="name"
+                        type="text"
+                        required
+                        placeholder="Name"
+                        className="w-full px-4 py-3 text-sm border border-[#E5E7EB] bg-white text-[#111111] placeholder:text-[#6B7280] focus:outline-none focus:border-[#111111] transition-colors"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="email" className="sr-only">Email</label>
+                      <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        required
+                        placeholder="Email"
+                        className="w-full px-4 py-3 text-sm border border-[#E5E7EB] bg-white text-[#111111] placeholder:text-[#6B7280] focus:outline-none focus:border-[#111111] transition-colors"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label htmlFor="message" className="sr-only">Message</label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      required
+                      rows={5}
+                      placeholder="Message"
+                      className="w-full px-4 py-3 text-sm border border-[#E5E7EB] bg-white text-[#111111] placeholder:text-[#6B7280] focus:outline-none focus:border-[#111111] transition-colors resize-y"
+                    />
+                  </div>
+                  <div>
+                    <Button type="submit" variant="primary" disabled={submitting}>
+                      {submitting ? "Sending..." : "Send Message"}
+                      {submitting ? <Loader size={14} className="animate-spin" /> : <Send size={14} />}
+                    </Button>
+                  </div>
+                </form>
+              )}
             </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                <div>
-                  <label htmlFor="name" className="sr-only">Name</label>
-                  <input
-                    id="name"
-                    name="name"
-                    type="text"
-                    required
-                    placeholder="Name"
-                    className="w-full px-4 py-3 text-sm border border-[#E5E7EB] bg-white text-[#111111] placeholder:text-[#6B7280] focus:outline-none focus:border-[#111111] transition-colors"
-                  />
+
+            <div className="border border-[#E5E7EB] bg-white p-6 md:p-8">
+              <h3 className="text-sm font-semibold text-[#111111] mb-5 uppercase tracking-wider">
+                Contact Information
+              </h3>
+              <div className="flex flex-col gap-4">
+                <div className="flex items-center gap-3 text-sm text-[#4B5563]">
+                  <Phone size={16} className="text-[#6B7280] shrink-0" />
+                  <span>+63 945 468 1904</span>
                 </div>
-                <div>
-                  <label htmlFor="email" className="sr-only">Email</label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    required
-                    placeholder="Email"
-                    className="w-full px-4 py-3 text-sm border border-[#E5E7EB] bg-white text-[#111111] placeholder:text-[#6B7280] focus:outline-none focus:border-[#111111] transition-colors"
-                  />
+                <div className="flex items-center gap-3 text-sm text-[#4B5563]">
+                  <MapPin size={16} className="text-[#6B7280] shrink-0" />
+                  <span>Brgy. San Ignacio, San Pablo City, Laguna 4000</span>
+                </div>
+                <div className="flex items-center gap-3 text-sm text-[#4B5563]">
+                  <Mail size={16} className="text-[#6B7280] shrink-0" />
+                  <span>corporal461@gmail.com</span>
                 </div>
               </div>
-              <div>
-                <label htmlFor="message" className="sr-only">Message</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  required
-                  rows={5}
-                  placeholder="Message"
-                  className="w-full px-4 py-3 text-sm border border-[#E5E7EB] bg-white text-[#111111] placeholder:text-[#6B7280] focus:outline-none focus:border-[#111111] transition-colors resize-y"
-                />
-              </div>
-              <div>
-                <Button type="submit" variant="primary" disabled={submitting}>
-                  {submitting ? "Sending..." : "Send Message"}
-                  {submitting ? <Loader size={14} className="animate-spin" /> : <Send size={14} />}
-                </Button>
-              </div>
-            </form>
-          )}
+            </div>
+
+            <div className="border border-[#E5E7EB] bg-white overflow-hidden">
+              <iframe
+                src="https://maps.google.com/maps?q=Brgy.+San+Ignacio+San+Pablo+City+Laguna+Philippines&output=embed"
+                width="100%"
+                height="100%"
+                className="min-h-[220px]"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                  title="Brgy. San Ignacio, San Pablo City, Laguna"
+              />
+            </div>
+          </div>
         </motion.div>
       </Container>
     </section>
