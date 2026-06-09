@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { NAV_ITEMS } from "@/config/navigation";
-import { SITE_CONFIG } from "@/config/site";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,11 +11,17 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-[#E5E7EB] bg-[#FAF9F6]/95 backdrop-blur-sm">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 md:px-8 lg:px-12 h-16">
-        <a
-          href="#"
-          className="text-sm font-medium tracking-tight text-[#111111]"
-        >
-          {SITE_CONFIG.name}
+        <a href="#" className="flex items-center gap-3">
+          <Image
+            src="/logo.png"
+            alt="Alexis Corporal"
+            width={32}
+            height={32}
+            className="rounded-sm"
+          />
+          <span className="text-sm font-medium tracking-tight text-[#111111] hidden sm:inline">
+            Alexis Corporal
+          </span>
         </a>
 
         <div className="hidden md:flex items-center gap-8">

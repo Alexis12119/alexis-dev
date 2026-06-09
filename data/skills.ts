@@ -3,7 +3,7 @@ import type { TechCategory } from "@/types/common";
 export const SKILLS: TechCategory[] = [
   {
     category: "Frontend",
-    items: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    items: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "Flutter"],
   },
   {
     category: "Backend",

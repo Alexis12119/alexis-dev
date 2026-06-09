@@ -63,6 +63,7 @@ export const PROJECTS: Project[] = [
       "TypeScript",
       "Tailwind CSS",
       "Fastify",
+      "Flutter",
       "MySQL",
       "Docker",
       "WebSocket",

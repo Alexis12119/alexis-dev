@@ -3,18 +3,18 @@ import type { Experience } from "@/types/experience";
 export const EXPERIENCE: Experience[] = [
   {
     id: "docstrack-intern",
-    role: "Software Development Intern",
-    company: "PLSP Registrar DocsTrack",
+    role: "Web Development Intern",
+    company: "Bakawan Data Analytics, Inc.",
     location: "San Pablo City, Philippines",
     startDate: "2026-02",
     endDate: "2026-05",
     summary:
-      "Built a comprehensive online student document request and tracking system for Pamantasan ng Lungsod ng San Pablo. Designed role-based access control, real-time WebSocket updates, audit logging, and analytics dashboards.",
+      "Built the PLSP Registrar DocsTrack system — a comprehensive student document request and tracking system for Pamantasan ng Lungsod ng San Pablo. Went through the full development lifecycle from planning to development.",
     achievements: [
-      "Designed and implemented a role-based document request workflow handling multiple user types",
-      "Built real-time WebSocket notifications for status updates",
-      "Implemented rate limiting, brute-force protection, and audit logging",
-      "Developed analytics dashboards with PDF and Excel export",
+      "Developed a full-stack document request and tracking system with role-based access control",
+      "Tested API endpoints with Postman and ran performance tests using JMeter",
+      "Completed AWS Cloud Quest: Cloud Practitioner to understand cloud fundamentals",
+      "Proposed and built the DocsTrack system through the full development phase",
     ],
     highlight: "3rd Best Intern System",
   },
