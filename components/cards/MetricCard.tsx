@@ -18,12 +18,14 @@ export function MetricCard({
   return (
     <div
       className={cn(
-        "border border-[#E5E7EB] bg-white p-6 md:p-8",
+        "border border-[#E5E7EB] bg-white p-6 md:p-8 h-full",
         className,
       )}
     >
-      {icon && <div className="mb-4 text-[#111111]">{icon}</div>}
-      <Heading as="h3" className="text-lg mb-2">{title}</Heading>
+      <div className="flex items-center gap-3 mb-2">
+        {icon && <div className="shrink-0 text-[#111111]">{icon}</div>}
+        <Heading as="h3" className="text-lg">{title}</Heading>
+      </div>
       <p className="text-sm leading-relaxed text-[#4B5563]">{description}</p>
     </div>
   );

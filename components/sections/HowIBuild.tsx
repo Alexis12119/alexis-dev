@@ -53,7 +53,7 @@ export function HowIBuild() {
           viewport={{ once: true, margin: "-100px" }}
         >
           {pillars.map((pillar) => (
-            <motion.div key={pillar.title} variants={fadeInUp}>
+            <motion.div key={pillar.title} variants={fadeInUp} className="h-full">
               <MetricCard
                 title={pillar.title}
                 description={pillar.description}
