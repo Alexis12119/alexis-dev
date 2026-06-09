@@ -57,6 +57,7 @@ export const PROJECTS: Project[] = [
       "Dashboard and analytics with PDF and Excel export",
       "API endpoint testing with Postman and performance testing with JMeter",
     ],
+    githubUrl: "https://github.com/Alexis12119",
   },
   {
     id: "bakerpass",

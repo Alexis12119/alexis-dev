@@ -98,7 +98,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </div>
 
           {project.achievement && (
-            <Badge className="mb-3 border-[#4B5563] text-[#4B5563]">
+            <Badge className="mb-3 border-[#4B5563] text-[#4B5563] self-start">
               {project.achievement}
             </Badge>
           )}
@@ -125,7 +125,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-[#111111] hover:text-[#6B7280] transition-colors mt-auto"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-[#111111] hover:text-[#6B7280] transition-colors mt-auto self-end"
             >
               <ExternalLink size={14} />
               View on GitHub
