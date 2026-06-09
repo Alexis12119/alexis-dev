@@ -8,4 +8,7 @@ export interface Experience {
   summary: string;
   achievements: string[];
   highlight?: string;
+  tools?: string[];
+  image?: string;
+  images?: string[];
 }

@@ -16,21 +16,36 @@ interface ProjectCardProps {
 export function ProjectCard({ project }: ProjectCardProps) {
   const allImages = [project.screenshot, ...project.screenshots];
   const [selectedImage, setSelectedImage] = useState(0);
+  const [imgError, setImgError] = useState(false);
 
   return (
-    <article className="border border-[#E5E7EB] bg-white">
-      <div className="relative aspect-[16/10] overflow-hidden bg-[#F3F4F6]">
-        <Image
-          src={allImages[selectedImage]}
-          alt={`${project.title} screenshot ${selectedImage + 1}`}
-          fill
-          className="object-contain transition-opacity duration-300"
-          sizes="(max-width: 768px) calc(100vw - 48px), 1056px"
-        />
+    <article className="border border-[#E5E7EB] bg-white hover:border-[#4B5563] transition-colors">
+      <div className="relative aspect-[21/9] overflow-hidden bg-[#F3F4F6]">
+        {imgError ? (
+          <div className="absolute inset-0 flex items-center justify-center text-sm text-[#6B7280]">
+            <div className="text-center">
+              <span className="text-2xl font-semibold tracking-tight block mb-1">
+                {project.title.split(" ").map((w) => w[0]).join("").slice(0, 3)}
+              </span>
+              <span>Screenshot unavailable</span>
+            </div>
+          </div>
+        ) : (
+          <Image
+            src={allImages[selectedImage]}
+            alt={`${project.title} screenshot ${selectedImage + 1}`}
+            fill
+            className="object-contain transition-opacity duration-300"
+            sizes="(max-width: 768px) calc(100vw - 48px), 1056px"
+            placeholder="blur"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/+F9PQAI8wNPvd7POQAAAABJRU5ErkJggg=="
+            onError={() => setImgError(true)}
+          />
+        )}
       </div>
 
-      {allImages.length > 1 && (
-        <div className="flex gap-2 px-6 pt-4 pb-2 overflow-x-auto">
+      {!imgError && allImages.length > 1 && (
+        <div className="flex gap-2 px-5 pt-3 pb-1 overflow-x-auto">
           {allImages.map((img, i) => (
             <button
               key={img}
@@ -55,7 +70,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </div>
       )}
 
-      <div className="p-6 md:p-8">
+      <div className="p-5 md:p-6">
         <div className="flex items-start justify-between gap-4 mb-3">
           <h3 className="text-xl font-semibold tracking-tight">
             {project.title}

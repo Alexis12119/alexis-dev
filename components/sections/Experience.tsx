@@ -18,7 +18,6 @@ export function Experience() {
         />
 
         <motion.div
-          className="max-w-3xl"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}

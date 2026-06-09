@@ -1,5 +1,15 @@
 import type { Variants } from "framer-motion";
 
+function useReducedMotion(): boolean {
+  if (typeof window === "undefined") return false;
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
+const noAnimation: Variants = {
+  hidden: {},
+  visible: {},
+};
+
 export const fadeIn: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
@@ -25,4 +35,21 @@ export const staggerContainer: Variants = {
       staggerChildren: 0.1,
     },
   },
+};
+
+export function getAnimations() {
+  if (useReducedMotion()) {
+    return {
+      fadeIn: noAnimation,
+      fadeInUp: noAnimation,
+      staggerContainer: noAnimation,
+    };
+  }
+  return { fadeIn, fadeInUp, staggerContainer };
+}
+
+export const motionProps = {
+  initial: "hidden",
+  whileInView: "visible",
+  viewport: { once: true, margin: "-100px" as const },
 };

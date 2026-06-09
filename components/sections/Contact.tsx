@@ -3,15 +3,17 @@
 import { useState, type FormEvent } from "react";
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/shared/Button";
-import { Send } from "lucide-react";
+import { Send, Loader } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeInUp } from "@/utils/animation";
 
 export function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    setSubmitting(true);
     const form = e.currentTarget;
     const data = new FormData(form);
     const id = process.env.NEXT_PUBLIC_FORMSPREE_ID;
@@ -23,10 +25,11 @@ export function Contact() {
     });
 
     if (res.ok) setSubmitted(true);
+    setSubmitting(false);
   }
 
   return (
-    <section id="contact" className="py-24 md:py-32 border-t border-[#E5E7EB]">
+    <section id="contact" className="pt-24 md:pt-32 pb-16 md:pb-20 border-t border-[#E5E7EB]">
       <Container>
         <motion.div
           className="max-w-xl"
@@ -53,15 +56,10 @@ export function Contact() {
               </p>
             </div>
           ) : (
-            <form
-              onSubmit={handleSubmit}
-              className="flex flex-col gap-5"
-            >
+            <form onSubmit={handleSubmit} className="flex flex-col gap-5">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div>
-                  <label htmlFor="name" className="sr-only">
-                    Name
-                  </label>
+                  <label htmlFor="name" className="sr-only">Name</label>
                   <input
                     id="name"
                     name="name"
@@ -72,9 +70,7 @@ export function Contact() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="sr-only">
-                    Email
-                  </label>
+                  <label htmlFor="email" className="sr-only">Email</label>
                   <input
                     id="email"
                     name="email"
@@ -86,9 +82,7 @@ export function Contact() {
                 </div>
               </div>
               <div>
-                <label htmlFor="message" className="sr-only">
-                  Message
-                </label>
+                <label htmlFor="message" className="sr-only">Message</label>
                 <textarea
                   id="message"
                   name="message"
@@ -99,9 +93,9 @@ export function Contact() {
                 />
               </div>
               <div>
-                <Button type="submit" variant="primary">
-                  Send Message
-                  <Send size={14} />
+                <Button type="submit" variant="primary" disabled={submitting}>
+                  {submitting ? "Sending..." : "Send Message"}
+                  {submitting ? <Loader size={14} className="animate-spin" /> : <Send size={14} />}
                 </Button>
               </div>
             </form>

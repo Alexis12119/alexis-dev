@@ -35,6 +35,8 @@ export const PROJECTS: Project[] = [
       "Fastify",
       "MySQL",
       "WebSocket",
+      "Postman",
+      "JMeter",
     ],
     screenshot: "/images/Docstrack/admin-dashboard.jpg",
     screenshots: [
@@ -49,6 +51,7 @@ export const PROJECTS: Project[] = [
       "Document request workflow with payment tracking and real-time WebSocket updates",
       "Audit logging with IP and user-agent tracking",
       "Dashboard and analytics with PDF and Excel export",
+      "API endpoint testing with Postman and performance testing with JMeter",
     ],
   },
   {

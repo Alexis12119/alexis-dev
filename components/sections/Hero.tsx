@@ -9,7 +9,7 @@ import { fadeInUp, staggerContainer } from "@/utils/animation";
 
 export function Hero() {
   return (
-    <section className="pt-32 pb-24 md:pt-40 md:pb-32">
+    <section id="hero" className="pt-32 pb-24 md:pt-40 md:pb-32">
       <Container>
         <motion.div
           className="max-w-3xl"

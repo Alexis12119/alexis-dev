@@ -21,7 +21,7 @@ export function SelectedWork() {
         />
 
         <motion.div
-          className="grid gap-12 md:gap-16"
+          className="grid gap-10 md:gap-12"
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"

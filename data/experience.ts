@@ -16,6 +16,12 @@ export const EXPERIENCE: Experience[] = [
       "Completed AWS Cloud Quest: Cloud Practitioner to understand cloud fundamentals",
       "Proposed and built the DocsTrack system through the full development phase",
     ],
+    tools: ["Postman", "JMeter"],
     highlight: "3rd Best Intern System",
+    image: "/images/Bakawan/top3.jpg",
+    images: [
+      "/images/Bakawan/plsp-docstrack-3rd.png",
+      "/images/Bakawan/cloud-quest.png",
+    ],
   },
 ];

@@ -10,6 +10,10 @@ export const SKILLS: TechCategory[] = [
     items: ["Fastify", "FastAPI", "Node.js", "Python", "REST APIs", "WebSocket"],
   },
   {
+    category: "Testing & QA",
+    items: ["Postman", "JMeter"],
+  },
+  {
     category: "Languages & Tools",
     items: ["C", "Python", "TypeScript", "OpenCV", "Tesseract OCR", "Raylib"],
   },
