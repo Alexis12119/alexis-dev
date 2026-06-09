@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowUp } from "lucide-react";
 import { cn } from "@/utils/cn";
 import { NAV_ITEMS } from "@/config/navigation";
 import { AnimatePresence, motion } from "framer-motion";
@@ -10,6 +10,7 @@ import { AnimatePresence, motion } from "framer-motion";
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const [showBackToTop, setShowBackToTop] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -27,6 +28,7 @@ export function Navbar() {
 
     function handleScroll() {
       if (window.scrollY < 100) setActiveSection("");
+      setShowBackToTop(window.scrollY > 400);
     }
     window.addEventListener("scroll", handleScroll, { passive: true });
 
@@ -45,7 +47,8 @@ export function Navbar() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[#E5E7EB] bg-[#FAF9F6]/95 backdrop-blur-sm">
+    <>
+      <header className="sticky top-0 z-50 border-b border-[#E5E7EB] bg-[#FAF9F6]/95 backdrop-blur-sm">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 md:px-8 lg:px-12 h-16">
         <a href="#" className="flex items-center gap-3">
           <Image
@@ -124,5 +127,22 @@ export function Navbar() {
         )}
       </AnimatePresence>
     </header>
+
+    <AnimatePresence>
+      {showBackToTop && (
+        <motion.button
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.8 }}
+          transition={{ duration: 0.2 }}
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="fixed bottom-6 right-6 z-50 bg-[#111111] text-white p-3 shadow-sm hover:bg-[#333333] transition-colors"
+          aria-label="Back to top"
+        >
+          <ArrowUp size={18} />
+        </motion.button>
+      )}
+    </AnimatePresence>
+    </>
   );
 }

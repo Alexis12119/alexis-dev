@@ -174,7 +174,7 @@ export function Contact() {
             </div>
           </div>
 
-          <div className="flex justify-end mt-8">
+          <div className="flex justify-end mt-8 md:hidden">
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               className="flex items-center gap-2 text-sm text-[#6B7280] hover:text-[#111111] transition-colors"
