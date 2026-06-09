@@ -4,10 +4,7 @@ self.addEventListener("install", (event) => {
   self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE).then((cache) =>
-      cache.addAll([
-        "/",
-        "/icon.png",
-      ]),
+      cache.addAll(["/", "/icon.png"]),
     ),
   );
 });
@@ -16,22 +13,22 @@ self.addEventListener("fetch", (event) => {
   const { request } = event;
   const url = new URL(request.url);
 
-  // Only handle same-origin requests
   if (url.origin !== location.origin) return;
 
-  // Cache-first for static assets (images, fonts)
-  if (/\.(png|jpg|jpeg|webp|svg|ico|woff2?)$/i.test(url.pathname)) {
-    event.respondWith(cacheFirst(request));
+  const isImage =
+    /\.(png|jpg|jpeg|webp|svg|ico|avif|woff2?)$/i.test(url.pathname) ||
+    url.pathname.startsWith("/_next/image");
+
+  if (isImage) {
+    event.respondWith(cacheFirstImage(request));
     return;
   }
 
-  // Network-first for navigation and pages
   if (request.mode === "navigate") {
     event.respondWith(networkFirst(request));
     return;
   }
 
-  // Stale-while-revalidate for everything else (JS, CSS)
   event.respondWith(staleWhileRevalidate(request));
 });
 
@@ -43,7 +40,7 @@ self.addEventListener("activate", (event) => {
   );
 });
 
-async function cacheFirst(request) {
+async function cacheFirstImage(request) {
   const cached = await caches.match(request);
   if (cached) return cached;
   try {
@@ -54,7 +51,7 @@ async function cacheFirst(request) {
     }
     return response;
   } catch {
-    return new Response("Offline", { status: 503 });
+    return new Response("", { status: 204 });
   }
 }
 
@@ -76,11 +73,19 @@ async function networkFirst(request) {
 async function staleWhileRevalidate(request) {
   const cache = await caches.open(CACHE);
   const cached = await cache.match(request);
-  const fetchPromise = fetch(request)
-    .then((response) => {
-      if (response.ok) cache.put(request, response.clone());
-      return response;
-    })
-    .catch(() => cached);
-  return cached ?? (await fetchPromise);
+  if (cached) {
+    fetch(request)
+      .then((response) => {
+        if (response.ok) cache.put(request, response.clone());
+      })
+      .catch(() => {});
+    return cached;
+  }
+  try {
+    const response = await fetch(request);
+    if (response.ok) cache.put(request, response.clone());
+    return response;
+  } catch {
+    return new Response("", { status: 204 });
+  }
 }
