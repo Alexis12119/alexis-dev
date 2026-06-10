@@ -13,6 +13,10 @@ self.addEventListener("fetch", (event) => {
   const { request } = event;
   const url = new URL(request.url);
 
+  // Skip Next.js internal assets (HMR chunks, webpack, etc.) and Turbopack cache-busting
+  if (url.pathname.startsWith("/_next/")) return;
+  if (url.search.includes("?icon.")) return;
+
   // Cache Google Maps embed for offline use
   if (url.hostname === "maps.google.com") {
     event.respondWith(networkFirst(request));
@@ -40,9 +44,12 @@ self.addEventListener("fetch", (event) => {
 
 self.addEventListener("activate", (event) => {
   event.waitUntil(
-    caches.keys().then((keys) =>
-      Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k))),
-    ),
+    Promise.all([
+      clients.claim(),
+      caches.keys().then((keys) =>
+        Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k))),
+      ),
+    ]),
   );
 });
 

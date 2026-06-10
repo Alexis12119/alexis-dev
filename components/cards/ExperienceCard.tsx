@@ -44,7 +44,7 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
               onClick={() => setLightboxIndex(selectedImage)}
             >
               {imgError ? (
-                <div className="flex items-center justify-center text-sm text-[#6B7280] min-h-[160px]">
+                <div className="flex items-center justify-center text-sm text-[#6B7280] h-full">
                   <div className="text-center">
                     <span className="text-2xl font-semibold tracking-tight block mb-1">
                       {experience.company.split(" ").map((w) => w[0]).join("").slice(0, 3)}
