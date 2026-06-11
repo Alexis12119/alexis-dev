@@ -66,7 +66,7 @@ export const PROJECTS: Project[] = [
     startDate: "2025-08",
     endDate: "2026-01",
     summary:
-      "Multi-role appointment and visitor management system for Franklin Baker Corporation. Handles the complete visitor lifecycle from booking to check-out, with special support for high-care protocol areas requiring nurse approval.",
+      "Multi-role appointment and visitor management system for Franklin Baker Company of the Philippines. Handles the complete visitor lifecycle from booking to check-out, with special support for high-care protocol areas requiring nurse approval.",
     technologies: [
       "Next.js",
       "React",

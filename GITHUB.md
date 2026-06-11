@@ -28,7 +28,7 @@ Hybrid OCR pipeline using text extraction and Tesseract fallback.
 Document request and tracking system with role-based access, real-time WebSocket updates, and analytics dashboards. _3rd Best Intern System_
 
 **BakerPass** (2025)
-Visitor management system for Franklin Baker Corporation with appointment booking, nurse approval workflows, and QR check-in/out. _Best Capstone Project_
+Visitor management system for Franklin Baker Company of the Philippines with appointment booking, nurse approval workflows, and QR check-in/out. _Best Capstone Project_
 
 **Soroban Solver** (2025)
 Soroban (abacus) digit recognition solver using OpenCV and Tesseract OCR.

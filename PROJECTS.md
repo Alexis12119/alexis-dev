@@ -50,7 +50,7 @@ Prerequisites
 
 BakerPass(2025):
 
-A multi-tenant appointment and visitor management system designed for **Franklin Baker Corporation**. The system handles the complete visitor lifecycle from booking to check-out, with special support for high-care/protocol areas requiring nurse approval.
+A multi-role appointment and visitor management system designed for **Franklin Baker Company of the Philippines**. The system handles the complete visitor lifecycle from booking to check-out, with special support for high-care/protocol areas requiring nurse approval.
 
 ## Features
 
