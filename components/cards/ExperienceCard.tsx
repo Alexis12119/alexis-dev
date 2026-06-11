@@ -66,7 +66,7 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
               )}
             </div>
 
-            {allImages.length > 1 && (
+            {!imgError && allImages.length > 1 && (
               <div className="flex gap-2 px-3 pt-2 pb-1 overflow-x-auto shrink-0">
                 {allImages.map((img, i) => (
                   <button
