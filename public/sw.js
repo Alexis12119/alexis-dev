@@ -1,4 +1,4 @@
-const CACHE = "alexis-portfolio-v1";
+const CACHE = "alexis-portfolio-v2";
 
 self.addEventListener("install", (event) => {
   self.skipWaiting();
