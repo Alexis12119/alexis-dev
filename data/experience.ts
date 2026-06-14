@@ -3,7 +3,7 @@ import type { Experience } from "@/types/experience";
 export const EXPERIENCE: Experience[] = [
   {
     id: "docstrack-intern",
-    role: "Web Development Intern",
+    role: "Web Developer Intern",
     company: "Bakawan Data Analytics, Inc.",
     location: "San Pablo City, Philippines",
     startDate: "2026-02",
