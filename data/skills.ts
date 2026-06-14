@@ -7,7 +7,7 @@ export const SKILLS: TechCategory[] = [
   },
   {
     category: "Backend",
-    items: ["Fastify", "FastAPI", "Node.js", "Python", "REST APIs", "WebSocket"],
+    items: ["Fastify", "FastAPI", "Go", "Node.js", "Python", "REST APIs", "WebSocket"],
   },
   {
     category: "Testing & QA",
@@ -23,6 +23,6 @@ export const SKILLS: TechCategory[] = [
   },
   {
     category: "Infrastructure",
-    items: ["Docker", "MySQL", "Linux"],
+    items: ["Docker", "MySQL", "PostgreSQL", "Linux"],
   },
 ];
