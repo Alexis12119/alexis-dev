@@ -36,7 +36,7 @@ export const PROJECTS: Project[] = [
       "React",
       "TypeScript",
       "Tailwind CSS",
-      "Fastify",
+      "Go",
       "MySQL",
       "WebSocket",
       "Postman",
