@@ -1,6 +1,6 @@
 export const SITE_CONFIG = {
   name: "Alexis Corporal",
-  title: "Web Developer",
+  title: "Software Developer",
   location: "Philippines",
   url: "https://alexiscorporal.dev",
   description:
