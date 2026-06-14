@@ -37,7 +37,7 @@ export const PROJECTS: Project[] = [
       "TypeScript",
       "Tailwind CSS",
       "Go",
-      "MySQL",
+      "PostgreSQL",
       "WebSocket",
       "Postman",
       "JMeter",
