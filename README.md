@@ -13,7 +13,7 @@ A professional portfolio website built with Next.js 16, React 19, TypeScript, an
 ## Sections
 
 - Hero — name, title, tagline, resume download
-- Experience — internship at PLSP Registrar DocsTrack
+- Experience — internship at DLSP Registrar DocsTrack
 - Selected Work — 5 projects with screenshot galleries
 - How I Build — engineering principles
 - Technologies — tools grouped by category

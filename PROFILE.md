@@ -9,7 +9,7 @@ Focused on pragmatic problem-solving, security, and multi-role architecture. Pre
 ## Projects
 
 - **OCR Drawing Extractor (2026)** — Hybrid PDF text-layer + OCR extraction for engineering drawings. Python, FastAPI, Tesseract, Tkinter.
-- **PLSP Registrar DocsTrack (2026)** — Online student document request system with role-based access, WebSocket updates, audit logging. Next.js, Fastify, MySQL. *3rd Best Intern System.*
+- **DLSP Registrar DocsTrack (2026)** — Online student document request system with role-based access, WebSocket updates, audit logging. Next.js, Fastify, MySQL. *3rd Best Intern System.*
 - **BakerPass (2025)** — Multi-role visitor management system for Franklin Baker Company of the Philippines with high-care protocol support. Next.js, Fastify, MySQL, Docker, Flutter. *Best Capstone Project.*
 - **Soroban Solver (2025)** — Real-time OCR math problem solver for Android. Python, OpenCV.
 - **GeoDroid (2025)** — Asteroids game built with Raylib in C. Full menu system, leaderboards, audio.

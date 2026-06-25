@@ -293,7 +293,7 @@ Highlight: 3rd Best Intern System
 Featured Projects (sorted by year, newest first):
 
 1. OCR Drawing Extractor (2026)
-2. PLSP Registrar DocsTrack (2026) — 3rd Best Intern System
+2. DLSP Registrar DocsTrack (2026) — 3rd Best Intern System
 3. BakerPass (2025) — Best Capstone Project
 4. Soroban Solver (2025)
 5. GeoDroid (2025)

@@ -1,10 +1,10 @@
-The projects I'll show and show a screenshot of is OCR Drawing Extractor(2026),PLSP Registrar Docstrack(2026), BakerPass(2025), Soroban Solver(2025), GeoDroid(2025)
+The projects I'll show and show a screenshot of is OCR Drawing Extractor(2026),DLSP Registrar Docstrack(2026), BakerPass(2025), Soroban Solver(2025), GeoDroid(2025)
 
 
 Here are the info the projects:
 
-PLSP Registrar Docstrack(2026):
-Online Student Document Request and Tracking System — A comprehensive web-based system for managing student document requests at Pamantasan ng Lungsod ng San Pablo.
+DLSP Registrar Docstrack(2026):
+Online Student Document Request and Tracking System — A comprehensive web-based system for managing student document requests at Dalubhasaan ng Lungsod ng San Pablo.
 
 Features
 

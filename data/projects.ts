@@ -25,12 +25,12 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "plsp-registrar-docstrack",
-    title: "PLSP Registrar DocsTrack",
+    title: "DLSP Registrar DocsTrack",
     year: 2026,
     startDate: "2026-02",
     endDate: "2026-05",
     summary:
-      "Online Student Document Request and Tracking System for Pamantasan ng Lungsod ng San Pablo. Manages the complete document request lifecycle with role-based access, payment tracking, and real-time updates.",
+      "Online Student Document Request and Tracking System for Dalubhasaan ng Lungsod ng San Pablo. Manages the complete document request lifecycle with role-based access, payment tracking, and real-time updates.",
     technologies: [
       "Next.js",
       "React",

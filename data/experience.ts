@@ -9,7 +9,7 @@ export const EXPERIENCE: Experience[] = [
     startDate: "2026-02",
     endDate: "2026-05",
     summary:
-      "Built the PLSP Registrar DocsTrack system — a comprehensive student document request and tracking system for Pamantasan ng Lungsod ng San Pablo. Went through the full development lifecycle from planning to development.",
+      "Built the DLSP Registrar DocsTrack system — a comprehensive student document request and tracking system for Dalubhasaan ng Lungsod ng San Pablo. Went through the full development lifecycle from planning to development.",
     achievements: [
       "Developed a full-stack document request and tracking system with role-based access control",
       "Tested API endpoints with Postman and ran performance tests using JMeter",
