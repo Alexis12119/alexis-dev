@@ -53,7 +53,7 @@ export function Hero() {
               </span>
             </LinkButton>
             <LinkButton
-              href="/ATS Resume - Alexis Corporal.pdf"
+              href="/Resume - Alexis Corporal.pdf"
               variant="secondary"
               className="px-5 py-2.5 whitespace-nowrap"
               download
