@@ -35,19 +35,23 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
   }));
 
   return (
-    <article className="border border-[#E5E7EB] bg-white hover:border-2 hover:border-[#111111] hover:scale-[1.02] transition-all duration-300 overflow-hidden">
+    <article className="border border-border bg-white hover:border-2 hover:border-foreground hover:scale-[1.02] transition-all duration-300 overflow-hidden">
       <div className="md:flex">
         {allImages.length > 0 && (
           <div className="md:w-2/5 shrink-0 flex flex-col">
             <div
-              className="relative w-full flex-1 min-h-[160px] overflow-hidden bg-[#F3F4F6] cursor-pointer"
+              className="relative w-full flex-1 min-h-40 overflow-hidden bg-[#F3F4F6] cursor-pointer"
               onClick={() => setLightboxIndex(selectedImage)}
             >
               {imgError ? (
-                <div className="flex items-center justify-center text-sm text-[#6B7280] h-full">
+                <div className="flex items-center justify-center text-sm text-muted h-full">
                   <div className="text-center">
                     <span className="text-2xl font-semibold tracking-tight block mb-1">
-                      {experience.company.split(" ").map((w) => w[0]).join("").slice(0, 3)}
+                      {experience.company
+                        .split(" ")
+                        .map((w) => w[0])
+                        .join("")
+                        .slice(0, 3)}
                     </span>
                     <span>Screenshot unavailable</span>
                   </div>
@@ -75,8 +79,8 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
                     className={cn(
                       "shrink-0 overflow-hidden border transition-colors",
                       i === selectedImage
-                        ? "border-[#111111]"
-                        : "border-[#E5E7EB] hover:border-[#4B5563]",
+                        ? "border-foreground"
+                        : "border-border hover:border-accent",
                     )}
                     aria-label={`View screenshot ${i + 1}`}
                   >
@@ -85,7 +89,7 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
                       alt={`${experience.company} thumbnail ${i + 1}`}
                       width={72}
                       height={54}
-                      className="object-cover w-[72px] md:w-16 h-auto"
+                      className="object-cover w-18 md:w-16 h-auto"
                       sizes="(max-width: 768px) 72px, 64px"
                       style={{ width: "auto", height: "auto" }}
                     />
@@ -102,26 +106,31 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
               <Heading as="h3" className="text-xl">
                 {experience.role}
               </Heading>
-              <p className="text-base text-[#4B5563]">{experience.company}</p>
+              <p className="text-base text-accent">{experience.company}</p>
             </div>
-            <div className="text-sm text-[#6B7280] shrink-0">
+            <div className="text-sm text-muted shrink-0">
               {formatDate(experience.startDate)} &mdash;{" "}
               {formatDate(experience.endDate)}
             </div>
           </div>
 
           {experience.highlight && (
-            <Badge className="mb-3 border-[#4B5563] text-[#4B5563]">
+            <Badge className="mb-3 border-accent text-accent">
               {experience.highlight}
             </Badge>
           )}
 
           <button
             onClick={() => setExpanded(!expanded)}
-            className="md:hidden mx-auto flex flex-col items-center gap-1 text-xs font-medium text-[#6B7280] hover:text-[#111111] transition-colors mb-1 pt-2"
+            className="md:hidden mx-auto flex flex-col items-center gap-1 text-xs font-medium text-muted hover:text-foreground transition-colors mb-1 pt-2"
           >
             <span>{expanded ? "See less" : "See more"}</span>
-            <span className={cn("inline-flex", !expanded && "animate-bounce-subtle")}>
+            <span
+              className={cn(
+                "inline-flex",
+                !expanded && "animate-bounce-subtle",
+              )}
+            >
               <ChevronDown
                 size={14}
                 className={cn(
@@ -133,7 +142,10 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
           </button>
 
           <motion.div
-            animate={{ height: expanded ? "auto" : 0, opacity: expanded ? 1 : 0 }}
+            animate={{
+              height: expanded ? "auto" : 0,
+              opacity: expanded ? 1 : 0,
+            }}
             transition={{ duration: 0.2, ease: "easeInOut" }}
             className="md:hidden overflow-hidden"
           >
@@ -141,8 +153,11 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
               <BodyText className="text-sm">{experience.summary}</BodyText>
               <ul className="space-y-1">
                 {experience.achievements.map((achievement, i) => (
-                  <li key={i} className="text-xs text-[#4B5563] flex items-start gap-1.5">
-                    <span className="mt-1 block h-1 w-1 shrink-0 rounded-full bg-[#4B5563]" />
+                  <li
+                    key={i}
+                    className="text-xs text-accent flex items-start gap-1.5"
+                  >
+                    <span className="mt-1 block h-1 w-1 shrink-0 rounded-full bg-accent" />
                     {achievement}
                   </li>
                 ))}
@@ -154,8 +169,11 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
             <BodyText className="text-base">{experience.summary}</BodyText>
             <ul className="space-y-1.5">
               {experience.achievements.map((achievement, i) => (
-                <li key={i} className="text-sm text-[#4B5563] flex items-start gap-2">
-                  <span className="mt-1.5 block h-1 w-1 shrink-0 rounded-full bg-[#4B5563]" />
+                <li
+                  key={i}
+                  className="text-sm text-accent flex items-start gap-2"
+                >
+                  <span className="mt-1.5 block h-1 w-1 shrink-0 rounded-full bg-accent" />
                   {achievement}
                 </li>
               ))}

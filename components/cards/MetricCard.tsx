@@ -18,15 +18,15 @@ export function MetricCard({
   return (
     <div
       className={cn(
-        "border border-[#E5E7EB] bg-white p-5 h-full hover:border-2 hover:border-[#111111] hover:scale-[1.02] transition-all duration-300",
+        "border border-border bg-white p-5 h-full hover:border-2 hover:border-foreground hover:scale-[1.02] transition-all duration-300",
         className,
       )}
     >
       <div className="flex items-center gap-2.5 mb-1.5">
-        {icon && <div className="shrink-0 text-[#111111]">{icon}</div>}
+        {icon && <div className="shrink-0 text-foreground">{icon}</div>}
         <Heading as="h3" className="text-lg">{title}</Heading>
       </div>
-      <p className="text-sm leading-relaxed text-[#4B5563]">{description}</p>
+      <p className="text-sm leading-relaxed text-accent">{description}</p>
     </div>
   );
 }
