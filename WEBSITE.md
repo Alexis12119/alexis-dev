@@ -23,17 +23,30 @@
 
 ## Experience
 
+### Freelance Full-Stack Developer
+**Self-Employed** — San Pablo City, Philippines
+*May 2023 – Present*
+
+Developed full-stack web applications and database systems for educational, manufacturing, and business environments. Built inventory tracking, appointment scheduling, and document management solutions.
+
+**Achievements:**
+- Architected relational database schemas for inventory tracking, appointment scheduling, and document management systems
+- Automated manual inventory operations with QR code generation pipeline and transactional backend services for a school inventory management system
+- Developed a multi-role veterinary management system as a PWA with role-based access control and service worker caching for offline access
+
+---
+
 ### Web Developer Intern
 **Bakawan Data Analytics, Inc.** — San Pablo City, Philippines
 *Feb 2026 – May 2026*
 
-Built the DLSP Registrar DocsTrack system — a comprehensive student document request and tracking system for Dalubhasaan ng Lungsod ng San Pablo. Went through the full development lifecycle from planning to development.
+Built the DLSP Registrar DocsTrack system — a comprehensive student document request and tracking system for Dalubhasaan ng Lungsod ng San Pablo. Went through the full development lifecycle from planning to deployment.
 
 **Achievements:**
-- Developed a full-stack document request and tracking system with role-based access control
-- Tested API endpoints with Postman and ran performance tests using JMeter
+- Developed backend authorization logic with role validation, secure state transitions, and audit logging
+- Verified API performance and stability using automated JMeter and Postman test suites
 - Completed AWS Cloud Quest: Cloud Practitioner to understand cloud fundamentals
-- Proposed and built the DocsTrack system through the full development phase
+- Collaborated within a dedicated engineering team to translate core system blueprints into scalable web applications
 
 **Tools used:** Postman, JMeter
 
@@ -42,6 +55,23 @@ Built the DLSP Registrar DocsTrack system — a comprehensive student document r
 ---
 
 ## Projects
+
+### Digital Information Board Management System (DIBMS) (2026)
+*Jul 2026 – Present*
+
+A role-based content management platform for congregation information displays. Features RBAC with four organizational roles, client-side PDF rasterization pipeline, and event-driven public display with timezone-aware auto-detection.
+
+**Technologies:** Next.js, TypeScript, Tailwind CSS, Prisma, Supabase, PostgreSQL
+
+**Details:**
+- Role-based access control (RBAC) with four organizational roles: System Admin, Coordinator, Elder, Ministerial Servant
+- Asset automation pipeline using pdfjs-dist to isolate and rasterize multi-page vector PDFs client-side
+- Normalized schema with 9 relational tables using Prisma-managed foreign keys for transactional consistency
+- Event-driven public display with timezone-aware auto-detection and manual override with auto-return timeout for TV deployments
+
+**GitHub:** https://github.com/Alexis12119
+
+---
 
 ### OCR Drawing Extractor (2026)
 *Feb 2026 – Jun 2026*
@@ -149,22 +179,38 @@ Real-time WebSocket updates, analytics dashboards with PDF and Excel export, ema
 
 ---
 
+## Education & Certifications
+
+### Bachelor of Science in Information Technology (Software Development)
+**Dalubhasaan ng Lungsod ng San Pablo (DLSP)** — 2022 – 2026
+
+*Graduated Cum Laude*
+
+### Certifications
+- **Best in OJT & Best Capstone Project Awards** — Recognized for outstanding performance in Software Development (2026)
+- **AWS Certified Cloud Quest: Cloud Practitioner** — AWS Training & Certification (2026)
+
+---
+
 ## Skills & Technologies
 
 ### Frontend
 Next.js, React, TypeScript, Tailwind CSS, Framer Motion
 
 ### Backend
-Fastify, FastAPI, Go, Node.js, Python, REST APIs, WebSocket
+Fastify, FastAPI, Go, Node.js, Python, Spring Boot, REST APIs, WebSocket
 
 ### Testing & QA
-Postman, JMeter
+Locust, Postman, JMeter
 
 ### Android & iOS
 Flutter
 
 ### Languages & Tools
-C, Python, TypeScript, OpenCV, Tesseract OCR, Raylib
+C, Dart, Go, Java, JavaScript, Python, SQL, TypeScript, OpenCV, Tesseract OCR, Raylib
 
 ### Infrastructure
-Docker, MySQL, PostgreSQL, Linux
+Docker Compose, Nginx, MySQL, PostgreSQL, Supabase, Linux
+
+### Version Control & Editors
+Git, Neovim, VS Code

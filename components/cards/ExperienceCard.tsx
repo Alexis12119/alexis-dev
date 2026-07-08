@@ -110,7 +110,7 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
             </div>
             <div className="text-sm text-muted shrink-0">
               {formatDate(experience.startDate)} &mdash;{" "}
-              {formatDate(experience.endDate)}
+              {experience.endDate === "Present" ? "Present" : formatDate(experience.endDate)}
             </div>
           </div>
 

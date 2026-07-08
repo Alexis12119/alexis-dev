@@ -15,7 +15,7 @@ I build software that removes repetitive work and improves operational efficienc
 **Web Development Intern** · Bakawan Data Analytics, Inc.
 _Feb 2026 — May 2026_
 
-- Built PLSP Registrar DocsTrack, earning **3rd Best Intern System**
+- Built DLSP Registrar DocsTrack, earning **3rd Best Intern System**
 
 ---
 
@@ -24,7 +24,7 @@ _Feb 2026 — May 2026_
 **OCR Drawing Extractor** (2026)
 Hybrid OCR pipeline using text extraction and Tesseract fallback.
 
-**PLSP Registrar DocsTrack** (2026)
+**DLSP Registrar DocsTrack** (2026)
 Document request and tracking system with role-based access, real-time WebSocket updates, and analytics dashboards. _3rd Best Intern System_
 
 **BakerPass** (2025)

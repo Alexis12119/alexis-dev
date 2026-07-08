@@ -98,7 +98,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
             </div>
             <span className="text-xs md:text-sm text-[#6B7280] shrink-0">
               {project.startDate && project.endDate
-                ? `${formatDate(project.startDate)} — ${formatDate(project.endDate)}`
+                ? project.endDate === "Present"
+                  ? `${formatDate(project.startDate)} — Present`
+                  : `${formatDate(project.startDate)} — ${formatDate(project.endDate)}`
                 : project.year}
             </span>
           </div>

@@ -19,6 +19,7 @@ export function Experience() {
         />
 
         <motion.div
+          className="flex flex-col gap-6 md:gap-8"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}

@@ -7,11 +7,11 @@ export const SKILLS: TechCategory[] = [
   },
   {
     category: "Backend",
-    items: ["Fastify", "FastAPI", "Go", "Node.js", "Python", "REST APIs", "WebSocket"],
+    items: ["Fastify", "FastAPI", "Go", "Node.js", "Python", "Spring Boot", "REST APIs", "WebSocket"],
   },
   {
     category: "Testing & QA",
-    items: ["Postman", "JMeter"],
+    items: ["Locust", "Postman", "JMeter"],
   },
   {
     category: "Android & iOS",
@@ -19,10 +19,14 @@ export const SKILLS: TechCategory[] = [
   },
   {
     category: "Languages & Tools",
-    items: ["C", "Python", "TypeScript", "OpenCV", "Tesseract OCR", "Raylib"],
+    items: ["C", "Dart", "Go", "Java", "JavaScript", "Python", "SQL", "TypeScript", "OpenCV", "Tesseract OCR", "Raylib"],
   },
   {
     category: "Infrastructure",
-    items: ["Docker", "MySQL", "PostgreSQL", "Linux"],
+    items: ["Docker Compose", "Nginx", "MySQL", "PostgreSQL", "Supabase", "Linux"],
+  },
+  {
+    category: "Version Control & Editors",
+    items: ["Git", "Neovim", "VS Code"],
   },
 ];

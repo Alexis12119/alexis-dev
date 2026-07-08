@@ -2,6 +2,32 @@ import type { Project } from "@/types/project";
 
 export const PROJECTS: Project[] = [
   {
+    id: "dibms",
+    title: "Digital Information Board Management System (DIBMS)",
+    year: 2026,
+    startDate: "2026-07",
+    endDate: "Present",
+    summary:
+      "A role-based content management platform for congregation information displays. Features RBAC with four organizational roles, client-side PDF rasterization pipeline, and event-driven public display with timezone-aware auto-detection.",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Prisma",
+      "Supabase",
+      "PostgreSQL",
+    ],
+    screenshot: "/images/DIBMS/placeholder.svg",
+    screenshots: [],
+    details: [
+      "Role-based access control (RBAC) with four organizational roles: System Admin, Coordinator, Elder, Ministerial Servant",
+      "Asset automation pipeline using pdfjs-dist to isolate and rasterize multi-page vector PDFs client-side",
+      "Normalized schema with 9 relational tables using Prisma-managed foreign keys for transactional consistency",
+      "Event-driven public display with timezone-aware auto-detection and manual override with auto-return timeout for TV deployments",
+    ],
+    githubUrl: "https://github.com/Alexis12119",
+  },
+  {
     id: "ocr-drawing-extractor",
     title: "OCR Drawing Extractor",
     year: 2026,
