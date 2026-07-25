@@ -18,18 +18,15 @@ interface ImageLightboxProps {
 
 export function ImageLightbox({ images, initialIndex, onClose }: ImageLightboxProps) {
   const [index, setIndex] = useState(initialIndex);
-  const [zoomed, setZoomed] = useState(false);
   const [loaded, setLoaded] = useState(false);
 
   const goNext = useCallback(() => {
     setIndex((prev) => (prev + 1) % images.length);
-    setZoomed(false);
     setLoaded(false);
   }, [images.length]);
 
   const goPrev = useCallback(() => {
     setIndex((prev) => (prev - 1 + images.length) % images.length);
-    setZoomed(false);
     setLoaded(false);
   }, [images.length]);
 
@@ -90,19 +87,12 @@ export function ImageLightbox({ images, initialIndex, onClose }: ImageLightboxPr
               <Spinner size="lg" label="Loading image" />
             </div>
           )}
-          <div
-            className="relative w-full h-full cursor-zoom-in flex items-center justify-center"
-            onClick={() => setZoomed(!zoomed)}
-          >
+          <div className="relative w-full h-full flex items-center justify-center">
             <Image
               src={images[index].src}
               alt={images[index].alt}
               fill
-              className={`
-                object-contain transition-transform duration-300
-                ${loaded ? "opacity-100" : "opacity-0"}
-                ${zoomed ? "scale-125 cursor-zoom-out" : "scale-100"}
-              `}
+              className={`object-contain transition-opacity duration-300 ${loaded ? "opacity-100" : "opacity-0"}`}
               sizes="(max-width: 1024px) 100vw, 1024px"
               quality={90}
               onLoad={() => setLoaded(true)}

@@ -21,7 +21,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://alexiscorporal.dev"),
+  metadataBase: new URL(SITE_CONFIG.url),
   title: `${SITE_CONFIG.name} — ${SITE_CONFIG.title}`,
   description: SITE_CONFIG.description,
   openGraph: {
@@ -42,10 +42,10 @@ export default function RootLayout({
       lang="en"
       className={`${geist.variable} ${inter.variable} scroll-smooth`}
     >
-      <body className="min-h-screen bg-[#FAF9F6] text-[#111111] antialiased">
+      <body className="min-h-screen bg-background text-foreground antialiased">
         <a
           href="#main-content"
-          className="fixed -top-40 left-4 z-[70] bg-[#111111] text-white px-4 py-2 text-sm transition-all focus:top-4 focus-visible:outline-2 focus-visible:outline-white"
+          className="fixed -top-40 left-4 z-[70] bg-foreground text-white px-4 py-2 text-sm transition-all focus:top-4 focus-visible:outline-2 focus-visible:outline-white"
         >
           Skip to main content
         </a>

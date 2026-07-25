@@ -3,13 +3,15 @@
 import { useState, type FormEvent } from "react";
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/shared/Button";
+import { FormInput, FormTextarea } from "@/components/shared/FormInput";
 import { Heading } from "@/components/typography/Heading";
 import { Subheading } from "@/components/typography/Subheading";
 import { Caption } from "@/components/typography/Caption";
 import { Spinner } from "@/components/ui/Spinner";
 import { Send, Loader, Phone, MapPin, Mail, Briefcase, Clock, Timer, Inbox } from "lucide-react";
 import { motion } from "framer-motion";
-import { fadeInUp } from "@/utils/animation";
+import { fadeInUp, sectionProps } from "@/utils/animation";
+import { CONTACT } from "@/config/contact";
 
 export function Contact() {
   const [submitted, setSubmitted] = useState(false);
@@ -34,13 +36,11 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="pt-24 md:pt-32 pb-16 md:pb-20 border-t border-[#E5E7EB] scroll-mt-16">
+    <section id="contact" className="pt-24 md:pt-32 pb-16 md:pb-20 border-t border-border scroll-mt-16">
       <Container>
         <motion.div
           className="max-w-7xl"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          {...sectionProps}
           variants={fadeInUp}
         >
           <Caption className="font-medium mb-4">Contact</Caption>
@@ -54,59 +54,20 @@ export function Contact() {
           <div className="grid md:grid-cols-3 gap-6">
             <div className="h-full">
               {submitted ? (
-                <div className="border border-[#E5E7EB] bg-white p-8 text-center h-full flex flex-col items-center justify-center">
+                <div className="border border-border bg-white p-8 text-center h-full flex flex-col items-center justify-center">
                   <p className="text-base font-medium mb-2">Message sent</p>
-                  <p className="text-sm text-[#6B7280]">
+                  <p className="text-sm text-muted">
                     Thank you — I&apos;ll get back to you as soon as possible.
                   </p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="flex flex-col gap-5 h-full">
                   <div className="grid grid-cols-1 gap-5">
-                    <div>
-                      <label htmlFor="name" className="sr-only">Name</label>
-                      <input
-                        id="name"
-                        name="name"
-                        type="text"
-                        required
-                        placeholder="Name"
-                        className="w-full px-4 py-3 text-sm border border-[#E5E7EB] bg-white text-[#111111] placeholder:text-[#6B7280] focus:outline-none focus:border-[#111111] focus:ring-1 focus:ring-[#111111] hover:border-[#111111] transition-colors"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="email" className="sr-only">Email</label>
-                      <input
-                        id="email"
-                        name="email"
-                        type="email"
-                        required
-                        placeholder="Email"
-                        className="w-full px-4 py-3 text-sm border border-[#E5E7EB] bg-white text-[#111111] placeholder:text-[#6B7280] focus:outline-none focus:border-[#111111] focus:ring-1 focus:ring-[#111111] hover:border-[#111111] transition-colors"
-                      />
-                    </div>
+                    <FormInput id="name" name="name" type="text" required label="Name" placeholder="Name" />
+                    <FormInput id="email" name="email" type="email" required label="Email" placeholder="Email" />
                   </div>
-                  <div>
-                    <label htmlFor="subject" className="sr-only">Subject</label>
-                    <input
-                      id="subject"
-                      name="subject"
-                      type="text"
-                      required
-                      placeholder="Subject"
-                      className="w-full px-4 py-3 text-sm border border-[#E5E7EB] bg-white text-[#111111] placeholder:text-[#6B7280] focus:outline-none focus:border-[#111111] focus:ring-1 focus:ring-[#111111] hover:border-[#111111] transition-colors"
-                    />
-                  </div>
-                  <div className="flex-1">
-                    <label htmlFor="message" className="sr-only">Message</label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      required
-                      placeholder="Message"
-                      className="w-full h-full px-4 py-3 text-sm border border-[#E5E7EB] bg-white text-[#111111] placeholder:text-[#6B7280] focus:outline-none focus:border-[#111111] focus:ring-1 focus:ring-[#111111] hover:border-[#111111] transition-colors resize-none"
-                    />
-                  </div>
+                  <FormInput id="subject" name="subject" type="text" required label="Subject" placeholder="Subject" />
+                  <FormTextarea id="message" name="message" required label="Message" placeholder="Message" />
                   <div>
                     <Button type="submit" variant="primary" disabled={submitting}>
                       {submitting ? "Sending..." : "Send Message"}
@@ -117,58 +78,58 @@ export function Contact() {
               )}
             </div>
 
-            <div className="border border-[#E5E7EB] bg-white p-6 md:p-8 h-full flex flex-col">
+            <div className="border border-border bg-white p-6 md:p-8 h-full flex flex-col">
               <div>
-                <h3 className="text-sm font-semibold text-[#111111] mb-5 uppercase tracking-wider">
+                <h3 className="text-sm font-semibold text-foreground mb-5 uppercase tracking-wider">
                   Contact Information
                 </h3>
                 <div className="flex flex-col gap-4">
-                  <div className="flex items-center gap-3 text-sm text-[#4B5563]">
-                    <Phone size={16} className="text-[#6B7280] shrink-0" />
-                    <span>+63 945 468 1904</span>
+                  <div className="flex items-center gap-3 text-sm text-accent">
+                    <Phone size={16} className="text-muted shrink-0" />
+                    <span>{CONTACT.phone}</span>
                   </div>
-                  <div className="flex items-center gap-3 text-sm text-[#4B5563]">
-                    <MapPin size={16} className="text-[#6B7280] shrink-0" />
-                    <span>Brgy. San Ignacio, San Pablo City, Laguna 4000</span>
+                  <div className="flex items-center gap-3 text-sm text-accent">
+                    <MapPin size={16} className="text-muted shrink-0" />
+                    <span>{CONTACT.address}</span>
                   </div>
-                  <div className="flex items-center gap-3 text-sm text-[#4B5563]">
-                    <Mail size={16} className="text-[#6B7280] shrink-0" />
-                    <span>corporal461@gmail.com</span>
+                  <div className="flex items-center gap-3 text-sm text-accent">
+                    <Mail size={16} className="text-muted shrink-0" />
+                    <span>{CONTACT.email}</span>
                   </div>
                 </div>
               </div>
 
               <div className="mt-auto">
-                <hr className="my-5 border-t border-[#E5E7EB]" />
+                <hr className="my-5 border-t border-border" />
                 <div className="flex flex-col gap-4">
-                  <div className="flex items-center gap-3 text-sm text-[#4B5563]">
-                    <Briefcase size={16} className="text-[#6B7280] shrink-0" />
-                    <span>Open to full-time, freelance, and contract opportunities</span>
+                  <div className="flex items-center gap-3 text-sm text-accent">
+                    <Briefcase size={16} className="text-muted shrink-0" />
+                    <span>{CONTACT.availability}</span>
                   </div>
-                  <div className="flex items-center gap-3 text-sm text-[#4B5563]">
-                    <Clock size={16} className="text-[#6B7280] shrink-0" />
-                    <span>Philippine Time (PHT / UTC+8)</span>
+                  <div className="flex items-center gap-3 text-sm text-accent">
+                    <Clock size={16} className="text-muted shrink-0" />
+                    <span>{CONTACT.timezone}</span>
                   </div>
-                  <div className="flex items-center gap-3 text-sm text-[#4B5563]">
-                    <Timer size={16} className="text-[#6B7280] shrink-0" />
-                    <span>Typically responds within 24 hours</span>
+                  <div className="flex items-center gap-3 text-sm text-accent">
+                    <Timer size={16} className="text-muted shrink-0" />
+                    <span>{CONTACT.responseTime}</span>
                   </div>
-                  <div className="flex items-center gap-3 text-sm text-[#4B5563]">
-                    <Inbox size={16} className="text-[#6B7280] shrink-0" />
-                    <span>Email is best — I check it daily</span>
+                  <div className="flex items-center gap-3 text-sm text-accent">
+                    <Inbox size={16} className="text-muted shrink-0" />
+                    <span>{CONTACT.emailNote}</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="border border-[#E5E7EB] bg-white overflow-hidden h-full relative">
+            <div className="border border-border bg-white overflow-hidden h-full relative">
               {!mapLoaded && (
-                <div className="absolute inset-0 flex items-center justify-center bg-[#FAF9F6] z-10">
+                <div className="absolute inset-0 flex items-center justify-center bg-background z-10">
                   <Spinner size="lg" label="Loading map" />
                 </div>
               )}
               <iframe
-                src="https://maps.google.com/maps?q=Brgy.+San+Ignacio+San+Pablo+City+Laguna+Philippines&output=embed"
+                src={`https://maps.google.com/maps?q=${CONTACT.mapsQuery}&output=embed`}
                 width="100%"
                 height="100%"
                 className="min-h-[220px]"
@@ -176,7 +137,7 @@ export function Contact() {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Brgy. San Ignacio, San Pablo City, Laguna"
+                title={CONTACT.address}
                 onLoad={() => setMapLoaded(true)}
               />
             </div>

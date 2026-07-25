@@ -6,11 +6,11 @@ import { Section } from "@/components/layout/Section";
 import { SectionHeader } from "@/components/layout/SectionHeader";
 import { Tag } from "@/components/shared/Tag";
 import { motion } from "framer-motion";
-import { staggerContainer, fadeInUp } from "@/utils/animation";
+import { staggerContainer, fadeInUp, sectionProps } from "@/utils/animation";
 
 export function Technologies() {
   return (
-    <Section className="border-t border-[#E5E7EB]">
+    <Section className="border-t border-border">
       <Container>
         <SectionHeader
           label="Technologies"
@@ -21,13 +21,11 @@ export function Technologies() {
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 gap-12"
           variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          {...sectionProps}
         >
           {SKILLS.map((category) => (
             <motion.div key={category.category} variants={fadeInUp}>
-              <h3 className="text-sm font-medium text-[#6B7280] mb-4 uppercase tracking-wider">
+              <h3 className="text-sm font-medium text-muted mb-4 uppercase tracking-wider">
                 {category.category}
               </h3>
               <div className="flex flex-wrap gap-2">

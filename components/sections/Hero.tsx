@@ -2,7 +2,7 @@
 
 import { SITE_CONFIG } from "@/config/site";
 import { Container } from "@/components/layout/Container";
-import { LinkButton } from "@/components/shared/LinkButton";
+import { Button } from "@/components/shared/Button";
 import { Heading } from "@/components/typography/Heading";
 import { Subheading } from "@/components/typography/Subheading";
 import { Caption } from "@/components/typography/Caption";
@@ -30,15 +30,14 @@ export function Hero() {
 
           <motion.p
             variants={fadeInUp}
-            className="text-lg md:text-xl text-[#4B5563] mb-4 font-medium"
+            className="text-lg md:text-xl text-accent mb-4 font-medium"
           >
             {SITE_CONFIG.title}
           </motion.p>
 
           <motion.div variants={fadeInUp}>
             <Subheading className="mb-10 leading-relaxed">
-              Building software that removes repetitive work and improves
-              operational efficiency.
+              {SITE_CONFIG.description}
             </Subheading>
           </motion.div>
 
@@ -46,13 +45,13 @@ export function Hero() {
             variants={fadeInUp}
             className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:max-w-md"
           >
-            <LinkButton href="#work" variant="primary" className="px-5 py-2.5 whitespace-nowrap">
+            <Button href="#work" variant="primary" className="px-5 py-2.5 whitespace-nowrap">
               View Work
               <span className="inline-flex animate-bounce-subtle">
                 <ArrowDown size={16} />
               </span>
-            </LinkButton>
-            <LinkButton
+            </Button>
+            <Button
               href="/Resume - Alexis Corporal.pdf"
               variant="secondary"
               className="px-5 py-2.5 whitespace-nowrap"
@@ -60,7 +59,7 @@ export function Hero() {
             >
               <Download size={16} />
               Download Resume
-            </LinkButton>
+            </Button>
           </motion.div>
         </motion.div>
       </Container>

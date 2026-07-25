@@ -6,7 +6,7 @@ import { SectionHeader } from "@/components/layout/SectionHeader";
 import { MetricCard } from "@/components/cards/MetricCard";
 import { Wrench, Shield, Users, Monitor } from "lucide-react";
 import { motion } from "framer-motion";
-import { staggerContainer, fadeInUp } from "@/utils/animation";
+import { staggerContainer, fadeInUp, sectionProps } from "@/utils/animation";
 
 const pillars = [
   {
@@ -37,7 +37,7 @@ const pillars = [
 
 export function HowIBuild() {
   return (
-    <Section id="how-i-build" className="border-t border-[#E5E7EB]">
+    <Section id="how-i-build" className="border-t border-border">
       <Container>
         <SectionHeader
           label="How I Build"
@@ -48,9 +48,7 @@ export function HowIBuild() {
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 gap-6"
           variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          {...sectionProps}
         >
           {pillars.map((pillar) => (
             <motion.div key={pillar.title} variants={fadeInUp} className="h-full">

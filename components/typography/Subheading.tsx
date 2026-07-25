@@ -8,7 +8,7 @@ interface SubheadingProps {
 
 export function Subheading({ children, className }: SubheadingProps) {
   return (
-    <p className={cn("text-lg text-[#6B7280] max-w-prose", className)}>
+    <p className={cn("text-lg text-muted max-w-prose", className)}>
       {children}
     </p>
   );

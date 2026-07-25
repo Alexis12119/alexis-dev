@@ -7,13 +7,13 @@ import { SectionHeader } from "@/components/layout/SectionHeader";
 import { ProjectCard } from "@/components/cards/ProjectCard";
 import { sortProjectsByYear } from "@/utils/project";
 import { motion } from "framer-motion";
-import { staggerContainer, fadeInUp } from "@/utils/animation";
+import { staggerContainer, fadeInUp, sectionProps } from "@/utils/animation";
 
 export function SelectedWork() {
   const sorted = sortProjectsByYear(PROJECTS);
 
   return (
-    <Section id="work" className="border-t border-[#E5E7EB]">
+    <Section id="work" className="border-t border-border">
       <Container>
         <SectionHeader
           label="Selected Work"
@@ -24,9 +24,7 @@ export function SelectedWork() {
         <motion.div
           className="grid gap-10 md:gap-12"
           variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          {...sectionProps}
         >
           {sorted.map((project) => (
             <motion.div key={project.id} variants={fadeInUp}>

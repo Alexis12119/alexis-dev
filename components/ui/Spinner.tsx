@@ -1,5 +1,3 @@
-"use client";
-
 import { cn } from "@/utils/cn";
 
 interface SpinnerProps {
@@ -18,7 +16,7 @@ export function Spinner({ size = "md", className, label = "Loading" }: SpinnerPr
   return (
     <div
       className={cn(
-        "animate-spin rounded-full border-[#E5E7EB] border-t-[#111111]",
+        "animate-spin rounded-full border-border border-t-foreground",
         sizeMap[size],
         className,
       )}

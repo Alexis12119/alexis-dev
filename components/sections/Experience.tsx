@@ -10,7 +10,7 @@ import { fadeInUp } from "@/utils/animation";
 
 export function Experience() {
   return (
-    <Section id="experience">
+    <Section id="experience" className="border-t border-border">
       <Container>
         <SectionHeader
           label="Experience"

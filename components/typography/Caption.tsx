@@ -8,7 +8,7 @@ interface CaptionProps {
 
 export function Caption({ children, className }: CaptionProps) {
   return (
-    <p className={cn("text-sm text-[#6B7280]", className)}>
+    <p className={cn("text-sm text-muted", className)}>
       {children}
     </p>
   );

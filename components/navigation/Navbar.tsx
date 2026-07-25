@@ -48,7 +48,7 @@ export function Navbar() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 border-b border-[#E5E7EB] bg-[#FAF9F6]/95 backdrop-blur-sm">
+      <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur-sm">
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 md:px-8 lg:px-12 h-16">
           <a href="#" className="flex items-center gap-3">
             <Image
@@ -59,7 +59,7 @@ export function Navbar() {
               className="rounded-sm"
               loading="eager"
             />
-            <span className="text-sm font-medium tracking-tight text-[#111111] hidden sm:inline">
+            <span className="text-sm font-medium tracking-tight text-foreground hidden sm:inline">
               Alexis Corporal
             </span>
           </a>
@@ -72,14 +72,14 @@ export function Navbar() {
                 className={cn(
                   "relative text-sm transition-colors py-1 group",
                   activeSection === item.href.replace("#", "")
-                    ? "text-[#111111] font-medium"
-                    : "text-[#6B7280] hover:text-[#111111]",
+                    ? "text-foreground font-medium"
+                    : "text-muted hover:text-foreground",
                 )}
               >
                 {item.label}
                 <span
                   className={cn(
-                    "absolute bottom-0 left-0 h-[2px] bg-[#111111] transition-all duration-300",
+                    "absolute bottom-0 left-0 h-[2px] bg-foreground transition-all duration-300",
                     activeSection === item.href.replace("#", "")
                       ? "w-full"
                       : "w-0 group-hover:w-full",
@@ -90,7 +90,7 @@ export function Navbar() {
           </div>
 
           <button
-            className="md:hidden p-2 text-[#111111]"
+            className="md:hidden p-2 text-foreground"
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Close menu" : "Open menu"}
           >
@@ -115,7 +115,7 @@ export function Navbar() {
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -8, opacity: 0 }}
               transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-              className="fixed top-16 left-0 right-0 z-40 md:hidden border-b border-[#E5E7EB] bg-[#FAF9F6] shadow-sm"
+              className="fixed top-16 left-0 right-0 z-40 md:hidden border-b border-border bg-background shadow-sm"
             >
               <div className="flex flex-col px-6 py-4 gap-4">
                 {NAV_ITEMS.map((item) => (
@@ -125,8 +125,8 @@ export function Navbar() {
                     className={cn(
                       "text-sm transition-colors py-2",
                       activeSection === item.href.replace("#", "")
-                        ? "text-[#111111] font-medium"
-                        : "text-[#6B7280] hover:text-[#111111]",
+                        ? "text-foreground font-medium"
+                        : "text-muted hover:text-foreground",
                     )}
                     onClick={() => setIsOpen(false)}
                   >
@@ -147,7 +147,7 @@ export function Navbar() {
           exit={{ opacity: 0, scale: 0.8 }}
           transition={{ duration: 0.2 }}
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-6 right-6 z-50 bg-[#111111] text-white p-3 shadow-sm hover:bg-[#333333] transition-colors"
+          className="fixed bottom-6 right-6 z-50 bg-foreground text-white p-3 shadow-sm hover:bg-[#333333] transition-colors"
           aria-label="Back to top"
         >
           <ArrowUp size={18} />

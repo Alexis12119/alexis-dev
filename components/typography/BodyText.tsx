@@ -8,7 +8,7 @@ interface BodyTextProps {
 
 export function BodyText({ children, className }: BodyTextProps) {
   return (
-    <p className={cn("text-base leading-relaxed text-[#4B5563]", className)}>
+    <p className={cn("text-base leading-relaxed text-accent", className)}>
       {children}
     </p>
   );

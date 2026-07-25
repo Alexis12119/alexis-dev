@@ -1,19 +1,26 @@
 import { cn } from "@/utils/cn";
-import type { ButtonHTMLAttributes, ReactNode } from "react";
+import type { ButtonHTMLAttributes, AnchorHTMLAttributes, ReactNode } from "react";
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "secondary" | "ghost";
+type ButtonVariant = "primary" | "secondary" | "ghost";
+
+interface ButtonBaseProps {
+  variant?: ButtonVariant;
   children: ReactNode;
   className?: string;
 }
 
-const variants = {
-  primary:
-    "bg-[#111111] text-white hover:bg-[#2a2a2a]",
-  secondary:
-    "border border-[#E5E7EB] text-[#111111] hover:bg-[#F3F4F6]",
-  ghost:
-    "text-[#111111] hover:text-[#6B7280]",
+type ButtonAsButton = ButtonBaseProps &
+  ButtonHTMLAttributes<HTMLButtonElement> & { href?: never };
+
+type ButtonAsLink = ButtonBaseProps &
+  AnchorHTMLAttributes<HTMLAnchorElement> & { href: string };
+
+type ButtonProps = ButtonAsButton | ButtonAsLink;
+
+const variants: Record<ButtonVariant, string> = {
+  primary: "bg-foreground text-white hover:bg-[#2a2a2a]",
+  secondary: "border border-border text-foreground hover:bg-subtle",
+  ghost: "text-foreground hover:text-muted",
 };
 
 export function Button({
@@ -22,15 +29,25 @@ export function Button({
   className,
   ...props
 }: ButtonProps) {
+  const classes = cn(
+    "inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium transition-colors",
+    variants[variant],
+    "href" in props ? "" : "disabled:opacity-50 disabled:cursor-not-allowed",
+    className,
+  );
+
+  if ("href" in props) {
+    const { href, ...anchorProps } = props as AnchorHTMLAttributes<HTMLAnchorElement>;
+    return (
+      <a href={href} className={classes} {...anchorProps}>
+        {children}
+      </a>
+    );
+  }
+
+  const { ...buttonProps } = props as ButtonHTMLAttributes<HTMLButtonElement>;
   return (
-    <button
-      className={cn(
-        "inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed",
-        variants[variant],
-        className,
-      )}
-      {...props}
-    >
+    <button className={classes} {...buttonProps}>
       {children}
     </button>
   );
