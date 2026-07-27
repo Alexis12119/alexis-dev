@@ -12,7 +12,8 @@ export const EDUCATION: Education = {
 export const CERTIFICATIONS: Certification[] = [
   {
     title: "Best in OJT & Best Capstone Project Awards",
-    description: "Recognized for outstanding performance in Software Development",
+    description:
+      "Recognized for outstanding performance in Software Development",
     year: "2026",
   },
   {

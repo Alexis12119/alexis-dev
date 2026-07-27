@@ -12,7 +12,11 @@ const sizeMap = {
   lg: "h-8 w-8 border-[2px]",
 };
 
-export function Spinner({ size = "md", className, label = "Loading" }: SpinnerProps) {
+export function Spinner({
+  size = "md",
+  className,
+  label = "Loading",
+}: SpinnerProps) {
   return (
     <div
       className={cn(

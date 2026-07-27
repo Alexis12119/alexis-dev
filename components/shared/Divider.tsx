@@ -5,7 +5,5 @@ interface DividerProps {
 }
 
 export function Divider({ className }: DividerProps) {
-  return (
-    <hr className={cn("border-t border-[#E5E7EB]", className)} />
-  );
+  return <hr className={cn("border-t border-[#E5E7EB]", className)} />;
 }

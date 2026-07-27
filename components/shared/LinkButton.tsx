@@ -8,12 +8,9 @@ interface LinkButtonProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
 }
 
 const variants = {
-  primary:
-    "bg-[#111111] text-white hover:bg-[#2a2a2a]",
-  secondary:
-    "border border-[#E5E7EB] text-[#111111] hover:bg-[#F3F4F6]",
-  ghost:
-    "text-[#111111] hover:text-[#6B7280]",
+  primary: "bg-[#111111] text-white hover:bg-[#2a2a2a]",
+  secondary: "border border-[#E5E7EB] text-[#111111] hover:bg-[#F3F4F6]",
+  ghost: "text-[#111111] hover:text-[#6B7280]",
 };
 
 export function LinkButton({

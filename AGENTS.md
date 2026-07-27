@@ -6,46 +6,46 @@ Build a professional portfolio website for Alexis Corporal using Next.js 16, Rea
 
 The website should communicate:
 
-* Software engineering craftsmanship
-* Problem solving
-* Real-world systems development
-* Professional experience
-* Reliability and maintainability
+- Software engineering craftsmanship
+- Problem solving
+- Real-world systems development
+- Professional experience
+- Reliability and maintainability
 
 The design must avoid the typical AI-generated developer portfolio appearance.
 
 Avoid:
 
-* Blue/purple gradients
-* Floating blobs
-* Particle effects
-* Excessive animations
-* Neon cyberpunk aesthetics
-* Generic SaaS landing page visuals
-* Skill percentages
-* Spinning logos
-* Typewriter effects
+- Blue/purple gradients
+- Floating blobs
+- Particle effects
+- Excessive animations
+- Neon cyberpunk aesthetics
+- Generic SaaS landing page visuals
+- Skill percentages
+- Spinning logos
+- Typewriter effects
 
 The site should feel:
 
-* Minimalist
-* Editorial
-* Structured
-* Professional
-* Timeless
-* Clean
-* Quietly confident
+- Minimalist
+- Editorial
+- Structured
+- Professional
+- Timeless
+- Clean
+- Quietly confident
 
 ---
 
 # Technology Stack
 
-* Next.js 16 App Router
-* React 19
-* TypeScript
-* Tailwind CSS
-* Framer Motion (minimal usage only)
-* Lucide Icons
+- Next.js 16 App Router
+- React 19
+- TypeScript
+- Tailwind CSS
+- Framer Motion (minimal usage only)
+- Lucide Icons
 
 ---
 
@@ -63,17 +63,17 @@ accent: #4B5563
 
 ## Design Rules
 
-* Use whitespace aggressively.
-* Prioritize readability.
-* Let screenshots be the visual focus.
-* Use thin borders.
-* Avoid shadows unless subtle.
-* Avoid gradients.
-* Use max-w-7xl content width.
-* Maintain consistent spacing scale.
-* Cards have hover:border-2 hover:border-[#111111] and hover:scale-[1.02].
-* Side-by-side card layout on desktop (image 40%, details 60%).
-* Images use object-cover with consistent aspect ratios.
+- Use whitespace aggressively.
+- Prioritize readability.
+- Let screenshots be the visual focus.
+- Use thin borders.
+- Avoid shadows unless subtle.
+- Avoid gradients.
+- Use max-w-7xl content width.
+- Maintain consistent spacing scale.
+- Cards have hover:border-2 hover:border-[#111111] and hover:scale-[1.02].
+- Side-by-side card layout on desktop (image 40%, details 60%).
+- Images use object-cover with consistent aspect ratios.
 
 ---
 
@@ -85,9 +85,9 @@ Body: Inter
 
 Rules:
 
-* Large readable headings
-* Comfortable reading widths
-* Consistent hierarchy
+- Large readable headings
+- Comfortable reading widths
+- Consistent hierarchy
 
 Components: Heading (h1-h4 via `as` prop), Subheading, BodyText, Caption — all used consistently across sections.
 
@@ -214,7 +214,8 @@ export const SITE_CONFIG = {
   title: "Software Developer",
   location: "Philippines",
   url: "https://alexiscorporal.dev",
-  description: "Building software that removes repetitive work and improves operational efficiency.",
+  description:
+    "Building software that removes repetitive work and improves operational efficiency.",
 };
 ```
 
@@ -225,34 +226,40 @@ All metadata derives from config. No hardcoded values.
 # Reusable Components
 
 ## Layout
-* Container — centered, max-w-7xl with responsive padding
-* Section — scroll-mt-16 for navbar offset, consistent vertical padding
-* SectionHeader — label + heading + description
+
+- Container — centered, max-w-7xl with responsive padding
+- Section — scroll-mt-16 for navbar offset, consistent vertical padding
+- SectionHeader — label + heading + description
 
 ## Typography
-* Heading — h1-h4 via `as` prop, className overrides via tailwind-merge
-* Subheading — muted text-lg with max-w-prose
-* BodyText — base text with accent color
-* Caption — small muted text
+
+- Heading — h1-h4 via `as` prop, className overrides via tailwind-merge
+- Subheading — muted text-lg with max-w-prose
+- BodyText — base text with accent color
+- Caption — small muted text
 
 ## Navigation
-* Navbar — sticky, IntersectionObserver for active link, inline mobile menu with AnimatePresence, **floating back-to-top button** (shows after 400px scroll)
-* Footer — copyright, social icons (inline SVGs since Lucide v1 removed brand icons)
+
+- Navbar — sticky, IntersectionObserver for active link, inline mobile menu with AnimatePresence, **floating back-to-top button** (shows after 400px scroll)
+- Footer — copyright, social icons (inline SVGs since Lucide v1 removed brand icons)
 
 ## Shared
-* Button — primary variant (black bg) with disabled state
-* LinkButton — primary, secondary (bordered), ghost variants
-* Badge — inline-flex chip
-* Tag — small label
-* Divider — thin horizontal rule
+
+- Button — primary variant (black bg) with disabled state
+- LinkButton — primary, secondary (bordered), ghost variants
+- Badge — inline-flex chip
+- Tag — small label
+- Divider — thin horizontal rule
 
 ## Cards
-* ProjectCard — side-by-side (md:flex, image 40%), hover:scale-[1.02], hover:border-2 black, image lightbox, thumbnail strip, achievement badge with self-start
-* ExperienceCard — same layout as ProjectCard
-* MetricCard — icon+heading row, flex col, h-full, hover effects
+
+- ProjectCard — side-by-side (md:flex, image 40%), hover:scale-[1.02], hover:border-2 black, image lightbox, thumbnail strip, achievement badge with self-start
+- ExperienceCard — same layout as ProjectCard
+- MetricCard — icon+heading row, flex col, h-full, hover effects
 
 ## UI
-* ImageLightbox — full-screen overlay, prev/next, click-to-zoom (125%), keyboard nav (Escape, arrows), close on backdrop click
+
+- ImageLightbox — full-screen overlay, prev/next, click-to-zoom (125%), keyboard nav (Escape, arrows), close on backdrop click
 
 ---
 
@@ -271,8 +278,8 @@ Tagline:
 
 Buttons:
 
-* View Work (with bouncing ArrowDown CSS animation)
-* Download Resume
+- View Work (with bouncing ArrowDown CSS animation)
+- Download Resume
 
 No Contact button in hero.
 
@@ -306,10 +313,10 @@ Side-by-side card layout. Screenshots use object-cover. Click to open lightbox w
 
 Four pillars:
 
-* Pragmatic Problem Solving
-* Security by Default
-* Multi-Role Architecture
-* Built for Real Use
+- Pragmatic Problem Solving
+- Security by Default
+- Multi-Role Architecture
+- Built for Real Use
 
 ---
 
@@ -317,11 +324,11 @@ Four pillars:
 
 Categories (no percentages):
 
-* Frontend
-* Backend
-* Testing & QA
-* Languages & Tools
-* Infrastructure
+- Frontend
+- Backend
+- Testing & QA
+- Languages & Tools
+- Infrastructure
 
 ---
 
@@ -330,15 +337,17 @@ Categories (no percentages):
 3-column grid on desktop (form | contact info | map).
 
 Contact details:
-* Phone: +63 945 468 1904
-* Location: Brgy. San Ignacio, San Pablo City, Laguna 4000
-* Email: corporal461@gmail.com
+
+- Phone: +63 945 468 1904
+- Location: Brgy. San Ignacio, San Pablo City, Laguna 4000
+- Email: corporal461@gmail.com
 
 Additional info:
-* Open to full-time, freelance, and contract opportunities
-* Philippine Time (PHT / UTC+8)
-* Typically responds within 24 hours
-* Email is best
+
+- Open to full-time, freelance, and contract opportunities
+- Philippine Time (PHT / UTC+8)
+- Typically responds within 24 hours
+- Email is best
 
 Form fields: Name, Email, Subject, Message — all with focus:ring-1, hover:border-black.
 
@@ -351,19 +360,21 @@ Back-to-top as fixed floating button (in Navbar component).
 # Animations
 
 ## Allowed
-* Fade in (framer-motion, with reduced-motion support)
-* Fade in up
-* Hover scale (CSS, cards scale to 1.02)
-* Hover border (thick black border-2 on cards)
-* ArrowDown bounce on hero button (CSS @keyframes bounce-subtle, 1.5s ease-in-out)
-* Smooth scroll (scroll-behavior: smooth on html)
+
+- Fade in (framer-motion, with reduced-motion support)
+- Fade in up
+- Hover scale (CSS, cards scale to 1.02)
+- Hover border (thick black border-2 on cards)
+- ArrowDown bounce on hero button (CSS @keyframes bounce-subtle, 1.5s ease-in-out)
+- Smooth scroll (scroll-behavior: smooth on html)
 
 ## Forbidden
-* Parallax
-* Particle systems
-* Mouse-following effects
-* Auto-playing animations (except hero arrow bounce)
-* Excessive motion
+
+- Parallax
+- Particle systems
+- Mouse-following effects
+- Auto-playing animations (except hero arrow bounce)
+- Excessive motion
 
 All animations respect prefers-reduced-motion.
 
@@ -371,37 +382,37 @@ All animations respect prefers-reduced-motion.
 
 # Performance Rules
 
-* Use Next.js Image.
-* Use Server Components by default.
-* Client Components only when required (sections with framer-motion).
-* Lazy load screenshots.
-* Minimize bundle size.
-* Avoid unnecessary dependencies.
+- Use Next.js Image.
+- Use Server Components by default.
+- Client Components only when required (sections with framer-motion).
+- Lazy load screenshots.
+- Minimize bundle size.
+- Avoid unnecessary dependencies.
 
 ---
 
 # Accessibility Rules
 
-* Semantic HTML.
-* Proper heading hierarchy (h1 in Hero, h2 in section headers, h3 in cards).
-* Keyboard navigation.
-* ARIA labels where necessary.
-* Sufficient contrast.
-* Skip-to-content link.
-* ESC closes mobile menu and lightbox.
+- Semantic HTML.
+- Proper heading hierarchy (h1 in Hero, h2 in section headers, h3 in cards).
+- Keyboard navigation.
+- ARIA labels where necessary.
+- Sufficient contrast.
+- Skip-to-content link.
+- ESC closes mobile menu and lightbox.
 
 ---
 
 # Code Quality Rules
 
-* Strict TypeScript
-* No any
-* No duplicated logic
-* No duplicated interfaces
-* No magic strings
-* No hardcoded configuration
-* Components under 200 lines whenever practical
-* Prefer composition over prop explosion
+- Strict TypeScript
+- No any
+- No duplicated logic
+- No duplicated interfaces
+- No magic strings
+- No hardcoded configuration
+- Components under 200 lines whenever practical
+- Prefer composition over prop explosion
 
 ---
 
@@ -409,15 +420,15 @@ All animations respect prefers-reduced-motion.
 
 Avoid:
 
-* "Passionate developer"
-* "Crafting digital experiences"
-* "Building innovative solutions"
+- "Passionate developer"
+- "Crafting digital experiences"
+- "Building innovative solutions"
 
 Prefer:
 
-* Clear descriptions
-* Concrete outcomes
-* Real achievements
-* Measured statements
+- Clear descriptions
+- Concrete outcomes
+- Real achievements
+- Measured statements
 
 The portfolio should feel authored by a professional software engineer, not generated from a developer portfolio template.

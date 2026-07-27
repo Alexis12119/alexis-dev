@@ -8,7 +8,17 @@ import { Heading } from "@/components/typography/Heading";
 import { Subheading } from "@/components/typography/Subheading";
 import { Caption } from "@/components/typography/Caption";
 import { Spinner } from "@/components/ui/Spinner";
-import { Send, Loader, Phone, MapPin, Mail, Briefcase, Clock, Timer, Inbox } from "lucide-react";
+import {
+  Send,
+  Loader,
+  Phone,
+  MapPin,
+  Mail,
+  Briefcase,
+  Clock,
+  Timer,
+  Inbox,
+} from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeInUp, sectionProps } from "@/utils/animation";
 import { CONTACT } from "@/config/contact";
@@ -36,15 +46,16 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="pt-24 md:pt-32 pb-16 md:pb-20 border-t border-border scroll-mt-16">
+    <section
+      id="contact"
+      className="pt-24 md:pt-32 pb-16 md:pb-20 border-t border-border scroll-mt-16"
+    >
       <Container>
-        <motion.div
-          className="max-w-7xl"
-          {...sectionProps}
-          variants={fadeInUp}
-        >
+        <motion.div className="max-w-7xl" {...sectionProps} variants={fadeInUp}>
           <Caption className="font-medium mb-4">Contact</Caption>
-          <Heading as="h2" className="mb-6">Get in touch</Heading>
+          <Heading as="h2" className="mb-6">
+            Get in touch
+          </Heading>
           <Subheading className="mb-10 leading-relaxed">
             I&apos;m always interested in hearing about new opportunities,
             interesting projects, or just having a conversation about software
@@ -61,17 +72,55 @@ export function Contact() {
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="flex flex-col gap-5 h-full">
+                <form
+                  onSubmit={handleSubmit}
+                  className="flex flex-col gap-5 h-full"
+                >
                   <div className="grid grid-cols-1 gap-5">
-                    <FormInput id="name" name="name" type="text" required label="Name" placeholder="Name" />
-                    <FormInput id="email" name="email" type="email" required label="Email" placeholder="Email" />
+                    <FormInput
+                      id="name"
+                      name="name"
+                      type="text"
+                      required
+                      label="Name"
+                      placeholder="Name"
+                    />
+                    <FormInput
+                      id="email"
+                      name="email"
+                      type="email"
+                      required
+                      label="Email"
+                      placeholder="Email"
+                    />
                   </div>
-                  <FormInput id="subject" name="subject" type="text" required label="Subject" placeholder="Subject" />
-                  <FormTextarea id="message" name="message" required label="Message" placeholder="Message" />
+                  <FormInput
+                    id="subject"
+                    name="subject"
+                    type="text"
+                    required
+                    label="Subject"
+                    placeholder="Subject"
+                  />
+                  <FormTextarea
+                    id="message"
+                    name="message"
+                    required
+                    label="Message"
+                    placeholder="Message"
+                  />
                   <div>
-                    <Button type="submit" variant="primary" disabled={submitting}>
+                    <Button
+                      type="submit"
+                      variant="primary"
+                      disabled={submitting}
+                    >
                       {submitting ? "Sending..." : "Send Message"}
-                      {submitting ? <Loader size={14} className="animate-spin" /> : <Send size={14} />}
+                      {submitting ? (
+                        <Loader size={14} className="animate-spin" />
+                      ) : (
+                        <Send size={14} />
+                      )}
                     </Button>
                   </div>
                 </form>

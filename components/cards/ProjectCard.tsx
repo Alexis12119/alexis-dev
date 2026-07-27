@@ -16,7 +16,11 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   const allImages = [project.screenshot, ...project.screenshots];
-  const initials = project.title.split(" ").map((w) => w[0]).join("").slice(0, 3);
+  const initials = project.title
+    .split(" ")
+    .map((w) => w[0])
+    .join("")
+    .slice(0, 3);
 
   return (
     <article className="border border-border bg-white hover:border-2 hover:border-foreground hover:scale-[1.02] transition-all duration-300 overflow-hidden">
@@ -46,10 +50,15 @@ export function ProjectCard({ project }: ProjectCardProps) {
           )}
 
           <CollapsibleContent>
-            <BodyText className="text-sm md:text-base">{project.summary}</BodyText>
+            <BodyText className="text-sm md:text-base">
+              {project.summary}
+            </BodyText>
             <ul className="space-y-1 md:space-y-1.5">
               {project.details.map((detail, i) => (
-                <li key={i} className="text-xs md:text-sm text-accent flex items-start gap-1.5 md:gap-2">
+                <li
+                  key={i}
+                  className="text-xs md:text-sm text-accent flex items-start gap-1.5 md:gap-2"
+                >
                   <span className="mt-1 md:mt-1.5 block h-1 w-1 shrink-0 rounded-full bg-accent" />
                   {detail}
                 </li>

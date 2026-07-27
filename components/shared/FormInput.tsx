@@ -23,13 +23,20 @@ interface FormTextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> 
   label: string;
 }
 
-export function FormTextarea({ label, className, ...props }: FormTextareaProps) {
+export function FormTextarea({
+  label,
+  className,
+  ...props
+}: FormTextareaProps) {
   return (
     <div className="flex-1">
       <label htmlFor={props.id} className="sr-only">
         {label}
       </label>
-      <textarea className={cn(inputClasses, "resize-none h-full", className)} {...props} />
+      <textarea
+        className={cn(inputClasses, "resize-none h-full", className)}
+        {...props}
+      />
     </div>
   );
 }

@@ -51,7 +51,11 @@ export function HowIBuild() {
           {...sectionProps}
         >
           {pillars.map((pillar) => (
-            <motion.div key={pillar.title} variants={fadeInUp} className="h-full">
+            <motion.div
+              key={pillar.title}
+              variants={fadeInUp}
+              className="h-full"
+            >
               <MetricCard
                 title={pillar.title}
                 description={pillar.description}

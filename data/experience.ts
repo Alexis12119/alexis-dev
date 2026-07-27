@@ -35,8 +35,6 @@ export const EXPERIENCE: Experience[] = [
     tools: ["Postman", "JMeter"],
     highlight: "3rd Best Intern System",
     image: "/images/Bakawan/plsp-docstrack-3rd.png",
-    images: [
-      "/images/Bakawan/cloud-quest.png",
-    ],
+    images: ["/images/Bakawan/cloud-quest.png"],
   },
 ];

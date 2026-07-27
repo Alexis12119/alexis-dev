@@ -21,11 +21,15 @@ export function Hero() {
           animate="visible"
         >
           <motion.div variants={fadeInUp}>
-            <Caption className="font-medium mb-6">{SITE_CONFIG.location}</Caption>
+            <Caption className="font-medium mb-6">
+              {SITE_CONFIG.location}
+            </Caption>
           </motion.div>
 
           <motion.div variants={fadeInUp}>
-            <Heading as="h1" className="mb-6">{SITE_CONFIG.name}</Heading>
+            <Heading as="h1" className="mb-6">
+              {SITE_CONFIG.name}
+            </Heading>
           </motion.div>
 
           <motion.p
@@ -45,7 +49,11 @@ export function Hero() {
             variants={fadeInUp}
             className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:max-w-md"
           >
-            <Button href="#work" variant="primary" className="px-5 py-2.5 whitespace-nowrap">
+            <Button
+              href="#work"
+              variant="primary"
+              className="px-5 py-2.5 whitespace-nowrap"
+            >
               View Work
               <span className="inline-flex animate-bounce-subtle">
                 <ArrowDown size={16} />

@@ -16,7 +16,11 @@ interface ImageLightboxProps {
   onClose: () => void;
 }
 
-export function ImageLightbox({ images, initialIndex, onClose }: ImageLightboxProps) {
+export function ImageLightbox({
+  images,
+  initialIndex,
+  onClose,
+}: ImageLightboxProps) {
   const [index, setIndex] = useState(initialIndex);
   const [loaded, setLoaded] = useState(false);
 
@@ -62,14 +66,20 @@ export function ImageLightbox({ images, initialIndex, onClose }: ImageLightboxPr
       {images.length > 1 && (
         <>
           <button
-            onClick={(e) => { e.stopPropagation(); goPrev(); }}
+            onClick={(e) => {
+              e.stopPropagation();
+              goPrev();
+            }}
             className="absolute left-4 z-10 text-white/70 hover:text-white transition-colors p-2"
             aria-label="Previous image"
           >
             <ChevronLeft size={32} />
           </button>
           <button
-            onClick={(e) => { e.stopPropagation(); goNext(); }}
+            onClick={(e) => {
+              e.stopPropagation();
+              goNext();
+            }}
             className="absolute right-4 z-10 text-white/70 hover:text-white transition-colors p-2"
             aria-label="Next image"
           >
@@ -78,27 +88,27 @@ export function ImageLightbox({ images, initialIndex, onClose }: ImageLightboxPr
         </>
       )}
 
-        <div
-          className="relative w-full h-full max-w-5xl max-h-[85vh] m-8 overflow-hidden"
-          onClick={(e) => e.stopPropagation()}
-        >
-          {!loaded && (
-            <div className="absolute inset-0 flex items-center justify-center z-10">
-              <Spinner size="lg" label="Loading image" />
-            </div>
-          )}
-          <div className="relative w-full h-full flex items-center justify-center">
-            <Image
-              src={images[index].src}
-              alt={images[index].alt}
-              fill
-              className={`object-contain transition-opacity duration-300 ${loaded ? "opacity-100" : "opacity-0"}`}
-              sizes="(max-width: 1024px) 100vw, 1024px"
-              quality={90}
-              onLoad={() => setLoaded(true)}
-            />
+      <div
+        className="relative w-full h-full max-w-5xl max-h-[85vh] m-8 overflow-hidden"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {!loaded && (
+          <div className="absolute inset-0 flex items-center justify-center z-10">
+            <Spinner size="lg" label="Loading image" />
           </div>
+        )}
+        <div className="relative w-full h-full flex items-center justify-center">
+          <Image
+            src={images[index].src}
+            alt={images[index].alt}
+            fill
+            className={`object-contain transition-opacity duration-300 ${loaded ? "opacity-100" : "opacity-0"}`}
+            sizes="(max-width: 1024px) 100vw, 1024px"
+            quality={90}
+            onLoad={() => setLoaded(true)}
+          />
         </div>
+      </div>
 
       {images.length > 1 && (
         <div className="absolute bottom-4 text-white/70 text-sm">

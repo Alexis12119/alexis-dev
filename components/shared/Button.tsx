@@ -1,5 +1,9 @@
 import { cn } from "@/utils/cn";
-import type { ButtonHTMLAttributes, AnchorHTMLAttributes, ReactNode } from "react";
+import type {
+  ButtonHTMLAttributes,
+  AnchorHTMLAttributes,
+  ReactNode,
+} from "react";
 
 type ButtonVariant = "primary" | "secondary" | "ghost";
 
@@ -37,7 +41,8 @@ export function Button({
   );
 
   if ("href" in props) {
-    const { href, ...anchorProps } = props as AnchorHTMLAttributes<HTMLAnchorElement>;
+    const { href, ...anchorProps } =
+      props as AnchorHTMLAttributes<HTMLAnchorElement>;
     return (
       <a href={href} className={classes} {...anchorProps}>
         {children}

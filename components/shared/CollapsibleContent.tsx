@@ -23,10 +23,15 @@ export function CollapsibleContent({ children, id }: CollapsibleContentProps) {
         aria-controls={id}
       >
         <span>{expanded ? "See less" : "See more"}</span>
-        <span className={cn("inline-flex", !expanded && "animate-bounce-subtle")}>
+        <span
+          className={cn("inline-flex", !expanded && "animate-bounce-subtle")}
+        >
           <ChevronDown
             size={14}
-            className={cn("transition-transform duration-200", expanded && "rotate-180")}
+            className={cn(
+              "transition-transform duration-200",
+              expanded && "rotate-180",
+            )}
           />
         </span>
       </button>

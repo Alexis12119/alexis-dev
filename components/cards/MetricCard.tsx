@@ -24,7 +24,9 @@ export function MetricCard({
     >
       <div className="flex items-center gap-2.5 mb-1.5">
         {icon && <div className="shrink-0 text-foreground">{icon}</div>}
-        <Heading as="h3" className="text-lg">{title}</Heading>
+        <Heading as="h3" className="text-lg">
+          {title}
+        </Heading>
       </div>
       <p className="text-sm leading-relaxed text-accent">{description}</p>
     </div>

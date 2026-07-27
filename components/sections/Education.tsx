@@ -38,13 +38,9 @@ export function Education() {
                 <Heading as="h3" className="text-lg mb-1">
                   {EDUCATION.degree}
                 </Heading>
-                <p className="text-sm text-accent mb-1">
-                  {EDUCATION.school}
-                </p>
+                <p className="text-sm text-accent mb-1">{EDUCATION.school}</p>
                 {EDUCATION.field && (
-                  <p className="text-sm text-muted mb-2">
-                    {EDUCATION.field}
-                  </p>
+                  <p className="text-sm text-muted mb-2">{EDUCATION.field}</p>
                 )}
                 <Caption>
                   {EDUCATION.startYear} — {EDUCATION.endYear}

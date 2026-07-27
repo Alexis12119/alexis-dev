@@ -19,13 +19,11 @@ export function SectionHeader({
 }: SectionHeaderProps) {
   return (
     <div className={cn("mb-16 md:mb-20", className)}>
-      {label && (
-        <Caption className="font-medium mb-4">{label}</Caption>
-      )}
-      <Heading as="h2" className="mb-4">{title}</Heading>
-      {description && (
-        <Subheading>{description}</Subheading>
-      )}
+      {label && <Caption className="font-medium mb-4">{label}</Caption>}
+      <Heading as="h2" className="mb-4">
+        {title}
+      </Heading>
+      {description && <Subheading>{description}</Subheading>}
     </div>
   );
 }

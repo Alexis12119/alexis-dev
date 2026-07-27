@@ -139,21 +139,21 @@ export function Navbar() {
         )}
       </AnimatePresence>
 
-    <AnimatePresence>
-      {showBackToTop && (
-        <motion.button
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.8 }}
-          transition={{ duration: 0.2 }}
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-6 right-6 z-50 bg-foreground text-white p-3 shadow-sm hover:bg-[#333333] transition-colors"
-          aria-label="Back to top"
-        >
-          <ArrowUp size={18} />
-        </motion.button>
-      )}
-    </AnimatePresence>
+      <AnimatePresence>
+        {showBackToTop && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.2 }}
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="fixed bottom-6 right-6 z-50 bg-foreground text-white p-3 shadow-sm hover:bg-[#333333] transition-colors"
+            aria-label="Back to top"
+          >
+            <ArrowUp size={18} />
+          </motion.button>
+        )}
+      </AnimatePresence>
     </>
   );
 }

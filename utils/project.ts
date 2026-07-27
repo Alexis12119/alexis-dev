@@ -7,4 +7,3 @@ export function sortProjectsByYear(projects: Project[]): Project[] {
     return bStart.localeCompare(aStart);
   });
 }
-

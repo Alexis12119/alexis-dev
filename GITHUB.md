@@ -40,13 +40,13 @@ Soroban (abacus) digit recognition solver using OpenCV and Tesseract OCR.
 
 ## Technologies
 
-| Category | Tools |
-| -------- | ----- |
-| Frontend | Next.js, React, TypeScript, Tailwind CSS, Framer Motion, Flutter |
-| Backend | Fastify, FastAPI, Node.js, Python, REST APIs, WebSocket |
-| Languages | C, Python, TypeScript, Java, C++, C#, Lua |
-| Infrastructure | Docker, MySQL, Linux |
-| Testing | Postman, JMeter |
+| Category       | Tools                                                            |
+| -------------- | ---------------------------------------------------------------- |
+| Frontend       | Next.js, React, TypeScript, Tailwind CSS, Framer Motion, Flutter |
+| Backend        | Fastify, FastAPI, Node.js, Python, REST APIs, WebSocket          |
+| Languages      | C, Python, TypeScript, Java, C++, C#, Lua                        |
+| Infrastructure | Docker, MySQL, Linux                                             |
+| Testing        | Postman, JMeter                                                  |
 
 ---
 

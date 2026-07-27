@@ -1,6 +1,5 @@
 The projects I'll show and show a screenshot of is OCR Drawing Extractor(2026),DLSP Registrar Docstrack(2026), BakerPass(2025), Soroban Solver(2025), GeoDroid(2025)
 
-
 Here are the info the projects:
 
 DLSP Registrar Docstrack(2026):
@@ -56,14 +55,14 @@ A multi-role appointment and visitor management system designed for **Franklin B
 
 ### User Roles
 
-| Role | Description |
-|------|-------------|
-| **Visitor** | External persons booking appointments via web or mobile app |
-| **Employee** | Internal staff receiving visitors and managing schedules |
-| **Security** | Gate/security staff managing check-ins and approval statuses |
-| **Human Resources** | View visit statistics, employee comment history, and analytics |
-| **Nurse** | Medical staff handling high-care requests, health declarations, and prohibited items |
-| **SuperAdmin** | System administration: user management, logo management, logs, and settings |
+| Role                | Description                                                                          |
+| ------------------- | ------------------------------------------------------------------------------------ |
+| **Visitor**         | External persons booking appointments via web or mobile app                          |
+| **Employee**        | Internal staff receiving visitors and managing schedules                             |
+| **Security**        | Gate/security staff managing check-ins and approval statuses                         |
+| **Human Resources** | View visit statistics, employee comment history, and analytics                       |
+| **Nurse**           | Medical staff handling high-care requests, health declarations, and prohibited items |
+| **SuperAdmin**      | System administration: user management, logo management, logs, and settings          |
 
 ### Core Functionality
 
@@ -107,6 +106,7 @@ A multi-role appointment and visitor management system designed for **Franklin B
 ## Technology Stack
 
 ### Frontend (`/frontend/`)
+
 - **Next.js 16** (canary) - React SSR framework
 - **React 19** - UI library
 - **TypeScript 5.4** - Type safety
@@ -119,6 +119,7 @@ A multi-role appointment and visitor management system designed for **Franklin B
 - **next-themes** - Dark mode support
 
 ### Backend (`/backend/`)
+
 - **Fastify 5.2** - High-performance web framework
 - **MySQL2** - Database driver with connection pooling
 - **JWT** (`@fastify/jwt`) - Authentication
@@ -131,10 +132,10 @@ A multi-role appointment and visitor management system designed for **Franklin B
 - **Faker.js** - Data seeding for development
 
 ### Infrastructure
+
 - **Docker Compose** - Container orchestration
 - **Nginx** - Reverse proxy, WebSocket upgrade, rate limiting
 - **MySQL 8** - Persistent database
-
 
 Soroban Solver(2025): Personal Project
 A real-time math problem solver for the Soroban app on Android devices. Uses OCR to extract equations from screen captures, solves them automatically, and maintains a history of solved problems.
@@ -151,7 +152,7 @@ Features
     Live UI: Displays captured images, recognized text, and solutions
     Error Handling: Robust processing with logging and retry mechanisms
 
- GeoDroid(2025): Personal Project
+GeoDroid(2025): Personal Project
 A complete classic Asteroids game built with Raylib in C, featuring smooth vector-based gameplay, collision detection, comprehensive menu system, and persistent leaderboards.
 🎮 Features
 
@@ -173,4 +174,3 @@ A complete classic Asteroids game built with Raylib in C, featuring smooth vecto
     Settings Persistence: Sound, difficulty, and volume settings saved to disk
     Pause System: ESC to pause/resume during gameplay
     Name Entry: Enter your name for high score records
-
