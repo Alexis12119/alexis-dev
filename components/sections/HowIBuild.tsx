@@ -37,7 +37,6 @@ export function HowIBuild() {
       <Container>
         <SectionHeader
           index="03"
-          label="How I Build"
           title="Principles That Guide My Work"
           description="A philosophy shaped by building production software across different domains."
         />

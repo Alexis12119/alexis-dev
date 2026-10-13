@@ -10,7 +10,6 @@ export function Technologies() {
       <Container>
         <SectionHeader
           index="04"
-          label="Technologies"
           title="Tools & Technologies"
           description="The stack I reach for, organized by what matters."
         />

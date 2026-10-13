@@ -35,7 +35,6 @@ export function Contact() {
       <Container>
         <SectionHeader
           index="05"
-          label="Contact"
           title="Get in touch"
           description="For project inquiries and professional opportunities — email is the fastest way to reach me."
         />

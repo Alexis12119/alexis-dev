@@ -1,5 +1,4 @@
 import { SITE_CONFIG } from "@/config/site";
-import { CONTACT } from "@/config/contact";
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/shared/Button";
 import { Heading } from "@/components/typography/Heading";
@@ -13,7 +12,7 @@ export function Hero() {
       <Container>
         <div className="max-w-3xl">
           <Caption className="font-medium mb-6">
-            {SITE_CONFIG.location} · {CONTACT.availability}
+            {SITE_CONFIG.location}
           </Caption>
 
           <Heading as="h1" className="mb-6">

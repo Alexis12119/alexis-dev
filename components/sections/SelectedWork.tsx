@@ -9,7 +9,6 @@ export function SelectedWork() {
       <Container>
         <SectionHeader
           index="01"
-          label="Selected Work"
           title="Projects I've Built"
           description="Systems, tools, and games — from document management to OCR pipelines."
         />

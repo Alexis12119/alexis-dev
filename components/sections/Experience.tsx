@@ -20,7 +20,6 @@ export function Experience() {
       <Container>
         <SectionHeader
           index="02"
-          label="Experience"
           title="Where I've Worked"
           description="Professional context for the work above — responsibilities, contributions, and recognition."
         />

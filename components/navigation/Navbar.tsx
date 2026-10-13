@@ -3,13 +3,40 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Menu, X, ArrowUp } from "lucide-react";
+import { cn } from "@/utils/cn";
 import { Container } from "@/components/layout/Container";
 import { NAV_ITEMS } from "@/config/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
   const [showBackToTop, setShowBackToTop] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.filter((e) => e.isIntersecting);
+        if (visible.length > 0) {
+          setActiveSection(visible[visible.length - 1].target.id);
+        }
+      },
+      { rootMargin: "-40% 0px -55% 0px" },
+    );
+
+    const sections = document.querySelectorAll("section[id]");
+    sections.forEach((s) => observer.observe(s));
+
+    function handleScroll() {
+      if (window.scrollY < 100) setActiveSection("");
+    }
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   useEffect(() => {
     function handleScroll() {
@@ -53,9 +80,23 @@ export function Navbar() {
               <a
                 key={item.href}
                 href={item.href}
-                className="text-sm text-muted hover:text-foreground transition-colors py-1"
+                className={cn(
+                  "relative text-sm transition-colors py-1 group",
+                  activeSection === item.href.replace("#", "")
+                    ? "text-foreground font-medium"
+                    : "text-muted hover:text-foreground",
+                )}
               >
                 {item.label}
+                <span
+                  aria-hidden="true"
+                  className={cn(
+                    "absolute bottom-0 left-0 h-[2px] bg-foreground transition-all duration-300",
+                    activeSection === item.href.replace("#", "")
+                      ? "w-full"
+                      : "w-0 group-hover:w-full",
+                  )}
+                />
               </a>
             ))}
           </nav>
@@ -95,7 +136,12 @@ export function Navbar() {
                   <a
                     key={item.href}
                     href={item.href}
-                    className="text-sm text-muted hover:text-foreground transition-colors py-2"
+                    className={cn(
+                      "text-sm transition-colors py-2",
+                      activeSection === item.href.replace("#", "")
+                        ? "text-foreground font-medium"
+                        : "text-muted hover:text-foreground",
+                    )}
                     onClick={() => setIsOpen(false)}
                   >
                     {item.label}
