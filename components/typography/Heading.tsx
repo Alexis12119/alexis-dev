@@ -7,6 +7,7 @@ interface HeadingProps {
   as?: HeadingLevel;
   children: ReactNode;
   className?: string;
+  id?: string;
 }
 
 const styles: Record<HeadingLevel, string> = {
@@ -16,6 +17,15 @@ const styles: Record<HeadingLevel, string> = {
   h4: "font-heading text-xl font-semibold tracking-tight",
 };
 
-export function Heading({ as: Tag = "h2", children, className }: HeadingProps) {
-  return <Tag className={cn(styles[Tag], className)}>{children}</Tag>;
+export function Heading({
+  as: Tag = "h2",
+  children,
+  className,
+  id,
+}: HeadingProps) {
+  return (
+    <Tag id={id} className={cn(styles[Tag], className)}>
+      {children}
+    </Tag>
+  );
 }

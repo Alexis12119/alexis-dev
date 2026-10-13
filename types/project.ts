@@ -7,9 +7,8 @@ export interface Project {
   summary: string;
   achievement?: string;
   technologies: string[];
-  screenshot: string;
+  screenshot?: string;
   screenshots: string[];
   details: string[];
-  githubUrl?: string;
   demoUrl?: string;
 }

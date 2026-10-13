@@ -1,12 +1,8 @@
-export interface NavItem {
-  label: string;
-  href: string;
-}
+import type { NavItem } from "@/types/navigation";
 
 export const NAV_ITEMS: NavItem[] = [
-  { label: "Experience", href: "#experience" },
   { label: "Work", href: "#work" },
+  { label: "Experience", href: "#experience" },
   { label: "How I Build", href: "#how-i-build" },
-  { label: "Education", href: "#education" },
   { label: "Contact", href: "#contact" },
 ];

@@ -2,32 +2,6 @@ import type { Project } from "@/types/project";
 
 export const PROJECTS: Project[] = [
   {
-    id: "dibms",
-    title: "Digital Information Board Management System (DIBMS)",
-    year: 2026,
-    startDate: "2026-07",
-    endDate: "Present",
-    summary:
-      "A role-based content management platform for congregation information displays. Features RBAC with four organizational roles, client-side PDF rasterization pipeline, and event-driven public display with timezone-aware auto-detection.",
-    technologies: [
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "Prisma",
-      "Supabase",
-      "PostgreSQL",
-    ],
-    screenshot: "/images/DIBMS/placeholder.svg",
-    screenshots: [],
-    details: [
-      "Role-based access control (RBAC) with four organizational roles: System Admin, Coordinator, Elder, Ministerial Servant",
-      "Asset automation pipeline using pdfjs-dist to isolate and rasterize multi-page vector PDFs client-side",
-      "Normalized schema with 9 relational tables using Prisma-managed foreign keys for transactional consistency",
-      "Event-driven public display with timezone-aware auto-detection and manual override with auto-return timeout for TV deployments",
-    ],
-    githubUrl: "https://github.com/Alexis12119",
-  },
-  {
     id: "ocr-drawing-extractor",
     title: "OCR Drawing Extractor",
     year: 2026,
@@ -47,7 +21,6 @@ export const PROJECTS: Project[] = [
       "Custom region selection with zoomable preview and interactive drawing",
       "Multi-page PDF support with JSON export",
     ],
-    githubUrl: "https://github.com/Alexis12119",
   },
   {
     id: "plsp-registrar-docstrack",
@@ -83,7 +56,6 @@ export const PROJECTS: Project[] = [
       "Dashboard and analytics with PDF and Excel export",
       "API endpoint testing with Postman and performance testing with JMeter",
     ],
-    githubUrl: "https://github.com/Alexis12119",
   },
   {
     id: "bakerpass",
@@ -117,7 +89,6 @@ export const PROJECTS: Project[] = [
       "Real-time WebSocket updates for live status changes without page refresh",
       "Flutter mobile app for visitor-facing appointment booking",
     ],
-    githubUrl: "https://github.com/Alexis12119",
   },
   {
     id: "soroban-solver",
@@ -140,7 +111,6 @@ export const PROJECTS: Project[] = [
       "History management with CSV save and load",
       "Keyboard shortcuts for efficient workflow control",
     ],
-    githubUrl: "https://github.com/Alexis12119",
   },
   {
     id: "geodroid",
@@ -163,6 +133,5 @@ export const PROJECTS: Project[] = [
       "Persistent top 10 leaderboards with name entry and date tracking",
       "Complete audio system with retro sound effects for shooting and explosions",
     ],
-    githubUrl: "https://github.com/Alexis12119",
   },
 ];

@@ -46,7 +46,7 @@ export const SKILLS: TechCategory[] = [
   {
     category: "Infrastructure",
     items: [
-      "Docker Compose",
+      "Docker",
       "Nginx",
       "MySQL",
       "PostgreSQL",

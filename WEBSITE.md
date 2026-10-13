@@ -60,25 +60,6 @@ Built the DLSP Registrar DocsTrack system — a comprehensive student document r
 
 ## Projects
 
-### Digital Information Board Management System (DIBMS) (2026)
-
-_Jul 2026 – Present_
-
-A role-based content management platform for congregation information displays. Features RBAC with four organizational roles, client-side PDF rasterization pipeline, and event-driven public display with timezone-aware auto-detection.
-
-**Technologies:** Next.js, TypeScript, Tailwind CSS, Prisma, Supabase, PostgreSQL
-
-**Details:**
-
-- Role-based access control (RBAC) with four organizational roles: System Admin, Coordinator, Elder, Ministerial Servant
-- Asset automation pipeline using pdfjs-dist to isolate and rasterize multi-page vector PDFs client-side
-- Normalized schema with 9 relational tables using Prisma-managed foreign keys for transactional consistency
-- Event-driven public display with timezone-aware auto-detection and manual override with auto-return timeout for TV deployments
-
-**GitHub:** https://github.com/Alexis12119
-
----
-
 ### OCR Drawing Extractor (2026)
 
 _Feb 2026 – Jun 2026_
@@ -93,8 +74,6 @@ Python application for extracting text from engineering drawings. Uses a hybrid 
 - Top + bottom scanning skips graphics-heavy middle for cleaner OCR results
 - Custom region selection with zoomable preview and interactive drawing
 - Multi-page PDF support with JSON export
-
-**GitHub:** https://github.com/Alexis12119
 
 ---
 
@@ -116,8 +95,6 @@ Online Student Document Request and Tracking System for Dalubhasaan ng Lungsod n
 - Dashboard and analytics with PDF and Excel export
 - API endpoint testing with Postman and performance testing with JMeter
 
-**GitHub:** https://github.com/Alexis12119
-
 ---
 
 ### BakerPass (2025)
@@ -137,8 +114,6 @@ Multi-role appointment and visitor management system for Franklin Baker Company 
 - Real-time WebSocket updates for live status changes without page refresh
 - Flutter mobile app for visitor-facing appointment booking
 
-**GitHub:** https://github.com/Alexis12119
-
 ---
 
 ### Soroban Solver (2025)
@@ -156,8 +131,6 @@ Real-time math problem solver for the Soroban Android app. Uses OCR to extract e
 - History management with CSV save and load
 - Keyboard shortcuts for efficient workflow control
 
-**GitHub:** https://github.com/Alexis12119
-
 ---
 
 ### GeoDroid (2025)
@@ -174,8 +147,6 @@ A complete classic Asteroids game built with Raylib in C. Features smooth vector
 - Vector-based movement with realistic momentum and screen wrapping
 - Persistent top 10 leaderboards with name entry and date tracking
 - Complete audio system with retro sound effects for shooting and explosions
-
-**GitHub:** https://github.com/Alexis12119
 
 ---
 
@@ -238,7 +209,7 @@ C, Dart, Go, Java, JavaScript, Python, SQL, TypeScript, OpenCV, Tesseract OCR, R
 
 ### Infrastructure
 
-Docker Compose, Nginx, MySQL, PostgreSQL, Supabase, Linux
+Docker, Nginx, MySQL, PostgreSQL, Supabase, Linux
 
 ### Version Control & Editors
 

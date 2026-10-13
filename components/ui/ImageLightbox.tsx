@@ -33,7 +33,7 @@ export function ImageLightbox({
     setIndex((prev) => (prev - 1 + images.length) % images.length);
     setLoaded(false);
   }, [images.length]);
-
+  
   useEffect(() => {
     function handleKey(e: KeyboardEvent) {
       if (e.key === "Escape") onClose();
@@ -53,9 +53,11 @@ export function ImageLightbox({
       className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center"
       onClick={onClose}
       role="dialog"
+      aria-modal="true"
       aria-label="Image lightbox"
     >
       <button
+        autoFocus
         onClick={onClose}
         className="absolute top-4 right-4 z-10 text-white/70 hover:text-white transition-colors p-2"
         aria-label="Close lightbox"

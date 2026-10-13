@@ -42,7 +42,7 @@ export default function RootLayout({
       lang="en"
       className={`${geist.variable} ${inter.variable} scroll-smooth`}
     >
-      <body className="min-h-screen bg-background text-foreground antialiased">
+      <body className="min-h-screen bg-background text-foreground antialiased" suppressHydrationWarning>
         <a
           href="#main-content"
           className="fixed -top-40 left-4 z-[70] bg-foreground text-white px-4 py-2 text-sm transition-all focus:top-4 focus-visible:outline-2 focus-visible:outline-white"
