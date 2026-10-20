@@ -2,6 +2,31 @@ import type { Project } from "@/types/project";
 
 export const PROJECTS: Project[] = [
   {
+    id: "literature-inventory-tracker",
+    title: "Literature Inventory Tracker",
+    year: 2026,
+    endDate: "2026-10-16",
+    summary:
+      "Shared inventory tracker for English and Tagalog literature, replacing spreadsheet-based stock tracking with monthly inventory, a searchable catalog, activity history, and printable or downloadable reports.",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Supabase Auth",
+      "PostgreSQL",
+      "Zod",
+      "Lucide React",
+    ],
+    screenshot: "/images/Literature-Inventory-Tracker/login.jpg",
+    screenshots: [],
+    details: [
+      "Monthly English and Tagalog inventory with received quantities, physical counts, carry-forward, import, and CSV export",
+      "Searchable publication catalog with category filtering and archive management",
+      "Dashboard, congregation literature and six-month reports, plus searchable activity history",
+      "Pending account approval and administrator controls for users and congregation settings",
+    ],
+  },
+  {
     id: "ocr-drawing-extractor",
     title: "OCR Drawing Extractor",
     year: 2026,

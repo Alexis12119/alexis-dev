@@ -15,6 +15,13 @@ interface ProjectEntryProps {
 }
 
 function dateRange(project: Project): string {
+  if (!project.startDate && project.endDate) {
+    const completedDate = new Date(`${project.endDate}T00:00:00`).toLocaleDateString(
+      "en-US",
+      { month: "long", day: "numeric", year: "numeric" },
+    );
+    return completedDate;
+  }
   if (project.startDate && project.endDate) {
     const end =
       project.endDate === "Present" ? "Present" : formatDate(project.endDate);
