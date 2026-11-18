@@ -159,4 +159,25 @@ export const PROJECTS: Project[] = [
       "Complete audio system with retro sound effects for shooting and explosions",
     ],
   },
+  {
+    id: "sidewrite",
+    title: "SideWrite",
+    year: 2026,
+    startDate: "2026-11-18",
+    endDate: "2026-11-18",
+    summary:
+      "A Firefox add-on for highlighting text on any webpage and keeping notes right beside it, stored locally on my own machine — no account, no server.",
+    technologies: ["WebExtensions API", "HTML", "CSS", "JavaScript", "browser.storage"],
+    screenshot: "/images/SideWrite/demo.png",
+    screenshots: [],
+    details: [
+      "Select text on a page and choose a color — the highlight is saved instantly",
+      "The sidebar opens with the note field focused, so writing starts right away",
+      "Click a highlight for a small menu: Color swatches to recolor it in place, Edit note, and Delete highlight",
+      "Edit notes in the sidebar, where the quoted text stays readable on the highlight's own color",
+      "Organize with This page / All notes / Notebooks, plus search",
+      "Highlights are restored when revisiting a page using the text and its surrounding context",
+      "Everything is saved on the device; Export backup / Import live in the fixed footer",
+    ],
+  },
 ];
