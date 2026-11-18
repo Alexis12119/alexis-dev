@@ -29,6 +29,13 @@ export const metadata: Metadata = {
     description: SITE_CONFIG.description,
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: `${SITE_CONFIG.url}/opengraph-image.png`,
+        width: 1024,
+        height: 1024,
+      },
+    ],
   },
 };
 
